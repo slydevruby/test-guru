@@ -1,14 +1,5 @@
 class User < ApplicationRecord
-  def tests(level)
-    tests = Test.where(level: level)
-
-    out = []
-    tests.each do |test|
-      res1 = Result.where(user_id: id)
-      next unless res1.size.positive?
-
-      out << test if res1.where(test_id: test.id).size.positive?
-    end
-    out
+  def tests_by_level(level)
+    Test.joins("join results on tests.id = results.test_id join users on results.user_id = users.id where tests.level = #{level} and users.name = '#{name}'")
   end
 end
