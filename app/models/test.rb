@@ -1,4 +1,6 @@
 class Test < ApplicationRecord
+  belongs_to :category
+
   def self.categories_by_title(title)
     joins('join categories on tests.category_id = categories.id')
       .where(categories: { title: title })
