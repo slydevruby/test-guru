@@ -43,4 +43,5 @@ end
   Answer.create!({ body: 'Class.new', correct: false, question_id: q3.id })
 
   Result.create!(test_id: t.id, user_id: bruce.id, passed: true)
+
 end
