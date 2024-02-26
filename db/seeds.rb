@@ -19,28 +19,29 @@ hank, bruce, matz = User.create!([{ name: 'Hank' },
                                   { name: 'Bruce' },
                                   { name: 'Matz' }])
 
-front, back = Category.create!([{ title: 'Frontend' }, { title: 'Backend' }])
+frontend, backend = Category.create!([{ title: 'Frontend' }, { title: 'Backend' }])
 
 %w[React Angular Vue].each do |theme|
-  t = Test.create!(title: theme, level:  2, category_id: front.id, author_id: matz.id)
-  Result.create!(test_id: t.id, user_id: hank.id, passed: true)
+  test = Test.create!(title: theme, level:  2, category: frontend, author: matz)
+  Result.create!(test: test, user: hank, passed: true)
 end
 
+
 %w[Python Ruby PHP].each do |theme|
-  t = Test.create!(title: theme, level:  3, category_id: back.id, author_id: matz.id)
-  q1 = Question.create!({ body: 'Who is the inventor of the language?', test_id: t.id })
-  Answer.create!({ body: 'Petrov', correct: false, question_id: q1.id })
-  Answer.create!({ body: 'Ivanov', correct: false, question_id: q1.id })
-  Answer.create!({ body: 'Matz', correct: true, question_id: q1.id })
+  test = Test.create!(title: theme, level:  3, category: backend, author: matz)
+  question = Question.create!({ body: 'Who is the inventor of the language?', test: test})
+  Answer.create!({ body: 'Petrov', correct: false, question: question })
+  Answer.create!({ body: 'Ivanov', correct: false, question: question })
+  Answer.create!({ body: 'Matz', correct: true, question: question })
 
-  q2 = Question.create!({ body: 'When the language was created?', test_id: t.id })
-  Answer.create!({ body: '1985', correct: false, question_id: q2.id })
-  Answer.create!({ body: '1995', correct: true, question_id: q2.id })
-  Answer.create!({ body: '2005', correct: false, question_id: q2.id })
+  question = Question.create!({ body: 'When the language was created?', test: test})
+  Answer.create!({ body: '1985', correct: false, question: question })
+  Answer.create!({ body: '1995', correct: true, question: question })
+  Answer.create!({ body: '2005', correct: false, question: question })
 
-  q3 = Question.create!({ body: 'How create an object?', test_id: t.id })
-  Answer.create!({ body: 'Object.new', correct: true, question_id: q3.id })
-  Answer.create!({ body: 'Class.new', correct: false, question_id: q3.id })
+  question = Question.create!({ body: 'How create an object?', test: test })
+  Answer.create!({ body: 'Object.new', correct: true, question: question })
+  Answer.create!({ body: 'Class.new', correct: false, question: question })
 
-  Result.create!(test_id: t.id, user_id: bruce.id, passed: true)
+  Result.create!(test: test, user: bruce, passed: true)
 end
