@@ -22,19 +22,18 @@ hank, bruce, matz = User.create!([{ name: 'Hank' },
 frontend, backend = Category.create!([{ title: 'Frontend' }, { title: 'Backend' }])
 
 %w[React Angular Vue].each do |theme|
-  test = Test.create!(title: theme, level:  2, category: frontend, author: matz)
+  test = Test.create!(title: theme, level: 2, category: frontend, author: matz)
   Result.create!(test: test, user: hank, passed: true)
 end
 
-
 %w[Python Ruby PHP].each do |theme|
-  test = Test.create!(title: theme, level:  3, category: backend, author: matz)
-  question = Question.create!({ body: 'Who is the inventor of the language?', test: test})
+  test = Test.create!(title: theme, level: 3, category: backend, author: matz)
+  question = Question.create!({ body: 'Who is the inventor of the language?', test: test })
   Answer.create!({ body: 'Petrov', correct: false, question: question })
   Answer.create!({ body: 'Ivanov', correct: false, question: question })
   Answer.create!({ body: 'Matz', correct: true, question: question })
 
-  question = Question.create!({ body: 'When the language was created?', test: test})
+  question = Question.create!({ body: 'When the language was created?', test: test })
   Answer.create!({ body: '1985', correct: false, question: question })
   Answer.create!({ body: '1995', correct: true, question: question })
   Answer.create!({ body: '2005', correct: false, question: question })
