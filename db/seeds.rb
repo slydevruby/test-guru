@@ -15,14 +15,25 @@ Test.destroy_all
 Category.destroy_all
 User.destroy_all
 
-hank, bruce, matz = User.create!([{ name: 'Hank' },
+hank, bruce, matz, dhh = User.create!([{ name: 'Hank' },
                                   { name: 'Bruce' },
-                                  { name: 'Matz' }])
+                                  { name: 'Matz' },
+                                  { name: 'David'}])
 
 frontend, backend = Category.create!([{ title: 'Frontend' }, { title: 'Backend' }])
 
 %w[React Angular Vue].each do |theme|
-  test = Test.create!(title: theme, level: 2, category: frontend, author: matz)
+  test = Test.create!(title: theme, level: 2, category: frontend, author: dhh)
+  question = Question.create!({ body: 'Who is the inventor of the language?', test: test })
+  Answer.create!({ body: 'Java', correct: false, question: question })
+  Answer.create!({ body: 'script', correct: false, question: question })
+  Answer.create!({ body: 'Cristopher Nolan', correct: true, question: question })
+
+  question = Question.create!({ body: 'Who is your name?', test: test })
+  Answer.create!({ body: 'Batman', correct: false, question: question })
+  Answer.create!({ body: 'Robin', correct: false, question: question })
+  Answer.create!({ body: 'Joker', correct: true, question: question })
+
   Result.create!(test: test, user: hank, passed: true)
 end
 
