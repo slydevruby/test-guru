@@ -8,7 +8,7 @@ class Question < ApplicationRecord
 
   private
 
-  def validates_anwers
-    errors.add(:answers) unless answers.count in 1..4
+  def validates_answers
+    errors.add(:answers) if (answers.count < 1) || (answers.count > 4)
   end
 end
