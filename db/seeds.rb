@@ -22,6 +22,24 @@ hank, bruce, matz, dhh = User.create!([{ name: 'Hank' },
 
 frontend, backend = Category.create!([{ title: 'Frontend' }, { title: 'Backend' }])
 
+
+
+test = Test.create!(title: 'Simple', level: 1, category: frontend, author: dhh)
+question = Question.create!({ body: '25 * 25?', test: test })
+Answer.create!({ body: '635', correct: false, question: question })
+Answer.create!({ body: '625', correct: true, question: question })
+Answer.create!({ body: '645', correct: false, question: question })
+
+question = Question.create!({ body: '2 + 2 * 2?', test: test })
+Answer.create!({ body: '8', correct: false, question: question })
+Answer.create!({ body: '6', correct: true, question: question })
+Answer.create!({ body: '2', correct: false, question: question })
+
+Result.create!(test: test, user: hank, passed: true)
+
+
+
+
 %w[React Angular Vue].each do |theme|
   test = Test.create!(title: theme, level: 2, category: frontend, author: dhh)
   question = Question.create!({ body: 'Who is the inventor of the language?', test: test })
@@ -37,7 +55,7 @@ frontend, backend = Category.create!([{ title: 'Frontend' }, { title: 'Backend' 
   Result.create!(test: test, user: hank, passed: true)
 end
 
-%w[Python Ruby PHP].each do |theme|
+%w[Python PHP].each do |theme|
   test = Test.create!(title: theme, level: 3, category: backend, author: matz)
   question = Question.create!({ body: 'Who is the inventor of the language?', test: test })
   Answer.create!({ body: 'Petrov', correct: false, question: question })
@@ -55,3 +73,22 @@ end
 
   Result.create!(test: test, user: bruce, passed: true)
 end
+
+
+
+  test = Test.create!(title: 'Ruby', level: 5, category: backend, author: matz)
+  question = Question.create!({ body: 'Who is the inventor of the language?', test: test })
+  Answer.create!({ body: 'Petrov', correct: false, question: question })
+  Answer.create!({ body: 'Ivanov', correct: false, question: question })
+  Answer.create!({ body: 'Matz', correct: true, question: question })
+
+  question = Question.create!({ body: 'When the language was created?', test: test })
+  Answer.create!({ body: '1985', correct: false, question: question })
+  Answer.create!({ body: '1995', correct: true, question: question })
+  Answer.create!({ body: '2005', correct: false, question: question })
+
+  question = Question.create!({ body: 'How create an object?', test: test })
+  Answer.create!({ body: 'Object.new', correct: true, question: question })
+  Answer.create!({ body: 'Class.new', correct: false, question: question })
+
+  Result.create!(test: test, user: bruce, passed: true)
