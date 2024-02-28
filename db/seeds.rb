@@ -15,10 +15,10 @@ Test.destroy_all
 Category.destroy_all
 User.destroy_all
 
-hank, bruce, matz, dhh = User.create!([{ name: 'Hank' },
-                                  { name: 'Bruce' },
-                                  { name: 'Matz' },
-                                  { name: 'David'}])
+hank, bruce, matz, dhh = User.create!([{ name: 'Hank', email: 'hank@mail.com' },
+                                  { name: 'Bruce', email: 'bruce@mail.com' },
+                                  { name: 'Matz', email: 'matz@mail.com' },
+                                  { name: 'David', email: 'david@mail.com'}])
 
 frontend, backend = Category.create!([{ title: 'Frontend' }, { title: 'Backend' }])
 
