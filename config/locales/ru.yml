@@ -29,3 +29,21 @@
 
 ru:
   hello: "Привет мир"
+
+#  activerecord:
+#    errors:
+#      models:
+#        category:
+#          attributes:
+#            title: 
+#              blank: "Пустое имя"
+#        test:
+#            attributes:
+#              category:
+#                required: "не указан"
+#              author: 
+#                required: "не указан"
+#              title:
+#                blank: "не указан"
+#      messages:
+#        record_invalid: "Неверная запись"
