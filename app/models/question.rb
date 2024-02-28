@@ -7,6 +7,7 @@ class Question < ApplicationRecord
   validate :validates_anwers
 
   private
+  
   def validates_anwers
     errors.add(:answers) unless answers.size in 1..4
   end
