@@ -18,7 +18,6 @@ class Test < ApplicationRecord
   scope :category_by_title, -> (title) { joins(:category)
     .where(categories: {title: title})
     .order(title: :desc)
-    .pluck(:title)
   }
 
 end
