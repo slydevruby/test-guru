@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  level: 1
-  category: one
-  user: one
+test1:
+  title: "full/1"
+  category: fullstack
+  author: clark
+  level: 3
 
-two:
-  title: MyString
-  level: 1
-  category: two
-  user: two
+test2:
+  title: "full/2"
+  category: fullstack
+  author: clark
+  level: 3

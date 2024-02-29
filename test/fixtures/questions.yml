@@ -2,8 +2,5 @@
 
 one:
   body: MyString
-  test: one
+  test: test1
 
-two:
-  body: MyString
-  test: two

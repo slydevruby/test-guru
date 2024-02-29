@@ -33,6 +33,13 @@ ru:
   activerecord:
     errors:
       models:
+        user:
+          attributes:
+              name:
+                blank: "Пустое имя"
+              email:
+                blank: "Пустая почта"
+                taken: "Почта уже используется"
         category:
           attributes:
             title: 
@@ -46,5 +53,11 @@ ru:
               title:
                 blank: "не указан"
                 taken: "уже занято"
+        question:
+          attributes:
+            test:
+              required: "Вопрос: не указан тест"
+            body:
+              blank: "Вопрос: Пустое сообщение"
       messages:
         record_invalid: "Неверная запись"
