@@ -1,0 +1,19 @@
+<h1>Список тестов</h1>
+
+<table>
+  <tr>
+    <th>Cat</th>
+    <th>Test</th>
+
+  </tr>
+<% @tests.each do |test| %>
+  <tr>
+  <td><%= test.category.title %></td>
+  <td><%= link_to test.title, test_path(test) %></td> 
+  </tr>
+<% end %>
+</table>
+
+
+
+<%= link_to "New Test", new_test_path %>

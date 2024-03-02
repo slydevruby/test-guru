@@ -9,8 +9,18 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
+  <div id="header">
+    <%= link_to "Список тестов", tests_path %> | <%= link_to "Назад", :back %>
+    <hr/>
+  </div>
 
   <body>
     <%= yield %>
   </body>
+
+  <hr/>
+  <div id="footer">
+    <%= link_to "Список тестов", tests_path %> | <%= link_to "Назад", :back %>
+  </div>
+
 </html>

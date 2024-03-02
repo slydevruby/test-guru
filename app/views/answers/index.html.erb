@@ -6,7 +6,7 @@
       }
     </style>
 
-<h1>Список вопросов</h1>
+<h1>Список ответов</h1>
 
 <table style="border: solid 1px">
   <tr>
@@ -20,9 +20,9 @@
 
   <tr>
   <td><%= answer.question.body %></td>
-  <td><%= link_to "#{answer.body}",  tests_answer_path(answer) %></td>
+  <td><%= link_to "#{answer.body}",  test_question_path(@test, @question) %></td>
   <td>correct: <%= answer.correct %></td>
-  <td><%= link_to 'Удалить', tests_answer_path(answer), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></td>
+  <td><%= link_to 'Удалить', tests_questions_answer_path(answer), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 

@@ -1,0 +1,38 @@
+<h1> Тест "<%= @test.title %>" </h1>
+
+<ol>
+<% @test.questions.each do |question| %>
+  <li>
+  <%= link_to question.body, test_question_path(@test, question) %>
+  </li>
+  <br>
+  <ul>
+  <% question.answers.each  do |answer| %> 
+    <li>
+
+    <% if answer.correct %>
+     <strong><%= answer.body %></strong>
+    <% else %>
+     <%= answer.body %>
+    <% end %>
+    </li>
+
+  <% end %>
+  </ul>
+  <%= link_to 'Удалить вопрос', test_question_path(@test, question), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>  
+  <hr/>
+<% end %>
+
+</ol>
+
+<h2>Добавить вопрос</h2>
+<%= form_with model: [ @test, @test.questions.build ] do |form| %>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_field :body %>
+  </p>
+
+  <p>
+    <%= form.submit "Добавить вопрос" %>
+  </p>
+<% end %>

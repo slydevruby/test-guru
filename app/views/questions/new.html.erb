@@ -1,0 +1,11 @@
+<h2>Add a question:</h2>
+<%= form_with model: [ @test, @test.questions.build ] do |form| %>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_field :body %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
