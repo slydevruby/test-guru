@@ -26,8 +26,8 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to test_path(@test)
     else
-      #render :new, status: :unprocessable_entity
-      render inline: "Ошибка при сохранении вопроса", layout: false, status: :unprocessable_entity
+      # render :new, status: :unprocessable_entity
+      render inline: 'Ошибка при сохранении вопроса', layout: false, status: :unprocessable_entity
     end
   end
 
@@ -42,7 +42,6 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_question_not_found
-    render plain: "Вопрос не найден"
+    render plain: 'Вопрос не найден'
   end
-
 end

@@ -1,6 +1,4 @@
 class TestsController < ApplicationController
-
-
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
   def index
     @tests = Test.all
@@ -50,6 +48,6 @@ class TestsController < ApplicationController
   end
 
   def rescue_with_test_not_found
-    render plain: "Тест не найден"
+    render plain: 'Тест не найден'
   end
 end
