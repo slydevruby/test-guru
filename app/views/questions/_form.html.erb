@@ -1,0 +1,29 @@
+<%= form_with model: @question do |form| %>
+
+<%= console %>
+  <p>
+    <%= form.label :body, "Вопрос" %><br>
+    <%= form.text_field :body %>
+  </p>
+
+  <p>
+    <%= form.submit "Обновить" %>
+  </p>
+<% end %>
+
+<%= render "answers", question: @question %>
+
+<%= form_with model: [ @question, @question.answers.build ] do |form| %>
+  <div>
+    <%= form.label :body, "Добавить ответ" %><br>
+    <%= form.text_field :body %>
+  </div>
+  <div>
+    <%= form.label :correct, "Правильный" %><br>
+    <%= form.check_box :correct %>
+  </div>
+
+  <div>
+    <%= form.submit "Добавить ответ" %>
+  </div>
+<% end %>

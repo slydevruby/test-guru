@@ -3,36 +3,29 @@
 <ol>
 <% @test.questions.each do |question| %>
   <li>
-  <%= link_to question.body, test_question_path(@test, question) %>
+  <%= link_to question.body, edit_question_path(question) %> | 
+    <small>
+    <%= link_to 'Удалить вопрос', question_path(question), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>  
+   </small>
   </li>
   <br>
-  <ul>
-  <% question.answers.each  do |answer| %> 
-    <li>
 
-    <% if answer.correct %>
-     <strong><%= answer.body %></strong>
-    <% else %>
-     <%= answer.body %>
-    <% end %>
-    </li>
+  <%= render "questions/answers", question: question %>
 
-  <% end %>
-  </ul>
-  <%= link_to 'Удалить вопрос', test_question_path(@test, question), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>  
   <hr/>
 <% end %>
 
 </ol>
 
-<h2>Добавить вопрос</h2>
 <%= form_with model: [ @test, @test.questions.build ] do |form| %>
   <p>
-    <%= form.label :body %><br>
+    <%= form.label :body, "Добавить вопрос" %><br>
     <%= form.text_field :body %>
   </p>
 
   <p>
-    <%= form.submit "Добавить вопрос" %>
+    <%= form.submit "Добавить к тесту" %>
   </p>
 <% end %>
+
+

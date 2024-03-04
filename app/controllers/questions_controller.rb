@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :find_test
+  before_action :find_question, only: %i[show edit destroy update]
+  before_action :find_test, only: %i[new create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -7,34 +8,47 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
-  def show
-    @question = @test.questions.find(params[:id])
-  end
+  def show; end
 
   def new
-    @test = Test.find(params[:test_id])
+    @question = @test.questions.new
   end
 
-  def destroy
-    @test.questions.find(params[:id]).destroy
-    redirect_to test_path(@test)
+  def edit; end
+
+  def update
+    if @question.update(question_params)
+      redirect_to test_path(@question.test)
+    else
+      flash[:alert] = @question.errors.full_messages
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def create
-    @question = @test.questions.create(question_params)
+    @question = @test.questions.new(question_params)
 
     if @question.save
       redirect_to test_path(@test)
     else
-      # render :new, status: :unprocessable_entity
-      render inline: 'Ошибка при сохранении вопроса', layout: false, status: :unprocessable_entity
+      render inline: @question.errors.full_messages
     end
+  end
+
+  def destroy
+    @test = @question.test
+    @question.destroy
+    redirect_to test_path(@test)
   end
 
   private
 
   def question_params
-    params.require(:question).permit(:body, :test_id)
+    params.require(:question).permit(:body)
+  end
+
+  def find_question
+    @question = Question.find(params[:id])
   end
 
   def find_test
@@ -42,6 +56,7 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_question_not_found
-    render plain: 'Вопрос не найден'
+    flash.alert = 'Вопрос с таким id отсутствует'
+    redirect_to root_path
   end
 end

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-
-  before_action :find_user, except: [:index, :new, :create]
+  before_action :find_user, except: %i[index new create]
 
   def index
     @users = User.all
@@ -17,28 +16,26 @@ class UsersController < ApplicationController
       redirect_to users_path
     else
       flash[:alert] = @user.errors.full_messages
-      render :new, status: :unprocessable_entity      
+      render :new, status: :unprocessable_entity
     end
-  end 
-
-  def show
   end
 
-  def edit
-  end  
+  def show; end
+
+  def edit; end
 
   def update
     if @user.update(user_params)
-      redirect_to users_path, status: :see_other    
+      redirect_to users_path, status: :see_other
     else
       flash[:alert] = @user.errors.full_messages
       render :edit, status: :unprocessable_entity
     end
-  end  
+  end
 
   def destroy
     @user.destroy
-    redirect_to users_path, status: :see_other    
+    redirect_to users_path, status: :see_other
   end
 
   private
@@ -50,5 +47,4 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find(params[:id])
   end
-
 end

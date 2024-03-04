@@ -9,18 +9,27 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <div id="header">
-    <%= link_to "Список тестов", tests_path %> | <%= link_to "Назад", :back %>
-    <hr/>
+
+
+  <div class="header">
+    <%=link_to "Пользователи", users_path %> | 
+    <%=link_to "Тесты", tests_path %> | 
+    <%= link_to "Назад", :back %>
   </div>
+  <hr>
 
   <body>
     <%= yield %>
   </body>
+  
 
-  <hr/>
-  <div id="footer">
-    <%= link_to "Список тестов", tests_path %> | <%= link_to "Назад", :back %>
-  </div>
+  <% if flash.count > 0 %>
+    <div class="flash">
+      <% flash.each do |type, msg| %>
+        <div><%= msg %></div>
+      <% end %>
+    </div>
+  <% end %>
+
 
 </html>

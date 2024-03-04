@@ -1,0 +1,25 @@
+<%= form_with model: @test do |form| %>
+
+<div>
+  <%= form.label "Категория" %><br>
+  <%= form.label @test.category.title %><br>
+</div>
+
+<div>
+  <%= form.label "Автор" %><br>
+  <%= form.label @test.author.name %><br>
+</div>
+
+<div>
+  <%= form.label :title, "Название" %><br>
+  <%= form.text_field :title %>
+</div>
+
+<div>
+  <%= form.label :level, "Уровень" %><br>
+  <%= form.number_field :level, in: 1..10 %>
+</div>
+<div>
+<%= form.submit %>
+</div>
+<% end %>
