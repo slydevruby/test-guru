@@ -50,7 +50,6 @@ class TestsController < ApplicationController
   end
 
   def rescue_with_test_not_found
-    #    render plain: 'Тест не найден'
     flash.alert = 'Тест с таким id отсутствует'
     redirect_to root_path
   end
