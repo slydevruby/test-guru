@@ -16,8 +16,8 @@
   <td><%= test.category.title %></td>
   <td><%= test.level %></td>
   <td><%= link_to test.title, test_path(test) %>
-    
-  </td> 
+
+  </td>
   <td><%= link_to "Править", edit_test_path(test) %>
   </td>
 
@@ -31,7 +31,6 @@
   </tr>
 <% end %>
 </table>
-
 
 <br>
 <%= link_to "Создать тест", new_test_path %>

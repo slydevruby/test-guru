@@ -10,10 +10,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-
   <div class="header">
-    <%=link_to "Пользователи", users_path %> | 
-    <%=link_to "Тесты", tests_path %> | 
+    <%= link_to "Пользователи", users_path %> |
+    <%= link_to "Тесты", tests_path %> |
     <%= link_to "Назад", :back %>
   </div>
   <hr>
@@ -21,7 +20,6 @@
   <body>
     <%= yield %>
   </body>
-  
 
   <% if flash.count > 0 %>
     <div class="flash">
@@ -30,6 +28,5 @@
       <% end %>
     </div>
   <% end %>
-
 
 </html>
