@@ -1,13 +1,17 @@
 <%= form_with model: @test do |form| %>
 
 <div>
-  <%= form.label "Категория" %><br>
-  <%= form.label @test.category.title %><br>
+  <%= form.label "Категория" %> 
+  <%= form.collection_select :category_id, 
+  Category.order(:title), :id, :title %>
+
 </div>
 
 <div>
-  <%= form.label "Автор" %><br>
-  <%= form.label @test.author.name %><br>
+  <%= form.label "Автор" %>
+  <%= form.collection_select :author_id, 
+  User.order(:name), :id, :name %>
+  
 </div>
 
 <div>
@@ -22,4 +26,11 @@
 <div>
 <%= form.submit %>
 </div>
+
+   <div>
+    <% @test.errors.full_messages.each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
 <% end %>

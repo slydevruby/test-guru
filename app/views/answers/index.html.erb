@@ -1,29 +1,6 @@
-<style>
-  tr, td {
-    border: 1pt solid ;
+<h1>Список ответов для теста </h1>
+<h2><%= @question.body %></h2>
 
-    padding: 5px;
-  }
-</style>
-
-<h1>Список ответов</h1>
-
-<table style="border: solid 1px">
-  <tr>
-    <td>Вопрос</td>
-    <td>Ответ</td>
-    <td colspan=2>Правильно</td>
-
-  </tr>
-
-<% @answers.each do |answer| %>
-
-  <tr>
-  <td><%= answer.question.body %></td>
-  <td><%= link_to "#{answer.body}",  test_question_path(@test, @question) %></td>
-  <td>correct: <%= answer.correct %></td>
-  <td><%= link_to 'Удалить', tests_questions_answer_path(answer), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-
-</table>
+<ol>
+<%= render @question.answers %>
+</ol>

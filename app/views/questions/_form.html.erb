@@ -3,7 +3,7 @@
 <%= console %>
   <p>
     <%= form.label :body, "Вопрос" %><br>
-    <%= form.text_field :body %>
+     <%= form.text_area :body %>
   </p>
 
   <p>
@@ -11,7 +11,12 @@
   </p>
 <% end %>
 
-<%= render "answers", question: @question %>
+Ответы на вопрос
+<ol>
+<%= render @question.answers %>
+</ol>
+
+<br>
 
 <%= form_with model: [ @question, @question.answers.build ] do |form| %>
   <div>

@@ -1,21 +1,8 @@
 <h1> Тест "<%= @test.title %>" </h1>
 
-<ol>
-<% @test.questions.each do |question| %>
-  <li>
-  <%= link_to question.body, edit_question_path(question) %> |
-    <small>
-    <%= link_to 'Удалить вопрос', question_path(question), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
-   </small>
-  </li>
-  <br>
-
-  <%= render "questions/answers", question: question %>
-
-  <hr>
-<% end %>
-
-</ol>
+  <ul>
+  <%= render @test.questions %>
+  </ul>
 
 <%= form_with model: [ @test, @test.questions.build ] do |form| %>
   <p>
