@@ -1,17 +1,17 @@
 <%= form_with model: @test do |form| %>
 
 <div>
-  <%= form.label "Категория" %> 
-  <%= form.collection_select :category_id, 
+  <%= form.label "Категория" %>
+  <%= form.collection_select :category_id,
   Category.order(:title), :id, :title %>
 
 </div>
 
 <div>
   <%= form.label "Автор" %>
-  <%= form.collection_select :author_id, 
+  <%= form.collection_select :author_id,
   User.order(:name), :id, :name %>
-  
+
 </div>
 
 <div>
