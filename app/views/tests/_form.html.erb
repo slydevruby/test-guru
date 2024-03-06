@@ -1,0 +1,36 @@
+<%= form_with model: @test do |form| %>
+
+<div>
+  <%= form.label "Категория" %>
+  <%= form.collection_select :category_id,
+  Category.order(:title), :id, :title %>
+
+</div>
+
+<div>
+  <%= form.label "Автор" %>
+  <%= form.collection_select :author_id,
+  User.order(:name), :id, :name %>
+
+</div>
+
+<div>
+  <%= form.label :title, "Название" %><br>
+  <%= form.text_field :title %>
+</div>
+
+<div>
+  <%= form.label :level, "Уровень" %><br>
+  <%= form.number_field :level, in: 1..10 %>
+</div>
+<div>
+<%= form.submit %>
+</div>
+
+   <div>
+    <% @test.errors.full_messages.each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+<% end %>

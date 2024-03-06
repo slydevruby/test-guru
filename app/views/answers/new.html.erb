@@ -1,0 +1,14 @@
+<h2>Добавить ответ</h2>
+<%= form_with model: [ @question, @question.answers.build ] do |form| %>
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_field :body %>
+  </div>
+  <div>
+    <%= form.label :correct %><br>
+    <%= form.check_box :correct %>
+  </div>
+  <div>
+    <%= form.submit "Добавить ответ" %>
+  </div>
+<% end %>

@@ -1,0 +1,16 @@
+<h1> Тест "<%= @test.title %>" </h1>
+
+  <ul>
+  <%= render @test.questions %>
+  </ul>
+
+<%= form_with model: [ @test, @test.questions.build ] do |form| %>
+  <p>
+    <%= form.label :body, "Добавить вопрос" %><br>
+    <%= form.text_field :body %>
+  </p>
+
+  <p>
+    <%= form.submit "Добавить к тесту" %>
+  </p>
+<% end %>

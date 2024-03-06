@@ -1,0 +1,17 @@
+---
+---
+EnableDefaultLinters: false
+linters:
+  Rubocop:
+    enabled: true
+    exclude:
+      - "**/vendor/**/*"
+      - "**/vendor/**/.*"
+      - "bin/**"
+      - "db/**/*"
+      - "spec/**/*"
+      - "config/**/*"
+      - "node_modules/**/*"
+    rubocop_config:
+      inherit_from:
+        - .rubocop.yml

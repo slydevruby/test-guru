@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 ruby '3.0.0'
+
+gem 'erb_lint', require: false
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.3'
@@ -22,6 +26,8 @@ gem 'turbo-rails'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'stimulus-rails'
+
+gem 'htmlbeautifier'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
@@ -46,6 +52,7 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'byebug', require: true
   gem 'debug', platforms: %i[mri mswin mswin64 mingw x64_mingw]
 end
 
