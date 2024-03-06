@@ -1,22 +1,17 @@
 <%= form_with model: @question do |form| %>
-
   <p>
     <%= form.label :body, "Вопрос" %><br>
-     <%= form.text_area :body %>
+    <%= form.text_area :body %>
   </p>
-
   <p>
     <%= form.submit "Обновить" %>
   </p>
 <% end %>
-
 Ответы на вопрос
 <ol>
-<%= render @question.answers %>
+  <%= render @question.answers %>
 </ol>
-
 <br>
-
 <%= form_with model: [ @question, @question.answers.build ] do |form| %>
   <div>
     <%= form.label :body, "Добавить ответ" %><br>
@@ -26,7 +21,6 @@
     <%= form.label :correct, "Правильный" %><br>
     <%= form.check_box :correct %>
   </div>
-
   <div>
     <%= form.submit "Добавить ответ" %>
   </div>
