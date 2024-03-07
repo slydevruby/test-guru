@@ -9,23 +9,7 @@
     <th>Править</th>
     <th>Удалить</th>
   </tr>
-  <% @tests.each do |test| %>
-    <tr>
-      <td><%= test.author.name %> </td>
-      <td><%= test.category.title %></td>
-      <td><%= test.level %></td>
-      <td><%= link_to test.title, test_path(test) %></td>
-      <td><%= test.questions.count %></td>
-      <td><%= link_to "Править", edit_test_path(test) %>
-      </td>
-      <td>
-        <%= link_to "Удалить", test_path(test), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %>
-      </td>
-    </tr>
-  <% end %>
+  <%= render @tests %>
 </table>
 <br>
 <%= link_to "Создать тест", new_test_path %>
