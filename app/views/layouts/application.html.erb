@@ -5,22 +5,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <div class="header">
     <%= link_to "Пользователи", users_path %> |
     <%= link_to "Тесты", tests_path %> |
     <%= link_to "Назад", :back %>
   </div>
   <hr>
-
   <body>
     <%= yield %>
   </body>
-
   <% if flash.count > 0 %>
     <div class="flash">
       <% flash.each do |type, msg| %>
@@ -28,5 +24,13 @@
       <% end %>
     </div>
   <% end %>
-
+  <div class="footer">
+    <hr>
+    <%= current_year %> | slydevruby |
+    <%= github_url('slydevruby', 'test-guru') %> | 
+    Создание и прохождение тестов  |
+    <%= link_to "Учебный проект в онлайн-школе Thinknetica", 
+      "http://thinknetica.com", rel: ["nofollow", "noopener"]
+     %>
+  </div>
 </html>

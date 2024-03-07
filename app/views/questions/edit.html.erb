@@ -1,1 +1,10 @@
-<%= render "form" %>
+<h1><%= question_header %></h1>
+<%= form_with model: @question do |form| %>
+  <p>
+    <%= form.label :body, "Question" %><br>
+    <%= form.text_field :body %>
+  </p>
+  <p>
+    <%= form.submit "Update" %>
+  </p>
+<% end %>
