@@ -1,7 +1,7 @@
 <tr>
   <td><%= test.author.name %> </td>
   <td><%= test.category.title %></td>
-  <td><%= test.level %></td>
+  <td><%= test_level(test.level) %></td>
   <td><%= link_to test.title, test_path(test) %></td>
   <td><%= test.questions.count %></td>
   <td><%= link_to "Править", edit_test_path(test) %>
