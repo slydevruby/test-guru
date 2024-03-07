@@ -1,0 +1,10 @@
+ <% if @test.errors.present? %>
+  <div>
+    Errors detected
+    <ul>
+      <% @test.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -17,11 +17,9 @@
   <body>
     <%= yield %>
   </body>
-  <% if flash.count > 0 %>
-    <div class="flash">
-      <% flash.each do |type, msg| %>
-        <div><%= msg %></div>
-      <% end %>
+  <% flash.each do |type, msg| %>
+    <div class="<%= type %>">
+      <%= msg %>
     </div>
   <% end %>
   <div class="footer">

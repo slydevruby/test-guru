@@ -14,10 +14,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = "Пользователь #{@username} успешно создан"
-      redirect_to users_path
+      redirect_to users_path, notice: "Пользователь #{@user.name} успешно создан"
     else
-      flash[:alert] = @user.errors.full_messages
       render :new, status: :unprocessable_entity
     end
   end
@@ -30,7 +28,6 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to users_path, status: :see_other
     else
-      flash[:alert] = @user.errors.full_messages
       render :edit, status: :unprocessable_entity
     end
   end

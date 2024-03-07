@@ -1,0 +1,10 @@
+ <% if @question.errors.present? %>
+  <div>
+    Errors detected
+    <ul>
+      <% @question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

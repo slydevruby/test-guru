@@ -15,10 +15,8 @@ class TestsController < ApplicationController
   def create
     @test = Test.new(test_params)
     if @test.save
-      flash[:notice] = "Test #{@username} успешно создан"
-      redirect_to @test
+      redirect_to @test, notice: "Test #{@test.title} успешно создан"
     else
-      flash[:alert] = @test.errors.full_messages
       render :new, status: :unprocessable_entity
     end
   end
@@ -31,7 +29,6 @@ class TestsController < ApplicationController
     if @test.update(test_params)
       redirect_to tests_path
     else
-      flash[:alert] = @test.errors.full_messages
       render :edit, status: :unprocessable_entity
     end
   end
@@ -52,7 +49,6 @@ class TestsController < ApplicationController
   end
 
   def rescue_with_test_not_found
-    flash.alert = 'Тест с таким id отсутствует'
-    redirect_to root_path
+    redirect_to root_path, alert: 'Тест с таким id отсутствует'
   end
 end
