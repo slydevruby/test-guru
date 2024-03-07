@@ -6,16 +6,14 @@ class AnswersController < ApplicationController
 
   def show; end
 
-  def new
-    @answer = @question.answers.new
-  end
+  def new; end
 
   def create
     @answer = @question.answers.new(answer_params)
     if @answer.save
       redirect_to edit_question_path(@question)
     else
-      render inline: @answer.errors.full_messages
+      render :new
     end
   end
 
