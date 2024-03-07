@@ -1,11 +1,11 @@
 .alert { color: red;
-padding: 10px;
-border: solid 1px
+  padding: 10px;
+  border: solid 1px
 }
 
 .notice { color: green;
-padding: 10px;
-border: solid 1px
+  padding: 10px;
+  border: solid 1px
 }
 
 td {
