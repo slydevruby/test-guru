@@ -8,9 +8,5 @@ module QuestionsHelper
     when 'edit'
       "Edit #{@question.test.title} Question"
     end
-    # when 'new' beg = 'Create Test'
-    # when 'edit' beg 'Edit'
-    # end
-    # beg + @question.test.title + ' Question'
   end
 end
