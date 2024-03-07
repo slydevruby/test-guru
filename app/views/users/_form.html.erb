@@ -1,5 +1,5 @@
 <%= form_with model: @user do |form| %>
-  <%= render "errors" %>
+  <%= render "errors", object: @user %>
   <div>
     <%= form.label :name, "Имя" %><br>
     <%= form.text_field :name %>

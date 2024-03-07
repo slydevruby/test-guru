@@ -1,5 +1,5 @@
 <%= form_with model: @test do |form| %>
-  <%= render "errors" %>
+  <%= render "errors", object: @test %>
   <div>
     <%= form.label "Категория" %>
     <%= form.collection_select :category_id,

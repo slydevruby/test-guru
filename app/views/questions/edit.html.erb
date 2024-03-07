@@ -1,5 +1,6 @@
-<h1><%= question_header %></h1>
+<h1><%= question_header(@question) %></h1>
 <%= form_with model: @question do |form| %>
+  <%= render "errors", object: @question %>
   <p>
     <%= form.label :body, "Question" %><br>
     <%= form.text_field :body %>

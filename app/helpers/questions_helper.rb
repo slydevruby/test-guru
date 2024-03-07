@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 module QuestionsHelper
-  def question_header
-    case action_name
-    when 'new'
+  def question_header(question)
+    case question.new_record?
+    when true
       "Create New #{@question.test.title} Question"
-    when 'edit'
+    when false
       "Edit #{@question.test.title} Question"
     end
   end
