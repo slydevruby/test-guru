@@ -15,11 +15,4 @@ Rails.application.routes.draw do
       resources :answers, except: :index
     end
   end
-  #    resources :questions do
-  #      resources :answers do
-  #      end
-  #    end
-  #  end
-
-  resources :users
 end

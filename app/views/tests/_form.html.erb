@@ -11,11 +11,11 @@
   User.order(:name), :id, :name %>
   </div>
   <div>
-    <%= form.label :title, "Название" %><br>
+    <%= form.label :title %><br>
     <%= form.text_field :title %>
   </div>
   <div>
-    <%= form.label :level, "Уровень" %><br>
+    <%= form.label :level %><br>
     <%= form.number_field :level, in: 1..10 %>
   </div>
   <div>
