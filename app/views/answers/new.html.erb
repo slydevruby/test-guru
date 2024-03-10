@@ -1,5 +1,5 @@
 <h2>Добавить ответ</h2>
-<%= form_with model: [ @question, @question.answers.build ] do |form| %>
+<%= form_with model: [@question, @question.answers.build] do |form| %>
   <div>
     <%= form.label :body %><br>
     <%= form.text_field :body %>

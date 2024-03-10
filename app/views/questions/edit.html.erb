@@ -1,6 +1,6 @@
 <h1><%= question_header(@question) %></h1>
 <%= form_with model: @question do |form| %>
-  <%= render "errors", object: @question %>
+  <%= render 'errors', object: @question %>
   <p>
     <%= form.label :body %><br>
     <%= form.text_field :body %>
@@ -12,4 +12,4 @@
 <ol>
   <%= render @question.answers %>
 </ol>
-<%= render "answers/new" %>
+<%= render 'answers/new' %>

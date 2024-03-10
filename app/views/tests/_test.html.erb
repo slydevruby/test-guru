@@ -4,12 +4,12 @@
   <td><%= test_level(test.level) %></td>
   <td><%= link_to test.title, test_path(test) %></td>
   <td><%= test.questions.count %></td>
-  <td><%= link_to "Править", edit_test_path(test) %>
+  <td><%= link_to 'Править', edit_test_path(test) %>
   </td>
   <td>
-    <%= link_to "Удалить", test_path(test), data: {
+    <%= link_to 'Удалить', test_path(test), data: {
                     turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
+                    turbo_confirm: 'Are you sure?'
                   } %>
   </td>
 </tr>
