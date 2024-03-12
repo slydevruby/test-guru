@@ -1,9 +1,8 @@
 <h1>New answer</h1>
-
-<%= render "form", answer: @answer %>
-
-<br>
-
+<p>
+  for question: <%= @question.body %>
+</p>
+<%= render 'form', question: @question, answer: @answer %>
 <div>
-  <%= link_to "Back to answers", answers_path %>
+  <%= link_to 'Back to question ', @answer.question %> 
 </div>
