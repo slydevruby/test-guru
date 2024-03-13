@@ -1,1 +1,13 @@
-<h1>Pass the test</h1>
+<h1>Pass <%= @passage.test.title %> Test</h1>
+<b>
+  <%= @passage.current_question.body %>
+</b>
+<%= form_with url: passage_path(@passage), data: { turbo: false}, include_hidden: false, method: :put  do |form| %>
+  <%= form.collection_check_boxes :answer_ids, @passage.current_question.answers, :id, :body do |b| %>
+    <p>
+      <%= b.check_box id: "answers_ids_#{b.object.id}" %>
+      <%= b.label %>
+    </p>
+  <% end %>
+  <p><%= form.submit 'Next' %></p>
+<% end %>
