@@ -2,9 +2,13 @@
 
 class TestsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
-  before_action :find_test, except: %i[index new create]
+  before_action :set_test, except: %i[index new create]
 
   def index
+
+    def set_user
+      
+    end
     @tests = Test.all
   end
 
@@ -38,13 +42,19 @@ class TestsController < ApplicationController
     redirect_to tests_path
   end
 
+  def start
+    @user = User.first
+    @user.tests.push(@test)
+    redirect_to @user.passage(@test)
+  end
+
   private
 
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 
-  def find_test
+  def set_test
     @test = Test.find(params[:id])
   end
 

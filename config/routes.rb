@@ -14,5 +14,15 @@ Rails.application.routes.draw do
     resources :questions, except: :index do
       resources :answers, except: :index
     end
+
+    member do
+      post :start
+    end
+  end
+
+  resources :passages, only: %i[show update] do
+    member do
+      get :result
+    end
   end
 end
