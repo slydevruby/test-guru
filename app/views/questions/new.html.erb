@@ -1,2 +1,11 @@
-<h2>New question:</h2>
-<%= render "form" %>
+<h1><%= question_header(@question) %></h1>
+<%= form_with model: [@test, @question], data: {turbo: false} do |form| %>
+  <%= render "errors", object: @question %>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_field :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

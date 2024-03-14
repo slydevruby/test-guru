@@ -30,34 +30,7 @@
 ru:
   hello: "Привет мир"
 
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-              name:
-                blank: "Пустое имя"
-              email:
-                blank: "Пустая почта"
-                taken: "Почта уже используется"
-        category:
-          attributes:
-            title: 
-              blank: "Пустое имя"
-        test:
-            attributes:
-              category:
-                required: "не указан"
-              author: 
-                required: "не указан"
-              title:
-                blank: "не указан"
-                taken: "уже занято"
-        question:
-          attributes:
-            test:
-              required: "Вопрос: не указан тест"
-            body:
-              blank: "Вопрос: Пустое сообщение"
-      messages:
-        record_invalid: "Неверная запись"
+  helpers:
+    submit:
+      create: "Создать %{model}"
+      update: "Обновить %{model}"

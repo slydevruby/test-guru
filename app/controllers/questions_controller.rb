@@ -6,10 +6,6 @@ class QuestionsController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    @questions = Question.all
-  end
-
   def show; end
 
   def new
@@ -22,7 +18,6 @@ class QuestionsController < ApplicationController
     if @question.update(question_params)
       redirect_to test_path(@question.test)
     else
-      flash[:alert] = @question.errors.full_messages
       render :edit, status: :unprocessable_entity
     end
   end
@@ -32,7 +27,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to test_path(@test)
     else
-      render inline: @question.errors.full_messages
+      render :new
     end
   end
 
@@ -57,7 +52,6 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_question_not_found
-    flash.alert = 'Вопрос с таким id отсутствует'
-    redirect_to root_path
+    redirect_to root_path, alert: 'Вопрос с таким id отсутствует'
   end
 end

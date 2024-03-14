@@ -11,15 +11,8 @@ Rails.application.routes.draw do
   # get 'up' => 'rails/health#show', as: :rails_health_check
 
   resources :tests, shallow: true do
-    resources :questions do
-      resources :answers
+    resources :questions, except: :index do
+      resources :answers, except: :index
     end
   end
-  #    resources :questions do
-  #      resources :answers do
-  #      end
-  #    end
-  #  end
-
-  resources :users
 end

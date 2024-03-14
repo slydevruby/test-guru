@@ -1,8 +1,7 @@
 <li>
-  <%= link_to answer.body, answer %> |
-  <%= answer.correct %> |
+  <%= answer.body %> |
+  <%= answer.correct ? "Правильный" : "Неправильный"  %> |
   <small>
-    <%= link_to 'Удалить?', answer_path(answer),
-    data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+    <%= link_to 'Удалить?', answer_path(answer), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
   </small>
 </li>
