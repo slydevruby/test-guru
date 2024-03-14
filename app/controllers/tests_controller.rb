@@ -5,10 +5,6 @@ class TestsController < ApplicationController
   before_action :set_test, except: %i[index new create]
 
   def index
-
-    def set_user
-      
-    end
     @tests = Test.all
   end
 

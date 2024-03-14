@@ -7,7 +7,7 @@ class Answer < ApplicationRecord
 
   validate :validates_answers
 
-  scope :right, -> { where(correct: true) }
+  scope :correct, -> { where(correct: true) }
 
   private
 

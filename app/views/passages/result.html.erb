@@ -1,0 +1,10 @@
+<h1><%= @passage.test.title %> Test complete</h1>
+<% if @passage.grade >= 85 %>
+  <p style="color: green">
+    You passed the test. Result is <%= @passage.grade %>%
+  </p>
+<% else %>
+  <p style="color: red">
+    You failed the test. Result is <%= @passage.grade %>%
+  </p>
+<% end %>

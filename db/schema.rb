@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.1].define(version: 20_240_313_113_629) do
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.integer 'correct_questions', default: 0
-    t.integer 'current_question_id', default: 0, null: false
+    t.integer 'current_question_id'
     t.index ['current_question_id'], name: 'index_passages_on_current_question_id'
     t.index ['test_id'], name: 'index_passages_on_test_id'
     t.index ['user_id'], name: 'index_passages_on_user_id'
