@@ -7,11 +7,11 @@ class Answer < ApplicationRecord
 
   validate :validates_answers
 
-  scope :right, -> { where(correct: true) }
+  scope :correct, -> { where(correct: true) }
 
   private
 
   def validates_answers
-    errors.add(:answer_count) if question.answers.count >= 4
+    errors.add(:answer_count, 'must be less 4') if question.answers.count >= 4
   end
 end

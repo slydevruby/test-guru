@@ -1,2 +1,5 @@
-Ответ <%= @answer.body %>
-Правильный: <%= @answer.correct %>
+<h1>New answer</h1>
+<%= render @answer %>
+<div>
+  <%= link_to 'Back to question ', @answer.question %> |
+</div>

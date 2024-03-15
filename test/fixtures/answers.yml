@@ -1,33 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-
-
-first:
-  body: $LABEL
-  correct: false
-  question: one
-
-second:
-  body: $LABEL
-  correct: false
-  question: one
-
-third:
-  body: $LABEL
-  correct: false  
-  question: one
-
-fourth:
-  body: $LABEL
-  correct: false  
-  question: one  
-
-#one:
-#  body: MyString
-#  correct: false
-#  question: one
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
 #
-#two:
-#  body: MyString
-#  correct: false
-#  question: two
+one: {}
+# column: value
+#
+two: {}
+# column: value

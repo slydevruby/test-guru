@@ -1,5 +1,8 @@
 <h1> Тест "<%= @test.title %>" </h1>
-<ul>
+<p>
+  Уровень: <%= test_level(@test.level) %>
+</p>
+<%= link_to 'New question', new_test_question_path(@test) %>
+<ol>
   <%= render @test.questions %>
-</ul>
-<%= link_to "New question", new_test_question_path(@test) %>
+</ol>

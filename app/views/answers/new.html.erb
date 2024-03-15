@@ -1,14 +1,8 @@
-<h2>Добавить ответ</h2>
-<%= form_with model: [ @question, @question.answers.build ] do |form| %>
-  <div>
-    <%= form.label :body %><br>
-    <%= form.text_field :body %>
-  </div>
-  <div>
-    <%= form.label :correct %><br>
-    <%= form.check_box :correct %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<h1>New answer</h1>
+<p>
+  for question: <%= @question.body %>
+</p>
+<%= render 'form', question: @question, answer: @answer %>
+<div>
+  <%= link_to 'Back to question ', @answer.question %> 
+</div>

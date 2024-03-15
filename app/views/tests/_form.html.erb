@@ -1,12 +1,12 @@
 <%= form_with model: @test do |form| %>
-  <%= render "errors", object: @test %>
+  <%= render 'errors', object: @test %>
   <div>
-    <%= form.label "Категория" %>
+    <%= form.label 'Категория' %>
     <%= form.collection_select :category_id,
   Category.order(:title), :id, :title %>
   </div>
   <div>
-    <%= form.label "Автор" %>
+    <%= form.label 'Автор' %>
     <%= form.collection_select :author_id,
   User.order(:name), :id, :name %>
   </div>

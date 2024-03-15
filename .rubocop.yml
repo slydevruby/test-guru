@@ -1,0 +1,4 @@
+Documentation:
+  Enabled: false
+require:
+  - rubocop-erb  

@@ -2,37 +2,54 @@
 
 class AnswersController < ApplicationController
   before_action :find_question, only: %i[new create]
-  before_action :find_answer, only: %i[show destroy]
+  before_action :set_answer, only: %i[show edit update destroy]
 
   def show; end
 
-  def new; end
+  def new
+    @answer = @question.answers.new
+  end
+
+  def edit; end
 
   def create
     @answer = @question.answers.new(answer_params)
+
     if @answer.save
-      redirect_to edit_question_path(@question)
+      redirect_to @question, notice: 'Answer was successfully created.'
     else
+      puts @answer.errors.full_messages
       render :new
     end
   end
 
+  # PATCH/PUT /answers/1 or /answers/1.json
+  def update
+    if @answer.update(answer_params)
+      redirect_to @answer, notice: 'Answer was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  # DELETE /answers/1 or /answers/1.json
   def destroy
-    @answer.destroy
-    redirect_to edit_question_path(@answer.question)
+    @answer.destroy!
+    redirect_to @answer.question, notice: 'Answer was successfully destroyed.'
   end
 
   private
-
-  def answer_params
-    params.require(:answer).permit(:body, :correct)
-  end
 
   def find_question
     @question = Question.find(params[:question_id])
   end
 
-  def find_answer
+  def set_answer
     @answer = Answer.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def answer_params
+    params.require(:answer).permit(:body, :correct)
   end
 end
