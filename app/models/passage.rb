@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Passage < ApplicationRecord
+  PASSAGE_MAX = 85
+  
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -21,11 +23,7 @@ class Passage < ApplicationRecord
   end
 
   def grade
-    if correct_questions.zero?
-      0
-    else
-      100 * correct_questions / test.questions.count
-    end
+    100 * correct_questions / test.questions.count
   end
 
   private
