@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'users/new'
   # Defines the root path route ("/")
   root 'tests#index'
+
+  get :signup, to: 'users#new'
+  resources :users, only: :create
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

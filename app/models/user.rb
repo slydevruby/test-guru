@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
 
+  has_secure_password
+
   def passage(test)
     passages.order(id: :desc).find_by(test_id: test.id)
   end
