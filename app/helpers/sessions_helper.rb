@@ -2,10 +2,10 @@
 
 module SessionsHelper
   def flash_messages
-    if flash[:alert]
-      content_tag :p, flash[:alert], class: 'flash alert'
-    elsif flash[:notice]
-      content_tag :p, flash[:notice], class: 'flash notice'
+    collect = ''
+    flash.each do |type, msg|
+      collect += content_tag :p, msg, class: "flash #{type}" if flash[type]
     end
+    render html: collect.html_safe unless collect.empty?
   end
 end
