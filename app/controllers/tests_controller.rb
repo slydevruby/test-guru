@@ -3,7 +3,6 @@
 class TestsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
-  before_action :authenticate_user!
   before_action :set_test, except: %i[index new create]
 
   def index
