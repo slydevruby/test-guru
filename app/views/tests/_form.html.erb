@@ -1,4 +1,4 @@
-<%= form_with model: @test do |form| %>
+<%= form_with model: @test, data: { turbo: false } do |form| %>
   <%= render 'errors', object: @test %>
   <div>
     <%= form.label 'Категория' %>
