@@ -12,10 +12,6 @@ class ApplicationController < ActionController::Base
     session[:return_to] = request.original_url
     return if current_user
 
-    # if current_user
-    #  return redirect_to request.original_url
-    # end
-
     redirect_to login_path, alert: 'Are you a Guru? Verify your Email and Password please'
   end
 
