@@ -2,6 +2,7 @@
 
 class TestsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+
   before_action :set_test, except: %i[index new create]
 
   def index
@@ -39,9 +40,8 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user = User.first
-    @user.tests.push(@test)
-    redirect_to @user.passage(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.passage(@test)
   end
 
   private

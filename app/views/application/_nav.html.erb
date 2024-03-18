@@ -1,0 +1,14 @@
+<div class="container">
+  <%= link_to 'Sign up', signup_path %>  | 
+  <%= link_to 'Tests', tests_path %> |
+  <%= link_to 'Back', :back %> |
+  <% if logged_in? %>
+    <div class="nav user">Welcome, <b>
+        <%= current_user.email %></b> Guru | 
+    <%= link_to 'Logout', logout_path, data: { turbo_method: :delete } %>    
+    </div>
+  <% else %>
+    <%= link_to 'Login', login_path %>
+
+  <% end %>
+</div>

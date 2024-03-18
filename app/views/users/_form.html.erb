@@ -1,0 +1,31 @@
+<%= form_with model: @user, data: { turbo: false } do |form| %>
+  <p>
+    <% if @user.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@user.errors.count, 'error') %> prohibited this user from being saved:</h2>
+        <ul>
+          <% @user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </p>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+  </p>
+  <p>
+    <%= form.label :password %><br>
+    <%= form.password_field :password %>
+  </p>
+  <p>
+    <%= form.label :password_confirmation %><br>
+    <%= form.password_field :password_confirmation %>
+  </p>
+  <p><%= form.submit %></p>
+<% end %>

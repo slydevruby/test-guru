@@ -18,7 +18,6 @@ class AnswersController < ApplicationController
     if @answer.save
       redirect_to @question, notice: 'Answer was successfully created.'
     else
-      puts @answer.errors.full_messages
       render :new
     end
   end

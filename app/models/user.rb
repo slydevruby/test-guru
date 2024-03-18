@@ -6,13 +6,15 @@ class User < ApplicationRecord
   has_many :created_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
 
   validates :name, presence: true
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, format: URI::MailTo::EMAIL_REGEXP
+
+  has_secure_password
 
   def passage(test)
     passages.order(id: :desc).find_by(test_id: test.id)
   end
 
-  def tests_by_level(level)
-    tests.where(level: level)
+  def tests_by_level(lev)
+    tests.where(level: lev)
   end
 end
