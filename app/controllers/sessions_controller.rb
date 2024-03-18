@@ -13,8 +13,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:email])
     if user&.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to_default_or_origin_url
+      set_session_and_redirect
     else
       flash.now[:alert] = 'Are you a Guru? Verify your Email and Password '
       render :new
@@ -23,12 +22,8 @@ class SessionsController < ApplicationController
 
   private
 
-  def redirect_to_default_or_origin_url
-    if cookies[:original_url].present?
-      redirect_to cookies[:original_url]
-      cookies.delete :original_url
-    else
-      redirect_to tests_path
-    end
+  def set_session_and_redirect
+    session[:user_id] = user.id
+    redirect_to cookies.delete(:original_url) || tests_path
   end
 end
