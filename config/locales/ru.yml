@@ -26,7 +26,6 @@
 #     en:
 #       "yes": yup
 #       enabled: "ON"
-
 ru:
   hello: "Привет мир"
 
@@ -38,6 +37,9 @@ ru:
       create: "Создать %{model}"
       update: "Обновить %{model}"
   devise:
+    confirmations:
+      user:
+        confirmed: "Учетная запись подтверждена"
     failure:
       user:
         unconfirmed: "Учетная запись не подтверждена"
