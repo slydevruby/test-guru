@@ -30,7 +30,28 @@
 ru:
   hello: "Привет мир"
 
+  errors:
+    messages:
+      not_saved: 'Нельзя сохранить'
   helpers:
     submit:
       create: "Создать %{model}"
       update: "Обновить %{model}"
+  devise:
+    failure:
+      user:
+        unconfirmed: "Учетная запись не подтверждена"
+        invalid: "Такого пользователя нет"
+        not_found_in_database: "Пользователя нет в базе"
+        already_authenticated: "Вы уже в системе"
+
+    registrations:
+      user:
+        signed_up_but_unconfirmed: "Вы вошли, но адрес почты не подтвержден"
+
+    sessions:
+      user:
+        signed_in: 'Добро пожаловать, Вы вошли.'
+      admin:
+        signed_in: 'Привет администратор!'
+
