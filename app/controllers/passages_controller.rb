@@ -11,6 +11,7 @@ class PassagesController < ApplicationController
     @passage.accept!(params[:answer_ids])
 
     if @passage.completed?
+      TestsMailer.completed_test(@passage).deliver_now
       redirect_to result_passage_path(@passage)
     else
       render :show
