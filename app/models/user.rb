@@ -15,7 +15,6 @@ class User < ApplicationRecord
   has_many :tests, through: :passages, dependent: :destroy
   has_many :created_tests, class_name: 'Test', foreign_key: 'author_id', dependent: :destroy
 
-  validates :name, presence: true
   validates :email, presence: true, uniqueness: true, format: URI::MailTo::EMAIL_REGEXP
 
   def passage(test)

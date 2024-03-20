@@ -4,6 +4,10 @@
   border-radius: 2px;
 }
 
+.flash.notice {
+  border-color: green;
+}
+
 .flash.alert {
   border-color: #ef2727;
 }
