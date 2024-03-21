@@ -37,6 +37,9 @@ ru:
       create: "Создать %{model}"
       update: "Обновить %{model}"
   devise:
+    passwords:
+      user:
+        updated: "Учетная запись обновлена"
     confirmations:
       user:
         confirmed: "Учетная запись подтверждена"
@@ -46,6 +49,7 @@ ru:
         invalid: "Такого пользователя нет"
         not_found_in_database: "Пользователя нет в базе"
         already_authenticated: "Вы уже в системе"
+        unauthenticated: "Пользователи не авторизован"
 
     registrations:
       user:
