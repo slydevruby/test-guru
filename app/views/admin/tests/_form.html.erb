@@ -5,11 +5,7 @@
     <%= form.collection_select :category_id,
   Category.order(:title), :id, :title %>
   </div>
-  <div>
-    <%= form.label 'Автор' %>
-    <%= form.collection_select :author_id,
-  Admin.order(:first_name), :id, :first_name %>
-  </div>
+
   <div>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
