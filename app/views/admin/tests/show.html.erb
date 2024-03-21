@@ -2,8 +2,9 @@
 <p>
   Уровень: <%= test_level(@test.level) %>
 </p>
-<%= link_to 'New question', new_test_question_path(@test) %>
+<%= link_to 'New question', new_admin_test_question_path(@test) %>
 <ol>
-  <%= render partial: 'questions/question', 
+  <%= render partial: 'admin/questions/question', 
   collection: @test.questions %>
 </ol>
+<%= link_to 'Back to tests', admin_tests_path %>

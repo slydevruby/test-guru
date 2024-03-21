@@ -1,0 +1,7 @@
+<li>
+  Answer: <%= answer.body %> <br>
+  Correct: <%= answer.correct %>
+  <br>
+  <%= link_to 'Edit', edit_admin_answer_path(answer) %> |
+  <%= link_to 'Удалить?', admin_answer_path(answer), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+</li>

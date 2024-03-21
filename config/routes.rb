@@ -5,10 +5,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :tests, only: :index, shallow: true do
-    resources :questions, except: :index do
-      resources :answers, except: :index
-    end
-
     member do
       post :start
     end
@@ -21,6 +17,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :tests
+    resources :tests, shallow: true do
+      resources :questions, except: :index do
+        resources :answers, except: :index
+      end
+    end
   end
 end

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-class QuestionsController < ApplicationController
+# rubocop:disable Style/ClassAndModuleChildren
+
+class Admin::QuestionsController < Admin::BaseController
   before_action :find_question, only: %i[show edit destroy update]
   before_action :find_test, only: %i[new create]
 
@@ -16,7 +18,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to test_path(@question.test)
+      redirect_to admin_test_path(@question.test)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -25,7 +27,7 @@ class QuestionsController < ApplicationController
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      redirect_to test_path(@test)
+      redirect_to admin_test_path(@test)
     else
       render :new
     end
@@ -33,7 +35,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy!
-    redirect_to test_path(@question.test), notice: 'Question was successfully destroyed.'
+    redirect_to admin_test_path(@question.test), notice: 'Question was successfully destroyed.'
   end
 
   private
@@ -54,3 +56,5 @@ class QuestionsController < ApplicationController
     redirect_to root_path, alert: 'Вопрос с таким id отсутствует'
   end
 end
+
+# rubocop:enable Style/ClassAndModuleChildren
