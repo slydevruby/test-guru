@@ -1,4 +1,4 @@
-<%= form_with model: @test, data: { turbo: false } do |form| %>
+<%= form_with model: [:admin, @test], data: { turbo: false } do |form| %>
   <%= render 'errors', object: @test %>
   <div>
     <%= form.label 'Категория' %>
@@ -8,7 +8,7 @@
   <div>
     <%= form.label 'Автор' %>
     <%= form.collection_select :author_id,
-  User.order(:name), :id, :name %>
+  Admin.order(:first_name), :id, :first_name %>
   </div>
   <div>
     <%= form.label :title %><br>

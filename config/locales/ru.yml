@@ -57,7 +57,8 @@ ru:
 
     sessions:
       user:
-        signed_in: 'Добро пожаловать, Вы вошли.'
+        signed_in: 'Добро пожаловать, Вы вошли'
+        signed_out: 'До свидания!'
       admin:
         signed_in: 'Привет администратор!'
 
