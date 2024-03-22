@@ -36,29 +36,4 @@ ru:
     submit:
       create: "Создать %{model}"
       update: "Обновить %{model}"
-  devise:
-    passwords:
-      user:
-        updated: "Учетная запись обновлена"
-    confirmations:
-      user:
-        confirmed: "Учетная запись подтверждена"
-    failure:
-      user:
-        unconfirmed: "Учетная запись не подтверждена"
-        invalid: "Такого пользователя нет"
-        not_found_in_database: "Пользователя нет в базе"
-        already_authenticated: "Вы уже в системе"
-        unauthenticated: "Пользователи не авторизован"
-
-    registrations:
-      user:
-        signed_up_but_unconfirmed: "Вы вошли, но адрес почты не подтвержден"
-
-    sessions:
-      user:
-        signed_in: 'Добро пожаловать, Вы вошли'
-        signed_out: 'До свидания!'
-      admin:
-        signed_in: 'Привет администратор!'
 
