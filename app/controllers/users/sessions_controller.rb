@@ -11,8 +11,8 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    flash[:hello] = "Hello #{current_user.first_name}"
     super
+    set_flash_message! :notice, :welcome, username: resource.first_name
   end
 
   # DELETE /resource/sign_out
@@ -20,11 +20,9 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
-
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
+  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute, :first_name])
   # end
 end
 # rubocop:enable Style/ClassAndModuleChildren
