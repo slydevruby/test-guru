@@ -1,0 +1,11 @@
+<h1><%= question_header(@question) %></h1>
+<%= form_with model: [:admin, @question] do |form| %>
+  <%= render 'errors', object: @question %>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_field :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

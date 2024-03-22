@@ -1,0 +1,17 @@
+<h1>Test List</h1>
+<p>
+  <%= link_to 'New Test', new_admin_test_path %>
+</p>
+<table>
+  <tr>
+    <th>Test</th>
+    <th>Category</th>
+    <th>Level</th>
+    <th>Total questions</th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <%= render @tests %>
+</table>
+<br>

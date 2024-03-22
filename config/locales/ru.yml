@@ -26,11 +26,14 @@
 #     en:
 #       "yes": yup
 #       enabled: "ON"
-
 ru:
   hello: "Привет мир"
 
+  errors:
+    messages:
+      not_saved: 'Нельзя сохранить'
   helpers:
     submit:
       create: "Создать %{model}"
       update: "Обновить %{model}"
+

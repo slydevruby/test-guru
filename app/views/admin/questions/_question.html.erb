@@ -1,0 +1,7 @@
+<li>
+  <%= question.body %>
+  <br>
+  <%= link_to 'Show', admin_question_path(question) %> |
+  <%= link_to 'Edit', edit_admin_question_path(question) %> |
+  <%= link_to 'Удалить?', admin_question_path(question), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+</li>

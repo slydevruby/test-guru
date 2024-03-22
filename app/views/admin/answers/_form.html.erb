@@ -1,0 +1,20 @@
+<%= form_with model: [:admin, @question, @answer], data: { turbo: false } do |form| %>
+  <% if @answer.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@answer.errors.count, 'error') %> prohibited this answer from being saved:</h2>
+
+      <ul>
+        <% @answer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div>
+    <%= form.label :body %> <br>
+    <%= form.text_area :body, rows: 7, cols: 60 %> <br>
+    <%= form.label :correct %> <%= form.check_box :correct %> <br>
+    <%= form.submit %>
+  </div>
+<% end %>
