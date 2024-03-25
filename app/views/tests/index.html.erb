@@ -1,10 +1,10 @@
-Список тестов
+<h1><%= t('.header') %></h1>
 <table>
   <tr>
-    <th>Тест</th>
-    <th>Категория</th>
-    <th>Уровень</th>    
-    <th>Количество вопросов</th>
+    <th><%= Test.model_name.human %></th>
+    <th><%= Category.model_name.human %></th>
+    <th><%= t('.level') %></th>
+    <th><%= t('.total') %></th>
     <th>Прохождение</th>
   </tr>
   <%= render @tests %>

@@ -1,8 +1,8 @@
-<h1>New answer</h1>
+<h1><%= t('.new') %></h1>
 <p>
   for question: <%= @question.body %>
 </p>
 <%= render 'form', question: @question, answer: @answer %>
 <div>
-  <%= link_to 'Back', :back %> 
+  <%= link_to t('.back'), :back %> 
 </div>

@@ -1,7 +1,7 @@
 <%= form_with model: [:admin, @test], data: { turbo: false } do |form| %>
   <%= render 'errors', object: @test %>
   <div>
-    <%= form.label 'Категория' %>
+    <%= form.label :category %>
     <%= form.collection_select :category_id,
   Category.order(:title), :id, :title %>
   </div>

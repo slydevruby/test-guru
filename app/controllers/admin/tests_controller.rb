@@ -18,7 +18,7 @@ class Admin::TestsController < Admin::BaseController
   def create
     @test = current_user.created_tests.new(test_params)
     if @test.save
-      redirect_to admin_tests_path, notice: "Test #{@test.title} успешно создан"
+      redirect_to admin_tests_path, notice: t('.success', title: @test.title)
     else
       render :new, status: :unprocessable_entity
     end

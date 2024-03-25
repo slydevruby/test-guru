@@ -28,6 +28,47 @@
 #       enabled: "ON"
 ru:
   hello: "Привет мир"
+  
+
+  tests:
+    index:
+      header: 'Список тестов'
+      new: 'Новый тест'
+      show: 'Показать'
+      edit: 'Править'
+      delete: 'Удалить'
+      level: 'Уровень'
+      total: 'Вопросов'      
+    test:
+      start: 'Пройти'
+
+  admin:
+    tests:
+      index:
+        header: 'Список тестов'
+        new: 'Новый тест'
+        show: 'Показать'
+        edit: 'Править'
+        delete: 'Удалить'
+        level: 'Уровень'
+        total: 'Вопросов'
+      create:
+        success: "Тест %{title} успешно создан"
+      show:
+        new: 'Новый тест'
+        back_to_tests: "Назад к тестам"
+
+    questions:
+      index:
+        new: "Новый вопрос"
+    answers:
+      new:
+        back: 'Назад'
+        new: "Новый ответ"
+      answer:
+        edit: "Правка"
+        delete: "Удалить"
+
 
   errors:
     messages:
@@ -36,4 +77,8 @@ ru:
     submit:
       create: "Создать %{model}"
       update: "Обновить %{model}"
-
+    label:
+      test:
+        title: "Заголовок"
+        level: "Уровень"
+        category_id: "ID категории"  

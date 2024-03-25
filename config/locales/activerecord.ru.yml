@@ -1,4 +1,6 @@
 ru:
+
+
   activerecord:
     models:
       user: "Пользователь"
@@ -12,7 +14,12 @@ ru:
         name: 
           one: "Имя"
           other: "Имена"
+        first_name: "Имя"
+        last_name: "Фамилия"
+
         email: "Почта"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
       test:
         title: "Название"
         level: "Уровень"
