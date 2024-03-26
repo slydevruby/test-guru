@@ -35,7 +35,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   def destroy
     @question.destroy!
-    redirect_to admin_test_path(@question.test), notice: 'Question was successfully destroyed.'
+    redirect_to admin_test_path(@question.test), notice: t('.success_destroyed')
   end
 
   private
@@ -53,7 +53,7 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def rescue_with_question_not_found
-    redirect_to root_path, alert: 'Вопрос с таким id отсутствует'
+    redirect_to root_path, alert: t('.no_such_question') # 'Вопрос с таким id отсутствует'
   end
 end
 

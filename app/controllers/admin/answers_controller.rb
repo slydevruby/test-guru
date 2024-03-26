@@ -18,7 +18,7 @@ class Admin::AnswersController < Admin::BaseController
     @answer = @question.answers.new(answer_params)
 
     if @answer.save
-      redirect_to admin_answer_path(@answer), notice: 'Answer was successfully created.'
+      redirect_to admin_answer_path(@answer), notice: t('.success_created')
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Admin::AnswersController < Admin::BaseController
   # PATCH/PUT /answers/1 or /answers/1.json
   def update
     if @answer.update(answer_params)
-      redirect_to admin_answer_path(@answer), notice: 'Answer was successfully updated.'
+      redirect_to admin_answer_path(@answer), notice: t('.success_updated')
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class Admin::AnswersController < Admin::BaseController
   # DELETE /answers/1 or /answers/1.json
   def destroy
     @answer.destroy!
-    redirect_to admin_answer_path(@answer), notice: 'Answer was successfully destroyed.'
+    redirect_to admin_answer_path(@answer), notice: t('.success_destroyed')
   end
 
   private
