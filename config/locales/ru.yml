@@ -28,7 +28,34 @@
 #       enabled: "ON"
 ru:
   hello: "Привет мир"
+  back: 'Назад'
+  back_to_tests: 'К тестам'
+  welcome: "Привет, %{email}"
+  confirm_delete: 'Точно удалить?'
+  passed_test: 'Вы успешно прошли тест! Оценка %{result}%'
+  failed_test: 'Вы не сдали тест! Оценка %{result}%'
+  more_test: 'тесты'
+  signin: 'Войти'
+  signout: 'Выйти'
+  signup: 'Новый пользователь'
+  remember_me: 'Запомнить меня'
+
+  devise:
+    shared:
+      links:
+        signin: "Войти"
+        forgot_your_password: 'Забыли свой пароль?'
+        not_receive_instructions: "Не получили инструкции по подтверждению?"
+    registrations:
+      new:
+        signup: "Создать пользователя"
+
+
   
+  passages:
+    show:
+      out_of: 'из'
+      next: 'Следующий вопрос'
 
   tests:
     index:
@@ -44,6 +71,7 @@ ru:
 
   admin:
     tests:
+
       index:
         header: 'Список тестов'
         new: 'Новый тест'
@@ -57,16 +85,36 @@ ru:
       show:
         new: 'Новый тест'
         back_to_tests: "Назад к тестам"
+      test:
+        show: 'Показать'
+        edit: 'Править'
+        delete: 'Удалить'
 
     questions:
+      show:
+        new_answer: 'Новый ответ'
+        back_to_test: 'Назад к тесту'
+        edit: 'Править'
+      question:
+        show: 'Показать'
+        edit: 'Править'
+        delete: 'Удалить'
+
       index:
         new: "Новый вопрос"
     answers:
+      show:
+        back_to_question: 'Назад к вопросу'
+      edit:
+        back_to_question: 'Назад к вопросу'
+        editing_answer: "Редактировать ответ"
+      update:
+        success_updated: "Ответ успешно обновлен"
       new:
-        back: 'Назад'
+        back: 'Назад к вопросу'
         new: "Новый ответ"
       answer:
-        edit: "Правка"
+        edit: "Править"
         delete: "Удалить"
 
 
@@ -74,11 +122,20 @@ ru:
     messages:
       not_saved: 'Нельзя сохранить'
   helpers:
+    select:
+      prompt: "Please seафываt"    
     submit:
       create: "Создать %{model}"
       update: "Обновить %{model}"
+      show: "ffff"
     label:
       test:
         title: "Заголовок"
         level: "Уровень"
         category_id: "ID категории"  
+        category: "Категория"  
+
+  test_mailer:
+    completed_test:
+      subject: 'Вы завершили тест'
+

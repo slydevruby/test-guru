@@ -12,8 +12,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def after_sign_out_path_for(_resource)
+    new_user_session_path
+  end
+
   def default_url_options
-    { lang: I18n.locale }
+    { lang: I18n.locale == I18n.default_locale ? nil : I18n.default_locale }
   end
 
   private

@@ -1,8 +1,9 @@
-<h1>Editing answer</h1>
-<p>
-  for question: <%= @answer.question.body %>
-</p>
+
+<h1><%= @answer.question.body %></h1>
+
+<h2><%= t('.editing_answer') %></h2>
 <%= render 'form', answer: @answer %>
 <div>
-  <%= link_to 'Back to question ', @answer.question %> 
+  
+  <%= link_to t('.back_to_question'), admin_question_path(@answer.question) %>
 </div>
