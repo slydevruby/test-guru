@@ -50,6 +50,13 @@ ru:
       new:
         signup: "Создать пользователя"
 
+  application:
+    errors:
+      error:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
 
   
   passages:
@@ -65,7 +72,7 @@ ru:
       edit: 'Править'
       delete: 'Удалить'
       level: 'Уровень'
-      total: 'Вопросов'      
+      total: 'Вопросов'
     test:
       start: 'Пройти'
 
@@ -123,17 +130,17 @@ ru:
       not_saved: 'Нельзя сохранить'
   helpers:
     select:
-      prompt: "Please seафываt"    
+      prompt: "Выберите категорию"
     submit:
       create: "Создать %{model}"
       update: "Обновить %{model}"
-      show: "ffff"
+
     label:
       test:
         title: "Заголовок"
         level: "Уровень"
-        category_id: "ID категории"  
-        category: "Категория"  
+        category_id: "ID категории"
+        category: "Категория"
 
   test_mailer:
     completed_test:

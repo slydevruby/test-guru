@@ -51,7 +51,11 @@ en:
       new:
         signup: "Sign up"
 
-
+  application:
+    errors:
+      error:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
   
   passages:
     show:
@@ -66,7 +70,7 @@ en:
       edit: 'Edit'
       delete: 'Delete'
       level: 'Level'
-      total: 'Questions'      
+      total: 'Questions'
     test:
       start: 'Start'
 
@@ -124,7 +128,7 @@ en:
       not_saved: 'Failed to save'
   helpers:
     select:
-      prompt: "Please seафываt"    
+      prompt: "Select category"
     submit:
       create: "Create %{model}"
       update: "Update %{model}"
@@ -132,8 +136,8 @@ en:
       test:
         title: "Title"
         level: "Level"
-        category_id: "Category id"  
-        category: "Category"  
+        category_id: "Category id"
+        category: "Category"
 
   test_mailer:
     completed_test:

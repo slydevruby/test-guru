@@ -26,6 +26,7 @@ ru:
         level: "Уровень"
         category_id: "ID категории"
         author_id: "ID автора"
+        category: 'Категория'
 
       answer:
         body: "Ответ"

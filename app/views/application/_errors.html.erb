@@ -1,6 +1,6 @@
  <% if object&.errors.present? %>
   <div>
-    Errors detected
+    <%= t('.error', count: object.errors.size) %>
     <ul>
       <% object.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
