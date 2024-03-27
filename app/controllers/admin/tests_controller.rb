@@ -16,10 +16,9 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-    @test = Test.new(test_params)
-    @test.author = current_user
+    @test = current_user.created_tests.new(test_params)
     if @test.save
-      redirect_to admin_tests_path, notice: "Test #{@test.title} успешно создан"
+      redirect_to admin_tests_path, notice: t('.success', title: @test.title)
     else
       render :new, status: :unprocessable_entity
     end
@@ -53,7 +52,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def rescue_with_test_not_found
-    redirect_to root_path, alert: 'Тест с таким id отсутствует'
+    redirect_to root_path, alert: t('.no_such_test') # 'Тест с таким id отсутствует'
   end
 end
 # rubocop:enable Style/ClassAndModuleChildren

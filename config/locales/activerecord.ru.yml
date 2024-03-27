@@ -1,4 +1,6 @@
 ru:
+
+
   activerecord:
     models:
       user: "Пользователь"
@@ -6,18 +8,25 @@ ru:
       test: "Тест"
       question: "Вопрос"
       answer: "Ответ"
+      passage: 'Прохождение'
 
     attributes:
       user:
         name: 
           one: "Имя"
           other: "Имена"
+        first_name: "Имя"
+        last_name: "Фамилия"
+
         email: "Почта"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
       test:
         title: "Название"
         level: "Уровень"
         category_id: "ID категории"
         author_id: "ID автора"
+        category: 'Категория'
 
       answer:
         body: "Ответ"

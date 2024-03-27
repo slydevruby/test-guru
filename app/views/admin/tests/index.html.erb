@@ -1,17 +1,16 @@
-<h1>Test List</h1>
+<h1><%= t('.header') %></h1>
 <p>
-  <%= link_to 'New Test', new_admin_test_path %>
+  <%= link_to t('.new'), new_admin_test_path %>
 </p>
 <table>
   <tr>
-    <th>Test</th>
-    <th>Category</th>
-    <th>Level</th>
-    <th>Total questions</th>
-    <th>Show</th>
-    <th>Edit</th>
-    <th>Delete</th>
+    <th><%= Test.model_name.human %></th>
+    <th><%= Category.model_name.human %></th>
+    <th><%= t('.level') %></th>
+    <th><%= t('.total') %></th>
+    <th><%= t('.show') %></th>
+    <th><%= t('.edit') %></th>
+    <th><%= t('.delete') %></th>
   </tr>
   <%= render @tests %>
 </table>
-<br>

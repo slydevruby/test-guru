@@ -29,3 +29,116 @@
 
 en:
   hello: "Hello world"
+  back: 'Back'
+  back_to_tests: 'Back to tests'
+  welcome: "Hello, %{email}"
+  confirm_delete: 'Are you sure?'
+  passed_test: 'You have passed the test! Your grade is %{result}%'
+  failed_test: 'You have failed the test! Your grade is %{result}%'
+  more_test: 'tests'
+  signin: 'Sign in'
+  signout: 'Sign out'
+  signup: 'Sign up'
+  remember_me: 'Remember me'
+
+  devise:
+    shared:
+      links:
+        signin: "Sign in"
+        forgot_your_password: 'Forgot your password?'
+        not_receive_instructions: "Didn't receive confirmation instructions?"
+    registrations:
+      new:
+        signup: "Sign up"
+
+  application:
+    errors:
+      error:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+  
+  passages:
+    show:
+      out_of: 'out of'
+      next: 'Next question'
+
+  tests:
+    index:
+      header: 'Test list'
+      new: 'New test'
+      show: 'Show'
+      edit: 'Edit'
+      delete: 'Delete'
+      level: 'Level'
+      total: 'Questions'
+    test:
+      start: 'Start'
+
+  admin:
+    tests:
+
+      index:
+        header: 'Test list'
+        new: 'New test'
+        show: 'Show'
+        edit: 'Edit'
+        delete: 'Delete'
+        level: 'Level'
+        total: 'Total questions'
+      create:
+        success: "Test %{title} successfully created"
+      show:
+        new: 'New test'
+        back_to_tests: "Back to tests"
+      test:
+        show: 'Show'
+        edit: 'Edit'
+        delete: 'Delete'
+
+    questions:
+      show:
+        new_answer: 'New answer'
+        back_to_test: 'Back to test'
+        edit: 'Edit'
+      question:
+        show: 'Show'
+        edit: 'Edit'
+        delete: 'Delete'
+
+      index:
+        new: "New question"
+    answers:
+      show:
+        back_to_question: 'Back to question'
+      edit:
+        back_to_question: 'Back to question'
+        editing_answer: "Edit answer"
+      update:
+        success_updated: "Answer successfully updated"
+      new:
+        back: 'Back to question'
+        new: "New answer"
+      answer:
+        edit: "Edit"
+        delete: "Delete"
+
+
+  errors:
+    messages:
+      not_saved: 'Failed to save'
+  helpers:
+    select:
+      prompt: "Select category"
+    submit:
+      create: "Create %{model}"
+      update: "Update %{model}"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category id"
+        category: "Category"
+
+  test_mailer:
+    completed_test:
+      subject: 'You completed test'

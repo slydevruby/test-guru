@@ -1,10 +1,12 @@
 <h1><%= @passage.test.title %> Test complete</h1>
 <% if @passage.grade >= Passage::PASSAGE_MAX %>
   <p style="color: green">
-    You passed the test. Result is <%= @passage.grade %>%
+    <%= t('passed_test', result: @passage.grade) %>
   </p>
 <% else %>
   <p style="color: red">
-    You failed the test. Result is <%= @passage.grade %>%
+    <%= t('failed_test', result: @passage.grade) %>
   </p>
 <% end %>
+
+<%= link_to t('back_to_tests'), tests_path %>

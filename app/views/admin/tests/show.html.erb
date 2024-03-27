@@ -1,10 +1,10 @@
-<h1> Тест "<%= @test.title %>" </h1>
+<h1> <%= Test.model_name.human %> "<%= @test.title %>" </h1>
 <p>
   Уровень: <%= test_level(@test.level) %>
 </p>
-<%= link_to 'New question', new_admin_test_question_path(@test) %>
+<%= link_to t('.new'), new_admin_test_question_path(@test) %>
 <ol>
   <%= render partial: 'admin/questions/question', 
   collection: @test.questions %>
 </ol>
-<%= link_to 'Back to tests', admin_tests_path %>
+<%= link_to t('.back_to_tests'), admin_tests_path %>
