@@ -1,18 +1,20 @@
 <h1><%= @passage.test.title %></h1>
 <b>
-<p>
-  <%= Question.model_name.human %> #<%= @passage.current_no %> 
-  <%= t('.out_of') %>
-  <%= @passage.test.questions.count %> 
-</p>
+  <p>
+    <%= Question.model_name.human %> #<%= @passage.current_no %>
+    <%= t('.out_of') %>
+    <%= @passage.test.questions.count %>
+  </p>
   <%= @passage.current_question.body %>
 </b>
 <%= form_with url: passage_path(@passage), data: { turbo: false }, method: :put  do |form| %>
   <%= form.collection_check_boxes :answer_ids, @passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
-    <p>
-      <%= b.check_box id: "answers_ids_#{b.object.id}" %>
-      <%= b.label %>
-    </p>
+    <div class='form-check'>
+      
+        <%= b.check_box id: "answers_ids_#{b.object.id}", class: 'form-check-input' %>
+        <%= b.label class: 'form-check-label' %>
+      
+    </div>
   <% end %>
-  <p><%= form.submit t('.next') %></p>
+  <p><%= form.submit t('.next'), class: 'btn btn-primary' %></p>
 <% end %>

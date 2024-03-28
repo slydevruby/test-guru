@@ -2,15 +2,17 @@
 <p>
   <%= link_to t('.new'), new_admin_test_path %>
 </p>
-<table>
-  <tr>
-    <th><%= Test.model_name.human %></th>
-    <th><%= Category.model_name.human %></th>
-    <th><%= t('.level') %></th>
-    <th><%= t('.total') %></th>
-    <th><%= t('.show') %></th>
-    <th><%= t('.edit') %></th>
-    <th><%= t('.delete') %></th>
-  </tr>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><%= Test.model_name.human %></th>
+      <th><%= Category.model_name.human %></th>
+      <th><%= t('.level') %></th>
+      <th><%= t('.total') %></th>
+      <th><%= t('.show') %></th>
+      <th><%= t('.edit') %></th>
+      <th><%= t('.delete') %></th>
+    </tr>
+  </thead>
   <%= render @tests %>
 </table>
