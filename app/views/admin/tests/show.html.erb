@@ -1,10 +1,15 @@
-<h1> <%= Test.model_name.human %> "<%= @test.title %>" </h1>
-<p>
-  Уровень: <%= test_level(@test.level) %>
-</p>
-<%= link_to t('.new'), new_admin_test_question_path(@test) %>
-<ol>
-  <%= render partial: 'admin/questions/question', 
-  collection: @test.questions %>
-</ol>
-<%= link_to t('.back_to_tests'), admin_tests_path %>
+<div class="card my-3" style="width: 36rem;">
+  <div class="card-header">
+    <%= Test.model_name.human %> "<%= @test.title %>"
+  </div>
+  <div class="card-body">
+    <h6 class="card-subtitle mb-2 text-body-secondary">Уровень: <%= test_level(@test.level) %></h6>
+    <p class="card-text">
+      <ol>
+        <%= render partial: 'admin/questions/question', collection: @test.questions %>
+      </ol>
+    </p>
+  </div>
+</div>
+<%= link_to t('.new_question'), new_admin_test_question_path(@test), class: 'btn btn-primary' %>
+<%= link_to t('.back_to_tests'), admin_tests_path, class: 'btn btn-primary' %>

@@ -1,4 +1,7 @@
-<h1><%= @passage.test.title %> Test complete</h1>
+<h2>
+  <%= t('test_complete', test_title: @passage.test.title) %> 
+
+</h2>
 <% if @passage.grade >= Passage::PASSAGE_MAX %>
   <p style="color: green">
     <%= t('passed_test', result: @passage.grade) %>

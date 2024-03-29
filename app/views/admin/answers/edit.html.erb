@@ -1,9 +1,5 @@
-
-<h1><%= @answer.question.body %></h1>
-
-<h2><%= t('.editing_answer') %></h2>
+<div class="col">
+<h3><%= t('.editing_answer') %></h3>
 <%= render 'form', answer: @answer %>
-<div>
-  
-  <%= link_to t('.back_to_question'), admin_question_path(@answer.question) %>
+<%= link_to t('.back_to_question'), admin_question_path(@answer.question), class: 'btn btn-primary' %>
 </div>

@@ -1,20 +1,27 @@
-<%= form_with model: [:admin, @question, @answer], data: { turbo: false } do |form| %>
-  <% if @answer.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(@answer.errors.count, 'error') %> prohibited this answer from being saved:</h2>
+<div class="card my-3" style="width: 36rem;">
+  <%= form_with model: [:admin, @question, @answer], data: { turbo: false } do |form| %>
 
-      <ul>
-        <% @answer.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <div>
-    <%= form.label :body %> <br>
-    <%= form.text_area :body, rows: 7, cols: 60 %> <br>
-    <%= form.label :correct %> <%= form.check_box :correct %> <br>
-    <%= form.submit %>
+  <% if @answer.errors.any? %>
+  <div style="color: red">
+    <h2><%= pluralize(@answer.errors.count, 'error') %> prohibited this answer from being saved:</h2>
+    <ul>
+      <% @answer.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
   </div>
+  <% end %>
+
+
+  <div class="card-header">
+    <%= Question.model_name.human %>:
+    <%= @answer.question.body %></div>
+  <div class="card-body">
+    <%= form.label :body %> <br>
+    <%= form.text_area :body, class: 'form-control' %> <br>
+    <%= form.label :correct %> <%= form.check_box :correct %> <br>
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+</div>
 <% end %>
+</div>

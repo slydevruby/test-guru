@@ -1,3 +1,7 @@
-<h1><%= Answer.model_name.human %></h1>
+<div class="col">
+<h2><%= Answer.model_name.human %></h2>
 <%= render @answer %>
+
 <%= link_to t('.back_to_question'), admin_question_path(@answer.question) %>
+</div>
+

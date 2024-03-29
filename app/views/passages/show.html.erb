@@ -1,19 +1,28 @@
 <h1><%= @passage.test.title %></h1>
+
+  <div class="progress" role="progressbar" aria-label="Example 1px high" 
+  aria-valuenow="<%= pass_help %>" aria-valuemin="0" aria-valuemax="100" style="height: 1px">
+    <div class="progress-bar" style="width: 
+    <%= pass_help %>%"></div>
+  </div>
+
+
 <b>
   <p>
     <%= Question.model_name.human %> #<%= @passage.current_no %>
     <%= t('.out_of') %>
     <%= @passage.test.questions.count %>
   </p>
+
+
+
   <%= @passage.current_question.body %>
 </b>
 <%= form_with url: passage_path(@passage), data: { turbo: false }, method: :put  do |form| %>
   <%= form.collection_check_boxes :answer_ids, @passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
     <div class='form-check'>
-      
-        <%= b.check_box id: "answers_ids_#{b.object.id}", class: 'form-check-input' %>
-        <%= b.label class: 'form-check-label' %>
-      
+      <%= b.check_box id: "answers_ids_#{b.object.id}", class: 'form-check-input' %>
+      <%= b.label class: 'form-check-label' %>
     </div>
   <% end %>
   <p><%= form.submit t('.next'), class: 'btn btn-primary' %></p>
