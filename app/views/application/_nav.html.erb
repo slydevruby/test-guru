@@ -1,6 +1,15 @@
-<nav class="navbar navbar-light text-bg-primary">
+<nav class="navbar navbar-light bg-light shadow">
   <div class="container-fluid">
+
     <%= link_to 'TestGuru2', root_path, class: 'navbar-brand' %>
+
+    <div>
+  <% if current_user.is_a?(Admin) %>
+      <%= link_to t('admin_panel'), admin_tests_path, class: 'navbar-text' %>
+    <% end %>
+    </div>
+
+
     <span class="navbar-text">
       <% if user_signed_in? %>
         <b><%= t('welcome', email: current_user.email) %></b> |
@@ -10,5 +19,7 @@
         <%= link_to t('signup'), new_user_registration_path %>
       <% end %>
     </span>
+
+
   </div>
 </nav>

@@ -40,6 +40,7 @@ ru:
   signup: 'Новый пользователь'
   remember_me: 'Запомнить меня'
   test_complete: 'Вы прошли тест %{test_title}'
+  admin_panel: 'Панель администратора'
 
   devise:
     shared:
