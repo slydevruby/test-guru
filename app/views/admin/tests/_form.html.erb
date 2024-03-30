@@ -5,7 +5,7 @@
     <%= form.collection_select :category_id, Category.order(:title), :id, :title, { prompt: true} , { class: "form-select" } %>
   </div>
   <div class="mb-3">
-    <%= form.label :title, class: "form-label" %>
+    <%= form.label :title, class: 'form-label' %>
     <%= form.text_field :title, class: 'form-control' %>
   </div>
   <div class="mb-3">
