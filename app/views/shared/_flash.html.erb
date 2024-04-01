@@ -1,8 +1,0 @@
-<% flash.each do |key, msg| %>
-  <% if key == 'alert' %>
-    <%= content_tag :div, msg, class: 'alert alert-danger', role: 'alert' %>
-  <% else  %>
-    <%= content_tag :div, msg, class: 'alert alert-primary', role: 'alert' %>
-  <% end %>
-<% end %>
-
