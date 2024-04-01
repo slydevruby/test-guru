@@ -1,9 +1,9 @@
 <h1><%= @passage.test.title %></h1>
 
   <div class="progress" role="progressbar" aria-label="Example 1px high" 
-  aria-valuenow="<%= pass_help %>" aria-valuemin="0" aria-valuemax="100" style="height: 1px">
+  aria-valuenow="<%= @passage.progress_width %>" aria-valuemin="0" aria-valuemax="100" style="height: 1px">
     <div class="progress-bar" style="width: 
-    <%= pass_help %>%"></div>
+    <%= @passage.progress_width %>%"></div>
   </div>
 
 
