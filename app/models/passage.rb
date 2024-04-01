@@ -26,6 +26,10 @@ class Passage < ApplicationRecord
     100 * correct_questions / test.questions.count
   end
 
+  def pass_help
+    100.0 * @passage.current_no / @passage.test.questions.count
+  end
+
   private
 
   def assign_first_question
