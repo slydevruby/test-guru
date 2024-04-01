@@ -39,6 +39,8 @@ ru:
   signout: 'Выйти'
   signup: 'Новый пользователь'
   remember_me: 'Запомнить меня'
+  test_complete: 'Вы прошли тест %{test_title}'
+  admin_panel: 'Панель администратора'
 
   devise:
     shared:
@@ -87,10 +89,11 @@ ru:
         delete: 'Удалить'
         level: 'Уровень'
         total: 'Вопросов'
+        actions: 'Действия'
       create:
         success: "Тест %{title} успешно создан"
       show:
-        new: 'Новый тест'
+        new_question: 'Новый вопрос'
         back_to_tests: "Назад к тестам"
       test:
         show: 'Показать'
@@ -98,10 +101,21 @@ ru:
         delete: 'Удалить'
 
     questions:
+
+      form:
+        create_question: 'Создать вопрос для теста "%{test_title}"'
+        edit_question: 'Редактировать вопрос для теста "%{test_title}"'
+      destroy:
+        success_destroyed: 'Вопрос успешно удален'
       show:
         new_answer: 'Новый ответ'
         back_to_test: 'Назад к тесту'
         edit: 'Править'
+        answers:
+          one: "Ответ"
+          few: "Ответы"
+          many: "Ответы"
+          other: "Ответы"
       question:
         show: 'Показать'
         edit: 'Править'
@@ -117,6 +131,10 @@ ru:
         editing_answer: "Редактировать ответ"
       update:
         success_updated: "Ответ успешно обновлен"
+      create:
+        success_created: "Ответ успешно создан"
+      destroy:
+        success_destroyed: "Ответ успешно удален"
       new:
         back: 'Назад к вопросу'
         new: "Новый ответ"

@@ -26,6 +26,10 @@ class Passage < ApplicationRecord
     100 * correct_questions / test.questions.count
   end
 
+  def progress_width
+    100.0 * current_no / test.questions.count
+  end
+
   private
 
   def assign_first_question

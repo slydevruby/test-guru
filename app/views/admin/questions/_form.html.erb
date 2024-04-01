@@ -1,0 +1,10 @@
+<%= question_header(@question) %>
+<%= form_with model: model_x, data: { turbo: false } do |form| %>
+  <%= render 'errors', object: @question %>
+  <p>
+    <%= form.text_field :body %>
+  </p>
+  <p>
+    <%= form.submit class: 'btn btn-primary' %>
+  </p>
+<% end %>

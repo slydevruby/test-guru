@@ -1,20 +1,19 @@
 <%= form_with model: [:admin, @test], data: { turbo: false } do |form| %>
   <%= render 'errors', object: @test %>
-  <div>
-    <%= form.label :category %><br>
-    <%= form.collection_select :category_id,
-  Category.order(:title), :id, :title, prompt: true %>
+  <div class="mb-3">
+    <%= form.label :category, class: 'form-label' %>
+    <%= form.collection_select :category_id, Category.order(:title), :id, :title, { prompt: true }, { class: 'form-select' } %>
   </div>
-
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
+  <div class="mb-3">
+    <%= form.label :title, class: 'form-label' %>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
-  <div>
-    <%= form.label :level %><br>
-    <%= form.number_field :level, in: 1..10 %>
+  <div class="mb-3">
+    <%= form.label :level, class: 'form-label' %>
+    <%= form.number_field :level, in: 1..10, class: 'form-control' %>
   </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+    
+      <%= form.submit class: 'btn btn-primary' %>
+    
+  <% end %>
+</div>

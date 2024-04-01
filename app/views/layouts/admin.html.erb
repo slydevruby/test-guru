@@ -9,8 +9,10 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <%= render 'admin/nav' %>
-    <%= render 'shared/flash' %>
-    <%= yield %>
+    <%= render 'nav' %>
+    <div class="container">
+      <%= flash_messages %>
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,8 +1,7 @@
-<h1><%= t('.new') %></h1>
-<p>
-  for question: <%= @question.body %>
-</p>
+<div class="col">
+<h2><%= t('.new') %></h2>
+
 <%= render 'form', question: @question, answer: @answer %>
-<div>
-  <%= link_to t('.back'), :back %> 
+
+  <%= link_to t('.back'), :back, class: 'btn btn-primary' %> 
 </div>

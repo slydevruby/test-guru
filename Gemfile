@@ -4,6 +4,15 @@ source 'https://rubygems.org'
 
 ruby '3.2.2'
 
+# dartsass
+gem 'dartsass-sprockets'
+
+# Jquery
+gem 'jquery-rails'
+
+# bootstrap
+gem 'bootstrap', '~> 5.3.2'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.3'
 
@@ -74,3 +83,5 @@ group :test do
 end
 
 gem 'rubocop-erb', '~> 0.4.0'
+
+gem 'cssbundling-rails', '~> 1.4'
