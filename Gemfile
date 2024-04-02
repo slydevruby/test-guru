@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 
 ruby '3.2.2'
 
+# faraday
+gem 'faraday', '~>2.3'
+
 # dartsass
 gem 'dartsass-sprockets'
 
