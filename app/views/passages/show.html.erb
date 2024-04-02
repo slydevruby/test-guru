@@ -1,21 +1,15 @@
 <h1><%= @passage.test.title %></h1>
-
-  <div class="progress" role="progressbar" aria-label="Example 1px high" 
+<div class="progress" role="progressbar" aria-label="Example 1px high" 
   aria-valuenow="<%= @passage.progress_width %>" aria-valuemin="0" aria-valuemax="100" style="height: 1px">
-    <div class="progress-bar" style="width: 
+  <div class="progress-bar" style="width: 
     <%= @passage.progress_width %>%"></div>
-  </div>
-
-
+</div>
 <b>
   <p>
     <%= Question.model_name.human %> #<%= @passage.current_no %>
     <%= t('.out_of') %>
     <%= @passage.test.questions.count %>
   </p>
-
-
-
   <%= @passage.current_question.body %>
 </b>
 <%= form_with url: passage_path(@passage), data: { turbo: false }, method: :put  do |form| %>
@@ -25,5 +19,14 @@
       <%= b.label class: 'form-check-label' %>
     </div>
   <% end %>
-  <p><%= form.submit t('.next'), class: 'btn btn-primary' %></p>
+
+    <p> <%= form.submit t('.next'), class: 'btn btn-primary' %>
+      
+    </p>
+
 <% end %>
+
+    <%= form_with url: gist_passage_path(@passage), data: { turbo: false } do |inside| %>
+    <%= inside.submit t('.gist_question'), method: :post %>
+    <% end %>
+

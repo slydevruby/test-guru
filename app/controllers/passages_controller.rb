@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PassagesController < ApplicationController
-  before_action :set_test_passage, only: %i[show update result]
+  before_action :set_test_passage, only: %i[show update result gist]
 
   def show; end
 
@@ -16,6 +16,16 @@ class PassagesController < ApplicationController
     else
       render :show
     end
+  end
+
+  def gist
+    result = GistQuestionService.new(@passage.current_question).call
+    flash_options = if result.success?
+                      { notice: t('.success') }
+                    else
+                      { alert: t('.failure') }
+                    end
+    redirect_to @passage, flash_options
   end
 
   private

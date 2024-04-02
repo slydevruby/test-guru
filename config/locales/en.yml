@@ -61,6 +61,10 @@ en:
     show:
       out_of: 'out of'
       next: 'Next question'
+      gist_question: 'Create gist'
+    gist:
+      success: 'Gist successfully created'
+      failure: 'Gist cannot be created'      
 
   tests:
     index:

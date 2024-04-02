@@ -65,6 +65,10 @@ ru:
     show:
       out_of: 'из'
       next: 'Следующий вопрос'
+      gist_question: 'Создать gist'
+    gist:
+      success: 'Gist успешно создан'
+      failure: 'Gist создать не удалось'
 
   tests:
     index:

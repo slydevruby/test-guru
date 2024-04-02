@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class GistQuestionService
-  def initialize(question, client)
+  def initialize(question, client = GitHubClient.new)
     @question = question
     @test = @question.test
     @client = client
