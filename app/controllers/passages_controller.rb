@@ -19,9 +19,9 @@ class PassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@passage.current_question).call
-    flash_options = if result.success?
-                      { notice: t('.success') }
+    obj = GistQuestionService.new(@passage.current_question).call
+    flash_options = if obj
+                      { notice: t('.success_html', url: obj.html_url).html_safe }
                     else
                       { alert: t('.failure') }
                     end

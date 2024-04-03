@@ -67,7 +67,7 @@ ru:
       next: 'Следующий вопрос'
       gist_question: 'Создать gist'
     gist:
-      success: 'Gist успешно создан'
+      success_html: "Gist успешно создан <a href='%{url}'>jjj</a>"
       failure: 'Gist создать не удалось'
 
   tests:
