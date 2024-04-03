@@ -4,8 +4,7 @@ source 'https://rubygems.org'
 
 ruby '3.2.2'
 
-# faraday
-gem 'faraday', '~>2.3'
+gem 'octokit', '~> 5.0'
 
 # dartsass
 gem 'dartsass-sprockets'
