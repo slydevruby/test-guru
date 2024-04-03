@@ -66,6 +66,8 @@ group :development, :test do
   gem 'byebug', require: true
   gem 'debug', platforms: %i[mri mswin mswin64 mingw x64_mingw]
   gem 'letter_opener'
+  # Shim to load environments from .env into ENV in development
+  gem 'dotenv'
 end
 
 group :development do
