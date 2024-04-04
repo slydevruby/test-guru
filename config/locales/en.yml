@@ -40,6 +40,7 @@ en:
   signout: 'Sign out'
   signup: 'Sign up'
   remember_me: 'Remember me'
+  test_complete: 'You passed the %{test_title} test'
 
   devise:
     shared:
@@ -56,6 +57,9 @@ en:
       error:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+    nav:
+      admin_panel: 'Admin panel'
+      gist_panel: 'Gist list'
   
   passages:
     show:
@@ -63,7 +67,7 @@ en:
       next: 'Next question'
       gist_question: 'Create gist'
     gist:
-      success: 'Gist successfully created'
+      success_html: "<a href='%{url}' target='_blank' rel='nofollow noopener'>Gist</a> successfully created"
       failure: 'Gist cannot be created'      
 
   tests:

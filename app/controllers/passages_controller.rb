@@ -20,11 +20,14 @@ class PassagesController < ApplicationController
 
   def gist
     obj = GistQuestionService.new(@passage.current_question).call
-    flash_options = if obj
-                      { notice: t('.success_html', url: obj.html_url).html_safe }
-                    else
-                      { alert: t('.failure') }
-                    end
+    if obj
+      flash_options = { notice: t('.success_html', url: obj.html_url) }
+      current_user.gists.create!(question: @passage.current_question,
+                                 gist_url: obj.html_url)
+    else
+      flash_options = { alert: t('.failure') }
+    end
+
     redirect_to @passage, flash_options
   end
 
