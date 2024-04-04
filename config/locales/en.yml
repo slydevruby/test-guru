@@ -66,9 +66,6 @@ en:
       out_of: 'out of'
       next: 'Next question'
       gist_question: 'Create gist'
-    gist:
-      success_html: "<a href='%{url}' target='_blank' rel='nofollow noopener'>Gist</a> successfully created"
-      failure: 'Gist cannot be created'      
 
   tests:
     index:
@@ -129,7 +126,10 @@ en:
       answer:
         edit: "Edit"
         delete: "Delete"
-
+    gists:
+      create:
+        success_html: "<a href='%{url}' target='_blank' rel='nofollow noopener'>Gist</a> successfully created"
+        failure: 'Gist failed to create'
 
   errors:
     messages:
