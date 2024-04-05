@@ -11,11 +11,12 @@ class Admin::GistsController < Admin::BaseController
 
   def create
     passage = Passage.find(params[:id])
-    obj = GistQuestionService.new(passage.current_question).call
-    if obj
-      flash_options = { notice: t('.success_html', url: obj.html_url) }
+    gist_url, result = GistQuestionService.new(passage.current_question).call
+
+    if result
+      flash_options = { notice: t('.success_gist', url: gist_url) }
       current_user.gists.create!(question: passage.current_question,
-                                 gist_url: obj.html_url)
+                                 gist_url:)
     else
       flash_options = { alert: t('.failure') }
     end

@@ -128,7 +128,7 @@ en:
         delete: "Delete"
     gists:
       create:
-        success_html: "<a href='%{url}' target='_blank' rel='nofollow noopener'>Gist</a> successfully created"
+        success_gist: "<a href='%{url}' target='_blank' rel='nofollow noopener'>Gist</a> successfully created"
         failure: 'Gist failed to create'
 
   errors:
