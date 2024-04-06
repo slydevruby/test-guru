@@ -9,9 +9,9 @@ class GistQuestionService
 
   def call
     result = @client.create_gist(gist_params)
-    [result.html_url, @client.last_response.present?]
+    create_struct.new(@client, result)
   rescue StandardError
-    ['', false]
+    create_struct.new(@client, result)
   end
 
   private
@@ -29,6 +29,18 @@ class GistQuestionService
         'question.md' => { content: gist_content }
       }
     }
+  end
+
+  def create_struct
+    Struct.new(:client, :result) do
+      def success?
+        client.last_response.present?
+      end
+
+      def gist_url
+        result.html_url
+      end
+    end
   end
 
   def setup_http_client
