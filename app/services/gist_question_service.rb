@@ -8,10 +8,10 @@ class GistQuestionService
   end
 
   def call
-    result = @client.create_gist(gist_params)
-    create_struct.new(@client, result)
+    @result = @client.create_gist(gist_params)
+    return_struct
   rescue StandardError
-    create_struct.new(@client, result)
+    return_struct
   end
 
   private
@@ -31,15 +31,10 @@ class GistQuestionService
     }
   end
 
-  def create_struct
-    Struct.new(:client, :result) do
-      def success?
-        client.last_response.present?
-      end
-
-      def gist_url
-        result.html_url
-      end
+  def return_struct
+    Struct.new(:success?, :gist_url).new.tap do |st|
+      st['success?'] = @client.last_response.present?
+      st.gist_url = @result.html_url
     end
   end
 
