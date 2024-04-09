@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class PassagesController < ApplicationController
-  before_action :set_test_passage, only: %i[show update result]
+  before_action :set_test_passage
 
   def show; end
 

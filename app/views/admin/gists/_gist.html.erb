@@ -1,0 +1,6 @@
+<tr>
+  <td><%= link_to gist.question.body[0, 25], admin_question_url(gist.question)  %></td>
+  <td><%= link_to gist.gist_url, gist.gist_url,
+    target: :blank, rel: %w[nofollow noopener] %></td>
+  <td><%= gist.user.email %></td>
+</tr>

@@ -40,6 +40,7 @@ en:
   signout: 'Sign out'
   signup: 'Sign up'
   remember_me: 'Remember me'
+  test_complete: 'You passed the %{test_title} test'
 
   devise:
     shared:
@@ -56,11 +57,15 @@ en:
       error:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+    nav:
+      admin_panel: 'Admin panel'
+      gist_panel: 'Gist list'
   
   passages:
     show:
       out_of: 'out of'
       next: 'Next question'
+      gist_question: 'Create gist'
 
   tests:
     index:
@@ -121,7 +126,10 @@ en:
       answer:
         edit: "Edit"
         delete: "Delete"
-
+    gists:
+      create:
+        success_gist: "<a href='%{url}' target='_blank' rel='nofollow noopener'>Gist</a> successfully created"
+        failure: 'Gist failed to create'
 
   errors:
     messages:

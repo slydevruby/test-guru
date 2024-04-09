@@ -40,7 +40,6 @@ ru:
   signup: 'Новый пользователь'
   remember_me: 'Запомнить меня'
   test_complete: 'Вы прошли тест %{test_title}'
-  admin_panel: 'Панель администратора'
 
   devise:
     shared:
@@ -59,12 +58,17 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
+    nav:
+      admin_panel: 'Панель администратора'
+      gist_panel: 'Список gist'
+
 
   
   passages:
     show:
       out_of: 'из'
       next: 'Следующий вопрос'
+      gist_question: 'Создать gist'
 
   tests:
     index:
@@ -141,6 +145,11 @@ ru:
       answer:
         edit: "Править"
         delete: "Удалить"
+    gists:
+      create:
+        success_gist: "<a href='%{url}' target='_blank' rel='nofollow noopener'>Gist</a> успешно создан"
+        failure: 'Gist создать не удалось'
+
 
 
   errors:

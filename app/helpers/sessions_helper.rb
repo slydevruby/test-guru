@@ -16,7 +16,7 @@ module SessionsHelper
   def flash_messages
     collect = ''
     flash.each do |type, msg|
-      collect += content_tag :p, msg, class: "alert #{flash_class(type)}", role: 'alert'
+      collect += content_tag :div, msg.html_safe, class: "alert #{flash_class(type)}", role: 'alert'
     end
     render html: collect.html_safe unless collect.empty?
   end
