@@ -6,6 +6,8 @@ ruby '3.2.2'
 
 gem 'octokit', '~> 5.0'
 
+gem 'octicons_helper', '~> 17.7'
+
 # dartsass
 gem 'dartsass-sprockets'
 
