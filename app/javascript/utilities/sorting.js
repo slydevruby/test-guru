@@ -1,5 +1,8 @@
-let control = document.querySelector('.sort-by-title')
-if (control) control.addEventListener('click', sortRowsByTitle)
+document.addEventListener("turbo:load", function() {
+  let control = document.querySelector('.sort-by-title')
+  if (control) control.addEventListener('click', sortRowsByTitle)
+
+ })
 
 function compareRowsAsc(row1, row2) {
   let title1 = row1.querySelector('td').textContent

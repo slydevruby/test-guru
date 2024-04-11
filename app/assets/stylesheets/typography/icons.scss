@@ -3,3 +3,16 @@
   vertical-align: text-top;
   fill: currentColor;
 }
+
+.confirmation {
+  display: inline-block;
+  vertical-align: text-top;
+}
+
+.valid {
+  fill: green;
+}
+
+.invalid {
+  fill: red;
+}
