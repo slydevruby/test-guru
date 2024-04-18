@@ -3,6 +3,7 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "utilities/sorting"
 import "utilities/confirmation"
+import "utilities/form_inline"
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
