@@ -1,15 +1,15 @@
 <tr>
-  <td>
+  <td class="align-middle">
     <%= test.title %>
-    <%= render 'form_inline', test: %>
+    <%= render 'form_inline', test: test == @test ? @test : test %>
   </td>
-  <td><%= test.category.title %></td>
-  <td><%= test_level(test.level) %></td>
-  <td><%= test.questions.count %></td>
-  <td><%= link_to t('.show'), admin_test_path(test), class: 'btn btn-primary' %></td>
-  <td><%= link_to t('.edit'), edit_admin_test_path(test), class: 'btn btn-primary' %>
+  <td class="align-middle"><%= test.category.title %></td>
+  <td class="align-middle"><%= test_level(test.level) %></td>
+  <td class="align-middle"><%= test.questions.count %></td>
+  <td class="align-middle"><%= link_to t('.show'), admin_test_path(test), class: 'btn btn-primary' %></td>
+  <td class="align-middle"><%= link_to t('.edit'), edit_admin_test_path(test), class: 'btn btn-primary' %>
   </td>
-  <td>
+  <td class="align-middle">
     <%= link_to t('.delete'), admin_test_path(test), 
     class: 'btn btn-danger', data: {
                     turbo_method: :delete,

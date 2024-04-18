@@ -1,4 +1,4 @@
- <% if object&.errors.present? %>
+ <% if object.present? && object.errors.any? %>
   <div>
     <%= t('.error', count: object.errors.size) %>
     <ul>

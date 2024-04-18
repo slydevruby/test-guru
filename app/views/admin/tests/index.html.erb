@@ -2,6 +2,9 @@
 <p>
   <%= link_to t('.new'), new_admin_test_path, class: 'btn btn-primary' %>
 </p>
+
+<%= render 'errors', object: @test %>
+
 <table class="table">
   <thead>
     <tr>
