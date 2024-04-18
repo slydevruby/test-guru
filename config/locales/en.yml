@@ -94,11 +94,14 @@ en:
         success: "Test %{title} successfully created"
       show:
         new: 'New test'
+        no_such_test: 'No such test'
         back_to_tests: "Back to tests"
       test:
         show: 'Show'
         edit: 'Edit'
         delete: 'Delete'
+      form_inline:
+        submit: "ОК"
 
     questions:
       show:
