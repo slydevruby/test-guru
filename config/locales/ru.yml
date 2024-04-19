@@ -103,6 +103,7 @@ ru:
       test:
         show: 'Показать'
         edit: 'Править'
+        edit_inline: 'Править по месту'
         delete: 'Удалить'
       form_inline:
         submit: "ОК"

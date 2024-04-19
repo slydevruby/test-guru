@@ -99,6 +99,7 @@ en:
       test:
         show: 'Show'
         edit: 'Edit'
+        edit_inline: 'Edit inline'
         delete: 'Delete'
       form_inline:
         submit: "ОК"
