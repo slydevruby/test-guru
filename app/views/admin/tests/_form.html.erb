@@ -1,5 +1,5 @@
 <%= form_with model: [:admin, @test], data: { turbo: false } do |form| %>
-  <%= render 'errors', object: @test %>
+  <%= render 'errors', resource: @test %>
   <div class="mb-3">
     <%= form.label :category, class: 'form-label' %>
     <%= form.collection_select :category_id, Category.order(:title), :id, :title, { prompt: true }, { class: 'form-select' } %>

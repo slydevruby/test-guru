@@ -1,6 +1,6 @@
 <%= question_header(@question) %>
 <%= form_with model: model_x, data: { turbo: false } do |form| %>
-  <%= render 'errors', object: @question %>
+  <%= render 'errors', resource: @question %>
   <p>
     <%= form.text_field :body %>
   </p>
