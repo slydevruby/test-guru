@@ -11,3 +11,5 @@ pin 'bootstrap', to: 'bootstrap.min.js', preload: true
 pin '@popperjs/core', to: 'popper.js', preload: true
 pin 'utilities/sorting'
 pin 'utilities/confirmation'
+pin 'utilities/form_inline'
+pin 'utilities/progress'

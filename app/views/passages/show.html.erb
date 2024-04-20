@@ -1,8 +1,9 @@
 <h1><%= @passage.test.title %></h1>
 <div class="progress" role="progressbar" aria-label="Example 1px high" 
-  aria-valuenow="<%= @passage.progress_width %>" aria-valuemin="0" aria-valuemax="100" style="height: 1px">
-  <div class="progress-bar" style="width: 
-    <%= @passage.progress_width %>%"></div>
+  aria-valuemin="0" aria-valuemax="100" style="height: 1px">
+  <%= content_tag :div, '', class: 'progress-bar',
+    data: { question_no: @passage.current_no,
+    question_total: @passage.test.questions.count } %>
 </div>
 <b>
   <p>
@@ -19,14 +20,9 @@
       <%= b.label class: 'form-check-label' %>
     </div>
   <% end %>
-
-    <p> <%= form.submit t('.next'), class: 'btn btn-primary' %>
-      
-    </p>
-
+  <p> <%= form.submit t('.next'), class: 'btn btn-primary' %>
+  </p>
 <% end %>
-
-    <%= form_with url: gist_passage_path(@passage), data: { turbo: false } do |inside| %>
-    <%= inside.submit t('.gist_question'), method: :post %>
-    <% end %>
-
+<%= form_with url: gist_passage_path(@passage), data: { turbo: false } do |inside| %>
+  <%= inside.submit t('.gist_question'), method: :post %>
+<% end %>

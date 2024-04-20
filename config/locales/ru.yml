@@ -98,11 +98,15 @@ ru:
         success: "Тест %{title} успешно создан"
       show:
         new_question: 'Новый вопрос'
+        no_such_test: 'Нет такого теста'
         back_to_tests: "Назад к тестам"
       test:
         show: 'Показать'
         edit: 'Править'
+        edit_inline: 'Править по месту'
         delete: 'Удалить'
+      form_inline:
+        submit: "ОК"
 
     questions:
 
