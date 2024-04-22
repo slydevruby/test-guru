@@ -91,7 +91,7 @@ postgres=# \du
 ************************
 
 
-
+```
 user@ubuntu22:~/test-guru$ rails db:create
 To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
 PG::InvalidParameterValue: ERROR:  encoding "UTF8" does not match locale "en_US"
@@ -100,3 +100,4 @@ Couldn't create 'guru_development' database. Please check your configuration.
 bin/rails aborted!
 ActiveRecord::StatementInvalid: PG::InvalidParameterValue: ERROR:  encoding "UTF8" does not match locale "en_US" (ActiveRecord::StatementInvalid)
 DETAIL:  The chosen LC_CTYPE setting requires encoding "LATIN1".
+```
