@@ -8,7 +8,7 @@ Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
 ```
 
 # Решение
-user@ubuntu22:~/test-guru$ sudo apt install libpq-dev
+`user@ubuntu22:~/test-guru$ sudo apt install libpq-dev`
 ************************
 
 # Ошибка: не запущен сервер
@@ -24,8 +24,10 @@ user@ubuntu22:~/test-guru$ sudo apt install libpq-dev
 ```
 
 # Решение: установить postgresql и запустить его
+```
 sudo apt install postgresql postgresql-contrib
 sudo systemctl start postgresql.service
+```
 ************************
 
 # Ошибка: нет пользователя 'user'
@@ -35,8 +37,10 @@ sudo systemctl start postgresql.service
 /home/user/.rvm/gems/ruby-3.2.2/gems/pg-1.5.6/lib/pg/connection.rb:701:in ``async_connect_or_reset': connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  role "user" does not exist (PG::ConnectionBad)
 ```
 # Решение: создать пользователя
+```
 user@ubuntu22:~/test-guru$ sudo -i -u postgres
 postgres@ubuntu22:~$ createuser user
+```
 ************************
 
 # Ошибка в консоли при вызове ActiveRecord::Base.connection.class
@@ -54,7 +58,7 @@ To resolve this error:
 ```
 # Решение
 
-rails db:create
+`rails db:create`
 ************************
 
 # Ошибка при создании базы данных текущим пользователем (это user у меня)
@@ -114,16 +118,6 @@ DETAIL:  The chosen LC_CTYPE setting requires encoding "LATIN1".
 ```
 
 
-psql
-
-update pg_database set datistemplate=false where datname='template1';
-drop database Template1;
-create database template1 with owner=postgres encoding='UTF-8'
-
-  lc_collate='en_US.utf8' lc_ctype='en_US.utf8' template template0;
-
-update pg_database set datistemplate=true where datname='template1';
-
 # Решение здесь
 
 https://stackoverflow.com/questions/13115692/encoding-utf8-does-not-match-locale-en-us-the-chosen-lc-ctype-setting-requires
@@ -159,8 +153,9 @@ update pg_database set datistemplate=true where datname='template1';
 
 Сам по себе файл с переменными не помог, проблема прежняя, только после смены таблицы заработало
 и таблицы созданы
-
+```
 user@ubuntu22:~/test-guru$ rails db:create
 To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
 Created database 'guru_development'
 Created database 'guru_test'
+```
