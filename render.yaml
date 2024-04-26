@@ -1,6 +1,6 @@
 databases:
   - name: mysite
-    databaseName: mysite
+    databaseName: postgres://mysite:DUMnrmiug2teG2Za5U66W4Hkcgymj6Xp@dpg-colpeua1hbls7393nqg0-a/mysite_1n46
     user: mysite
     plan: free
 
