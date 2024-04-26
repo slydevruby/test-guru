@@ -137,6 +137,8 @@ GEM
       faraday-net_http (>= 2.0, < 3.2)
     faraday-net_http (3.1.0)
       net-http
+    faraday-retry (2.2.1)
+      faraday (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     google-protobuf (4.26.1)
@@ -379,6 +381,7 @@ DEPENDENCIES
   debug
   devise (~> 4.9)
   dotenv
+  faraday-retry
   htmlbeautifier
   importmap-rails
   jbuilder
