@@ -1,6 +1,6 @@
 databases:
   - name: mysite
-    databaseName: guru_development
+    databaseName: mysite
     user: mysite
     plan: free
 
