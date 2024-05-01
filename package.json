@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "yarn build:css:compile && yarn build:css:prefix",
+    "build:css": "yarn build:css:compile && yarn build:css:prefix"
   },
   "author": "",
   "license": "ISC"
