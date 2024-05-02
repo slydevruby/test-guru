@@ -91,4 +91,4 @@ end
 
 gem 'rubocop-erb', '~> 0.4.0'
 
-gem 'cssbundling-rails', '~> 1.4'
+# gem 'cssbundling-rails', '~> 1.4'
