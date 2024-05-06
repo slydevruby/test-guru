@@ -76,14 +76,6 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { host: 'https://mysite-3qfn.onrender.com' }
   config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   address: Rails.application.credentials.smtp_settings.address,
-  #   port: Rails.application.credentials.smtp_settings.port,
-  #   user_name: Rails.application.credentials.smtp_settings.user_name,
-  #   password: Rails.application.credentials.smtp_settings.password,
-  #   authentication: Rails.application.credentials.smtp_settings.authentication,
-  #   enable_starttls_auto: Rails.application.credentials.smtp_settings.enable_starttls_auto
-  # }
   config.action_mailer.smtp_settings = Rails.application.credentials.smtp_settings
 
   # Ignore bad email addresses and do not raise email delivery errors.
