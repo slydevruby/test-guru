@@ -84,6 +84,8 @@ ru:
       total: 'Вопросов'
     test:
       start: 'Пройти'
+  feedbacks:
+    submit: 'Отправить'
 
   admin:
     tests:
@@ -156,7 +158,6 @@ ru:
       create:
         success_gist: "<a href='%{url}' target='_blank' rel='nofollow noopener'>Gist</a> успешно создан"
         failure: 'Gist создать не удалось'
-
 
 
   errors:

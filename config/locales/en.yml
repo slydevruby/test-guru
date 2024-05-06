@@ -82,6 +82,9 @@ en:
       total: 'Questions'
     test:
       start: 'Start'
+  feedbacks:
+    submit: 'Submit feedback'
+
 
   admin:
     tests:

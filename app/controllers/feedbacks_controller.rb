@@ -6,7 +6,7 @@ class FeedbacksController < ApplicationController
     if @feedback.save
       redirect_to root_path, notice: t('feedback_saved')
     else
-      redirect_to root_path, notice: t('feedback_not_saved')
+      render :new
     end
   end
 
