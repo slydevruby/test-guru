@@ -7,4 +7,8 @@ class TestsMailer < ApplicationMailer
 
     mail to: @user.email
   end
+
+  def send_feedback(email)
+    mail to: email
+  end
 end
