@@ -77,12 +77,12 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'https://mysite-3qfn.onrender.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    user_name: 'testgguru',
-    password: 'DtnET49ywTbQr3GCxmQ3',
-    authentication: 'plain',
-    enable_starttls_auto: true 
+    address: Rails.application.credentials.smtp_settings.address,
+    port: Rails.application.credentials.smtp_settings.port,
+    user_name: Rails.application.credentials.smtp_settings.user_name,
+    password: Rails.application.credentials.smtp_settings.password,
+    authentication: Rails.application.credentials.smtp_settings.authentication,
+    enable_starttls_auto: Rails.application.credentials.smtp_settings.enable_starttls_auto
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
