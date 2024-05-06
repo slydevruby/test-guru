@@ -40,6 +40,9 @@ ru:
   signup: 'Новый пользователь'
   remember_me: 'Запомнить меня'
   test_complete: 'Вы прошли тест %{test_title}'
+  feedback_link: 'Обратная связь'
+  feedback_saved: 'Ваш запрос отправлен'
+  feedback_not_saved: 'Ваш запрос не может быть отправлен'
 
   devise:
     shared:
