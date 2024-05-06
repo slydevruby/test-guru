@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_03_134952) do
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
     t.boolean "correct", null: false
-    t.integer "question_id", null: false
+    t.bigint "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
@@ -31,8 +31,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_03_134952) do
 
   create_table "gists", force: :cascade do |t|
     t.string "gist_url"
-    t.integer "question_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "question_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_gists_on_question_id"
@@ -40,12 +40,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_03_134952) do
   end
 
   create_table "passages", force: :cascade do |t|
-    t.integer "test_id", null: false
-    t.integer "user_id", null: false
+    t.bigint "test_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "correct_questions", default: 0
-    t.integer "current_question_id"
+    t.bigint "current_question_id"
     t.index ["current_question_id"], name: "index_passages_on_current_question_id"
     t.index ["test_id"], name: "index_passages_on_test_id"
     t.index ["user_id"], name: "index_passages_on_user_id"
@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_03_134952) do
 
   create_table "questions", force: :cascade do |t|
     t.string "body", null: false
-    t.integer "test_id", null: false
+    t.bigint "test_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["test_id"], name: "index_questions_on_test_id"
@@ -62,8 +62,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_03_134952) do
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
     t.integer "level", default: 1, null: false
-    t.integer "category_id", null: false
-    t.integer "author_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_tests_on_author_id"
@@ -92,6 +92,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_03_134952) do
     t.string "last_name"
     t.string "type", default: "User", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
