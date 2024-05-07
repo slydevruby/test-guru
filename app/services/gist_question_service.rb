@@ -39,6 +39,6 @@ class GistQuestionService
   end
 
   def setup_http_client
-    Octokit::Client.new(access_token: ENV.fetch('GIT_TOKEN', nil))
+    Octokit::Client.new(access_token: Rails.application.credentials.git_token)
   end
 end
