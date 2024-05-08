@@ -1,28 +1,38 @@
 
 document.addEventListener("turbo:load", function() {
+  let password = document.getElementById('user_password')
   let confirmation = document.getElementById('user_password_confirmation')
-  if (confirmation)  {
-    confirmation.addEventListener('input', check_confirmation, false)
+  if (password && confirmation)  {
+    password.addEventListener('input', inputHandler, false)
+    confirmation.addEventListener('input', inputHandler, false)
   }
  }, false)
 
-function check_confirmation(event){
-  event.preventDefault();
+function toggleImages(imageOk, imageFail, flag) {
+  imageOk.classList.toggle('hide', !flag)
+  imageFail.classList.toggle('hide', flag)  
+}
 
-  let password = document.getElementById('user_password')
-  let confirm_ok = document.querySelector('.octicon-shield-check')
-  let confirm_fail  = document.querySelector('.octicon-shield')
-  if (event.target.value == 0) {
-    confirm_ok.classList.add('hide')
-    confirm_fail.classList.add('hide')
+function hideImages(imageOk, imageFail) {
+  imageOk.classList.add('hide')
+  imageFail.classList.add('hide')  
+}
+
+function checkConfirmation(password, confirmation) {
+  let imageOk = document.querySelector('.octicon-shield-check')
+  let imageFail  = document.querySelector('.octicon-shield')
+  if (confirmation.value === 0 || password.value === 0) {
+    hideImages(imageOk, imageFail)
     return
   }
+  toggleImages(imageOk, imageFail, confirmation.value === password.value)
+}
 
-  if (event.target.value == password.value) {
-    confirm_ok.classList.toggle('hide', false)
-    confirm_fail.classList.toggle('hide', true)
-  } else {
-    confirm_ok.classList.toggle('hide', true)
-    confirm_fail.classList.toggle('hide', false)
-  }
+function inputHandler(event) {
+  event.preventDefault();
+  
+  checkConfirmation(
+    document.getElementById('user_password'),
+    document.getElementById('user_password_confirmation')
+    )
 }
