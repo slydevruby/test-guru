@@ -11,4 +11,4 @@ bundle exec rails db:migrate
 # bundle exec rails runner "Category.destroy_all"
 # bundle exec rails runner "frontend, backend = Category.find_or_create_by!([{ title: 'Frontend' }, { title: 'Backend' }])"
 
-bundle exec rails runner renderPrep.rb
+bundle exec rails runner ./renderPrep.rb
