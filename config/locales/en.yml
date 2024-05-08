@@ -41,6 +41,10 @@ en:
   signup: 'Sign up'
   remember_me: 'Remember me'
   test_complete: 'You passed the %{test_title} test'
+  feedback_link: 'Send feedback'
+  feedback_saved: 'Your request have been sent'
+  feedback_not_saved: 'Your request cannot be sent'
+
 
   devise:
     shared:
@@ -78,6 +82,9 @@ en:
       total: 'Questions'
     test:
       start: 'Start'
+  feedbacks:
+    submit: 'Submit feedback'
+
 
   admin:
     tests:

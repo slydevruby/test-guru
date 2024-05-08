@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 
 ruby '3.2.2'
 
+gem 'faraday-retry'
+
 gem 'octokit', '~> 5.0'
 
 gem 'octicons_helper', '~> 17.7'
@@ -23,8 +25,7 @@ gem 'rails', '~> 7.1.3'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+gem 'pg'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '>= 5.0'
@@ -67,8 +68,6 @@ group :development, :test do
   gem 'byebug', require: true
   gem 'debug', platforms: %i[mri mswin mswin64 mingw x64_mingw]
   gem 'letter_opener'
-  # Shim to load environments from .env into ENV in development
-  gem 'dotenv'
 end
 
 group :development do
@@ -90,4 +89,4 @@ end
 
 gem 'rubocop-erb', '~> 0.4.0'
 
-gem 'cssbundling-rails', '~> 1.4'
+# gem 'cssbundling-rails', '~> 1.4'

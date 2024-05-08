@@ -9,6 +9,7 @@ ru:
       question: "Вопрос"
       answer: "Ответ"
       passage: 'Прохождение'
+      feedback: 'Обратная связь'
 
     attributes:
       user:
@@ -35,6 +36,9 @@ ru:
 
       category:
         title: "Название"
+      feedback:
+        email: 'Электронная почта'
+        body: 'Запрос'
 
       question:
         body: "Вопрос"

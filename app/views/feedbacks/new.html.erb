@@ -1,0 +1,15 @@
+<%= form_with model: @feedback, data: { turbo: false } do |form| %>
+  <%= render 'errors', resource: @feedback %>
+  <div class="mb-3">
+    <%= form.label :email, class: 'form-label' %>
+    <%= form.email_field :email, class: 'form-control' %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :body, class: 'form-label' %>
+    <%= form.text_area :body, class: 'form-control' %>
+  </div>
+    
+      <%= form.submit t('feedbacks.submit'), class: 'btn btn-primary' %>
+    
+  <% end %>
+</div>

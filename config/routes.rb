@@ -3,6 +3,9 @@
 Rails.application.routes.draw do
   root 'tests#index'
 
+  get :feedbacks, 'feedbacks/new'
+  post :feedbacks, 'feedbacks/create'
+
   devise_for :users, controllers: { sessions: 'users/sessions' }
 
   resources :tests, only: :index, shallow: true do

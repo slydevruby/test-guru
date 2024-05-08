@@ -40,6 +40,9 @@ ru:
   signup: 'Новый пользователь'
   remember_me: 'Запомнить меня'
   test_complete: 'Вы прошли тест %{test_title}'
+  feedback_link: 'Обратная связь'
+  feedback_saved: 'Ваш запрос отправлен'
+  feedback_not_saved: 'Ваш запрос не может быть отправлен'
 
   devise:
     shared:
@@ -81,6 +84,8 @@ ru:
       total: 'Вопросов'
     test:
       start: 'Пройти'
+  feedbacks:
+    submit: 'Отправить'
 
   admin:
     tests:
@@ -153,7 +158,6 @@ ru:
       create:
         success_gist: "<a href='%{url}' target='_blank' rel='nofollow noopener'>Gist</a> успешно создан"
         failure: 'Gist создать не удалось'
-
 
 
   errors:
