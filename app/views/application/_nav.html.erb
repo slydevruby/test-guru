@@ -3,9 +3,10 @@
     <%= link_to 'TestGuru2', root_path, class: 'navbar-brand' %>
     <div>
       <% if current_user.is_a?(Admin) %>
-        <%= link_to t('.admin_panel'), admin_tests_path, class: 'navbar-text' %> | 
-        <%= link_to t('.gist_panel'), admin_gists_path, class: 'navbar-text' %> | 
+        <%= link_to t('.tests_panel'), admin_tests_path, class: 'navbar-text' %> | 
         <%= link_to t('.users_panel'), admin_users_path, class: 'navbar-text' %> | 
+        <%= link_to t('.categories_panel'), admin_categories_path, class: 'navbar-text' %> |
+        <%= link_to t('.gist_panel'), admin_gists_path, class: 'navbar-text' %> 
       <% end %>
     </div>
     <span class="navbar-text">

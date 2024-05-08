@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
+
 Rails.application.routes.draw do
   root 'tests#index'
 
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :categories
     resources :users, only: %i[index destroy]
     resources :gists, only: :index
     resources :tests, shallow: true do
@@ -32,3 +35,5 @@ Rails.application.routes.draw do
     end
   end
 end
+
+# rubocop:enable Metrics/BlockLength

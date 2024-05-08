@@ -1,0 +1,13 @@
+<tr>
+  <td><%= category.title %></td>
+  <td><%= category_helper(category.title) %></td>
+  <td><%= link_to t('.show'), admin_category_path(category),
+  class: 'btn btn-primary' %> </td>
+  <td>
+    <%= link_to t('.edit'), edit_admin_category_path(category),
+  class: 'btn btn-primary' %> </td>    
+  </td>
+  <td>
+    <%= link_to t('.delete'), admin_category_path(category), class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: t('confirm_delete') } %>
+  </td>
+</tr>

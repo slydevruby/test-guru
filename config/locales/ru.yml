@@ -62,9 +62,10 @@ ru:
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
     nav:
-      admin_panel: 'Панель администратора'
-      gist_panel: 'Список gist'
-      users_panel: 'Список пользователей'
+      tests_panel: 'Тесты'
+      gist_panel: 'Gists'
+      users_panel: 'Пользователи'
+      categories_panel: 'Категории'
 
 
   
@@ -89,6 +90,22 @@ ru:
     submit: 'Отправить'
 
   admin:
+    categories:
+      index:
+        title: 'Название'
+        tests_count: 'Количество тестов'
+        new: 'Новая категория'
+        categories_title: 'Категории'
+      new:
+        submit: 'Создать'
+      form:
+        submit: 'Сохранить'
+
+      category:
+        show: 'Показать'
+        edit: 'Править'
+        delete: 'Удалить'
+
     tests:
 
       index:

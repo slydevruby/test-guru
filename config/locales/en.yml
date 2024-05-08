@@ -62,9 +62,10 @@ en:
         one: "%{count} error detected"
         other: "%{count} errors detected"
     nav:
-      admin_panel: 'Admin panel'
-      gist_panel: 'Gist list'
-      users_panel: 'Users list'
+      tests_panel: 'Tests'
+      gist_panel: 'Gists'
+      users_panel: 'Users'
+      categories_panel: 'Categories'
   
   passages:
     show:
@@ -84,24 +85,36 @@ en:
     test:
       start: 'Start'
   feedbacks:
-    submit: 'Submit feedback'
+    submit: 'Submit Feedback'
 
 
   admin:
+    categories:
+      index:
+        title: 'Title'
+        tests_count: 'Tests Count'
+        new: 'New Category'
+        categories_title: 'Categories'
+      new:
+        submit: 'Create'        
+      category:
+        show: 'Show'
+        edit: 'Edit'
+        delete: 'Delete'        
     tests:
 
       index:
-        header: 'Test list'
-        new: 'New test'
+        header: 'Test List'
+        new: 'New Test'
         show: 'Show'
         edit: 'Edit'
         delete: 'Delete'
         level: 'Level'
-        total: 'Total questions'
+        total: 'Total Questions'
       create:
         success: "Test %{title} successfully created"
       show:
-        new: 'New test'
+        new: 'New Test'
         no_such_test: 'No such test'
         back_to_tests: "Back to tests"
       test:
