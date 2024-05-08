@@ -64,6 +64,7 @@ en:
     nav:
       admin_panel: 'Admin panel'
       gist_panel: 'Gist list'
+      users_panel: 'Users list'
   
   passages:
     show:
@@ -141,6 +142,18 @@ en:
       create:
         success_gist: "<a href='%{url}' target='_blank' rel='nofollow noopener'>Gist</a> successfully created"
         failure: 'Gist failed to create'
+    users:
+      user:
+        delete: 'Delete user!'
+      index:
+        first_name: 'First Name'
+        last_name: 'Last Name'
+        email: 'Email'
+        confirmed: 'Confirmed?'
+        delete: 'Delete?'
+      destroy:
+        user_deleted: "User deleted"
+        fail_to_delete: 'Fail to delete user'
 
   errors:
     messages:

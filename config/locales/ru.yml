@@ -64,6 +64,7 @@ ru:
     nav:
       admin_panel: 'Панель администратора'
       gist_panel: 'Список gist'
+      users_panel: 'Список пользователей'
 
 
   
@@ -158,6 +159,18 @@ ru:
       create:
         success_gist: "<a href='%{url}' target='_blank' rel='nofollow noopener'>Gist</a> успешно создан"
         failure: 'Gist создать не удалось'
+    users:
+      user:
+        delete: 'Удалить пользователя!'
+      index:
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+        email: 'Почта'
+        confirmed: 'Подтверждена?'
+        delete: 'Удалить?'
+      destroy:
+        user_deleted: "Пользователь удалён"
+        fail_to_delete: 'Нельзя удалить пользователя'
 
 
   errors:

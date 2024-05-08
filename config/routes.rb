@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    # get 'users/index'
+    resources :users, only: %i[index destroy]
     resources :gists, only: :index
     resources :tests, shallow: true do
       patch :update_inline, on: :member
