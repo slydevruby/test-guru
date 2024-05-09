@@ -3,6 +3,7 @@
 # rubocop:disable Metrics/BlockLength
 
 Rails.application.routes.draw do
+  resources :rules
   resources :badges
   root 'tests#index'
 

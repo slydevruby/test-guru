@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_09_074154) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_09_142043) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_074154) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "assignments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "badges", force: :cascade do |t|
@@ -74,6 +79,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_074154) do
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
+  create_table "rules", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "tests_done", default: 0, null: false
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_rules_on_category_id"
+    t.index ["title"], name: "index_rules_on_title", unique: true
+  end
+
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
     t.integer "level", default: 1, null: false
@@ -118,6 +133,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_074154) do
   add_foreign_key "passages", "tests"
   add_foreign_key "passages", "users"
   add_foreign_key "questions", "tests"
+  add_foreign_key "rules", "categories"
   add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users", column: "author_id"
 end
