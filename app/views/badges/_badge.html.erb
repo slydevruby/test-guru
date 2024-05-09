@@ -1,0 +1,13 @@
+<tr>
+  <td>
+    <%= badge.title %>
+  </td>
+
+  <td>
+    <%= badge.url %>
+  </td>  
+
+  <td>
+    <%= link_to t('.delete'), badge_path(badge), data: { turbo_method: :delete, turbo_confirm: t('confirm_delete') } %>
+  </td>    
+</tr>

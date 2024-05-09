@@ -1,0 +1,8 @@
+<tr>
+  <td><%= user.first_name %></td>
+  <td><%= user.last_name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.confirmed? %></td>
+  <td><%= link_to t('.delete'), admin_user_path(user), 
+    data: { turbo_method: :delete, turbo_confirm: t('confirm_delete') } %></td>
+</tr>

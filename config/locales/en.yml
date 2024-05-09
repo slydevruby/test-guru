@@ -62,8 +62,10 @@ en:
         one: "%{count} error detected"
         other: "%{count} errors detected"
     nav:
-      admin_panel: 'Admin panel'
-      gist_panel: 'Gist list'
+      tests_panel: 'Tests'
+      gist_panel: 'Gists'
+      users_panel: 'Users'
+      categories_panel: 'Categories'
   
   passages:
     show:
@@ -83,24 +85,36 @@ en:
     test:
       start: 'Start'
   feedbacks:
-    submit: 'Submit feedback'
+    submit: 'Submit Feedback'
 
 
   admin:
+    categories:
+      index:
+        title: 'Title'
+        tests_count: 'Tests Count'
+        new: 'New Category'
+        categories_title: 'Categories'
+      new:
+        submit: 'Create'        
+      category:
+        show: 'Show'
+        edit: 'Edit'
+        delete: 'Delete'        
     tests:
 
       index:
-        header: 'Test list'
-        new: 'New test'
+        header: 'Test List'
+        new: 'New Test'
         show: 'Show'
         edit: 'Edit'
         delete: 'Delete'
         level: 'Level'
-        total: 'Total questions'
+        total: 'Total Questions'
       create:
         success: "Test %{title} successfully created"
       show:
-        new: 'New test'
+        new: 'New Test'
         no_such_test: 'No such test'
         back_to_tests: "Back to tests"
       test:
@@ -141,6 +155,18 @@ en:
       create:
         success_gist: "<a href='%{url}' target='_blank' rel='nofollow noopener'>Gist</a> successfully created"
         failure: 'Gist failed to create'
+    users:
+      user:
+        delete: 'Delete user!'
+      index:
+        first_name: 'First Name'
+        last_name: 'Last Name'
+        email: 'Email'
+        confirmed: 'Confirmed?'
+        delete: 'Delete?'
+      destroy:
+        user_deleted: "User deleted"
+        fail_to_delete: 'Fail to delete user'
 
   errors:
     messages:

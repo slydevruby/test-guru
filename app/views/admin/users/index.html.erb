@@ -1,0 +1,15 @@
+<h3>Cписок пользователей и администраторов</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <td><%= t('.first_name') %></td>
+      <td><%= t('.last_name') %></td>
+      <td><%= t('.email') %></td>
+      <td><%= t('.confirmed') %></td>
+      <td><%= t('.delete') %></td>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @users %>
+  </tbody>
+</table>

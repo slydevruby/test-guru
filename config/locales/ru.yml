@@ -62,8 +62,10 @@ ru:
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
     nav:
-      admin_panel: 'Панель администратора'
-      gist_panel: 'Список gist'
+      tests_panel: 'Тесты'
+      gist_panel: 'Gists'
+      users_panel: 'Пользователи'
+      categories_panel: 'Категории'
 
 
   
@@ -88,6 +90,22 @@ ru:
     submit: 'Отправить'
 
   admin:
+    categories:
+      index:
+        title: 'Название'
+        tests_count: 'Количество тестов'
+        new: 'Новая категория'
+        categories_title: 'Категории'
+      new:
+        submit: 'Создать'
+      form:
+        submit: 'Сохранить'
+
+      category:
+        show: 'Показать'
+        edit: 'Править'
+        delete: 'Удалить'
+
     tests:
 
       index:
@@ -158,6 +176,18 @@ ru:
       create:
         success_gist: "<a href='%{url}' target='_blank' rel='nofollow noopener'>Gist</a> успешно создан"
         failure: 'Gist создать не удалось'
+    users:
+      user:
+        delete: 'Удалить пользователя!'
+      index:
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+        email: 'Почта'
+        confirmed: 'Подтверждена?'
+        delete: 'Удалить?'
+      destroy:
+        user_deleted: "Пользователь удалён"
+        fail_to_delete: 'Нельзя удалить пользователя'
 
 
   errors:
