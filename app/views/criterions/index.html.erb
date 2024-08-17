@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Criterions</h1>
+
+<div id="criterions">
+  <% @criterions.each do |criterion| %>
+    <%= render criterion %>
+    <p>
+      <%= link_to "Show this criterion", criterion %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New criterion", new_criterion_path %>

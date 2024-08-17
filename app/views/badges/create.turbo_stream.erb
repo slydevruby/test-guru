@@ -1,0 +1,2 @@
+<%= turbo_stream.update "new_badge", partial: 'add_badge' %> 
+<%= turbo_stream.after "new_badge", render(@badge) %>
