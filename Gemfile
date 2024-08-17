@@ -11,7 +11,7 @@ gem 'octokit', '~> 5.0'
 gem 'octicons_helper', '~> 17.7'
 
 # dartsass
-gem 'dartsass-sprockets'
+# gem 'dartsass-sprockets'
 
 # Jquery
 gem 'jquery-rails'
@@ -90,3 +90,5 @@ end
 gem 'rubocop-erb', '~> 0.4.0'
 
 # gem 'cssbundling-rails', '~> 1.4'
+
+gem "cssbundling-rails", "~> 1.4"
