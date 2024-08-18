@@ -5,7 +5,7 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 
-# Ingore byebug history.
+# Ignore byebug history.
 /.byebug_history
 
 # Ignore bundler config.
@@ -42,3 +42,4 @@
 !/app/assets/builds/.keep
 
 /node_modules
+/node_modules/*
