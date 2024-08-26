@@ -10,9 +10,6 @@ gem 'octokit', '~> 5.0'
 
 gem 'octicons_helper', '~> 17.7'
 
-# dartsass
-gem 'dartsass-sprockets'
-
 # Jquery
 gem 'jquery-rails'
 
@@ -29,9 +26,6 @@ gem 'pg'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem 'puma', '>= 5.0'
-
-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem 'importmap-rails'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem 'turbo-rails'
@@ -89,4 +83,11 @@ end
 
 gem 'rubocop-erb', '~> 0.4.0'
 
-# gem 'cssbundling-rails', '~> 1.4'
+
+gem 'sassc-rails'
+
+
+gem "cssbundling-rails", "~> 1.4"
+
+
+gem "jsbundling-rails", "~> 1.3"
