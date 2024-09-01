@@ -1,9 +1,21 @@
+// import { Application } from "@hotwired/stimulus"
+// const application = Application.start()
+// application.debug = false
+// window.Stimulus   = application
+// export { application }
+
+
+
+
 import { Application } from "@hotwired/stimulus"
+import HelloController from "./hello_controller"
 
-const application = Application.start()
 
-// Configure Stimulus development experience
-application.debug = false
-window.Stimulus   = application
+window.Stimulus = Application.start()
 
-export { application }
+Stimulus.handleError = (error, message, detail) => {
+  console.warn(message, detail)
+  ErrorTrackingSystem.captureException(error)
+}
+
+Stimulus.register("hello", HelloController)

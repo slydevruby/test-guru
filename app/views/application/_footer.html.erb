@@ -1,10 +1,11 @@
-<div class="container">
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <p class="col text-body-secondary">
-      © <%= current_year %> slydevruby | <%= github_url('slydevruby', 'test-guru') %> | Создание и прохождение тестов  | <%= link_to 'Учебный проект в онлайн-школе Thinknetica', 
-      'http://thinknetica.com', target: '_blank', rel: %w[nofollow noopener]
-     %> |
-     <%= link_to t(:feedback_link), feedbacks_new_path %>
+<footer class="footer">
+    <p>Создание и прохождение тестов ©
+        <%= current_year %> slydevruby
+        <%= github_url('slydevruby', 'test-guru') %>
     </p>
-  </footer>
-</div>
+    <%= link_to 'Учебный проект в онлайн-школе Thinknetica', 
+      'http://thinknetica.com', target: '_blank', rel: %w[nofollow noopener], class: 'btn--link'
+     %>
+    <%= link_to t(:feedback_link), feedbacks_new_path, class: 'btn--link' %>
+    </p>
+</footer>

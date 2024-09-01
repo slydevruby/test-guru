@@ -1,12 +1,168 @@
 .pointer {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .hide {
-  display: none;
+    display: none;
+}
+
+$primary-color: #4263eb;
+$primary-dark: #5C6796;
+$primary-dark-2: #293E93;
+$accent-color: #CC9908;
+$danger-color: #c92a2a;
+
+$gray-dark: #343a40;
+$gray-light: #f1f3f5;
+
+$main-font-size: 1.6rem;
+$big-font-size: 2rem;
+$small-font-size: 1.2rem;
+
+
+
+:root {
+    --bs-body-font-size: 1.6rem;
+    --bs-white: #f00;
 }
 
 
 body {
-  
+    font-family: 'Inter';
+    font-size: $main-font-size;
+    color: $gray-dark;
+    line-height: 1.6;
+}
+
+
+.container--main {
+    margin-top: 2rem;
+}
+
+.table {
+    td {
+        color: $gray-dark;
+        font-size: $small-font-size;
+    }
+
+    tr th {
+        font-size: $small-font-size;
+    }
+}
+
+.text-success {
+    width: 30px;
+    height: 30px;
+    fill: $primary-color;
+}
+
+
+.navbar {
+    box-shadow: none !important;
+}
+
+.navbar-dark {
+    background-color: $gray-light;
+
+}
+
+.btn {
+    // background-color: $gray-light;
+    background-color: $primary-color;
+    color: white;
+    text-decoration: none;
+    font-size: $small-font-size;
+    font-weight: 300;
+
+
+    display: inline-block;
+    // padding: 5px 15px !important;
+    border-radius: 4px;
+
+    &:hover {
+        background-color: $primary-dark;
+        color: white;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    &:active {
+
+        background-color: $primary-dark-2;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    &--accent {
+        background-color: $accent-color;
+    }
+}
+
+.btn--link {
+    color: $primary-color;
+}
+
+.navbar-brand {
+    color: black !important;
+}
+
+.header {
+    padding: 10px;
+    display: flex;
+    font-size: 1.6rem;
+    font-weight: 300;
+    column-gap: 10px;
+    margin-bottom: 6rem;
+    // background-image: linear-gradient(to top, white, #f1f3f5);
+    border-bottom: 1px solid $primary-dark-2;
+}
+
+.footer {
+    padding: 10px;
+    display: flex;
+    font-size: 1.6rem;
+    font-weight: 300;
+    column-gap: 10px;
+    margin-top: 6rem;
+
+    background-image: linear-gradient(to top, white, #f1f3f5);
+}
+
+.welcome {
+    margin-left: auto;
+    padding-top: 5px;
+}
+
+.my-input {
+    margin-bottom: 1rem;
+}
+
+.question-collection {
+    list-style: none;
+}
+
+.question {
+    margin: 2rem auto;
+
+    &-body {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-actions {}
+}
+
+.correct-answer {
+    font-weight: 800;
+}
+
+.my-icon {
+    width: 30px;
+    height: 30px;
+    fill: $primary-color;
+    text-decoration: none;
+    border: none;
+
+    &--danger {
+        fill: $danger-color;
+        margin-left: 20px;
+    }
 }
