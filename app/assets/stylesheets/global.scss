@@ -6,23 +6,39 @@
     display: none;
 }
 
-$primary-color: #4263eb;
-$primary-dark: #5C6796;
+// $primary-color: #4263eb;
+// $primary-dark: #5C6796;
+// $primary-dark-2: #293E93;
+// $accent-color: #CC9908;
+// $danger-color: #c92a2a;
+
+// $gray-dark: #343a40;
+// $gray-light: #f1f3f5;
+
+// $surface-color: white;
+
+
+$primary-color: #3F72AF;
+$primary-dark: #112D4E;
 $primary-dark-2: #293E93;
-$accent-color: #CC9908;
+$accent-color: #FCC651;
+$accent-dark: #C2983E;
+$accent-text: #001414;
+
 $danger-color: #c92a2a;
 
 $gray-dark: #343a40;
 $gray-light: #f1f3f5;
+
+$surface-color: #F9F7F7;
 
 $main-font-size: 1.6rem;
 $big-font-size: 2rem;
 $small-font-size: 1.2rem;
 
 
-
 :root {
-    --bs-body-font-size: 1.6rem;
+    --bs-body-font-size: $main-font-size;
     --bs-white: #f00;
 }
 
@@ -32,6 +48,8 @@ body {
     font-size: $main-font-size;
     color: $gray-dark;
     line-height: 1.6;
+    background-color: $surface-color;
+
 }
 
 
@@ -40,7 +58,11 @@ body {
 }
 
 .table {
-    td {
+    background-color: $surface-color;
+
+    td,
+    th {
+        background-color: inherit;
         color: $gray-dark;
         font-size: $small-font-size;
     }
@@ -93,6 +115,11 @@ body {
 
     &--accent {
         background-color: $accent-color;
+        color: $accent-text;
+
+        &:hover {
+            background-color: $accent-dark;
+        }
     }
 }
 
@@ -118,17 +145,21 @@ body {
 .footer {
     padding: 10px;
     display: flex;
-    font-size: 1.6rem;
+    justify-content: space-between;
+
+    font-size: $small-font-size;
     font-weight: 300;
     column-gap: 10px;
     margin-top: 6rem;
+    background-color: $surface-color !important;
 
-    background-image: linear-gradient(to top, white, #f1f3f5);
+    // background-image: linear-gradient(to top, white, #f1f3f5);
 }
 
 .welcome {
     margin-left: auto;
     padding-top: 5px;
+    font-size: $small-font-size;
 }
 
 .my-input {
@@ -155,8 +186,8 @@ body {
 }
 
 .my-icon {
-    width: 30px;
-    height: 30px;
+    width: 1.5rem;
+    height: 1.5rem;
     fill: $primary-color;
     text-decoration: none;
     border: none;
@@ -164,5 +195,17 @@ body {
     &--danger {
         fill: $danger-color;
         margin-left: 20px;
+    }
+}
+
+.no-decor {
+    text-decoration: none;
+}
+
+.heading {
+    &-level {
+        margin-top: 2rem;
+        font-weight: 400;
+        color: $gray-dark;
     }
 }

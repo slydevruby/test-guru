@@ -1,10 +1,10 @@
 <li class="question">
     <div class="question-body">
-        <span class="question-title">
+        <div class="question-title">
             <%= link_to question.body, admin_question_path(question) %>
-        </span>
+        </div>
         <div class="question-actions">
-            <%= link_to edit_admin_question_path(question) do %>
+            <%= link_to edit_admin_question_path(question), class: "no-decor" do %>
             <%= octicon 'pencil', class: 'my-icon' %>
             <% end %>
             <%= link_to admin_question_path(question), data: { turbo_method: :delete, turbo_confirm: t('confirm_delete') } do %>

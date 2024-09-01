@@ -1,10 +1,10 @@
 <h1>
-    <%= Test.model_name.human %>
-</h1>
-<h2>
     <%= @test.title %>
-</h2>
-<h3>Уровень:
+    <%= link_to edit_admin_test_path(@test), class: "no-decor" do %>
+    <%= octicon 'pencil', class: 'my-icon' %>
+    <% end %>
+</h1>
+<h3 class="heading heading-level">Уровень:
     <%= test_level(@test.level) %>
 </h3>
 <ul class="question-collection">

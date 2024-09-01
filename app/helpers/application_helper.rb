@@ -6,12 +6,8 @@ module ApplicationHelper
   end
 
   def github_url(author, repo)
-    # link_to 'github', "https://github.com/#{author}/#{repo}",
-    #         target: '_blank',
-    #         rel: %w[nofollow noopener]
-
-                link_to "https://github.com/#{author}/#{repo}", target: '_blank', rel: %w[nofollow noopener] do
-                  octicon "mark-github", class: 'my-icon'
-                end
+    link_to "https://github.com/#{author}/#{repo}", target: '_blank', rel: %w[nofollow noopener] do
+      octicon "mark-github", class: 'my-icon'
+    end
   end
 end
