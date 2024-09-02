@@ -1,0 +1,13 @@
+categories
+<div id="categories">
+    <ul>
+        <% @categories.each do |cat| %>
+        <li class="category-body">
+            <%= link_to cat.title, edit_admin_category_path(cat) %>
+            <%= link_to 'destroy', admin_category_path(cat), data: { turbo_method: :delete, turbo_confirm: t('confirm_delete') } %>
+        </li>
+        <% end %>
+    </ul>
+</div>
+<%= turbo_frame_tag id="new_category",
+src: new_admin_category_path %>

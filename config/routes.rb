@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :categories
     resources :gists, only: :index
     resources :tests, shallow: true do
       patch :update_inline, on: :member

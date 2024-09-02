@@ -2,6 +2,7 @@
     <%= link_to 'TestGuru2', root_path, class: 'btn btn--accent' %>
     <% if current_user.is_a?(Admin) %>
     <%= link_to t('.admin_panel'), admin_tests_path, class: 'btn' %>
+    <%= link_to 'Cats', admin_categories_path, class: 'btn' %>
     <%= link_to t('.gist_panel'), admin_gists_path, class: 'btn' %>
     <% end %>
     <% if user_signed_in? %>

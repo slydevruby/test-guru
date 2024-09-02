@@ -236,3 +236,10 @@ section {
 .page-body {
     padding: 20px;
 }
+
+.category {
+    &-body {
+        display: flex;
+        justify-content: space-between;
+    }
+}

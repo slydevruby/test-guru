@@ -1,0 +1,8 @@
+<% frame_id =dom_id(category, "title_turbo_frame") %>
+<%= form_with model: [:admin, category], data: { turbo_frame: frame_id } do %>
+<%= turbo_frame_tag frame_id do %>
+<strong>
+    <%= category.title %></strong>
+<%= link_to 'Edit Title', edit_admin_category_path(category) %>
+<% end %>
+<% end %>
