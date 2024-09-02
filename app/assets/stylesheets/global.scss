@@ -209,3 +209,25 @@ body {
         color: $gray-dark;
     }
 }
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+.content {
+    width: 80%;
+    margin: 2rem auto;
+}
+
+.footer {
+    width: 80%;
+    margin: 2rem auto;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
