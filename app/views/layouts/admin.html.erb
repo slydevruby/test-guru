@@ -14,12 +14,16 @@
 </head>
 
 <body>
-    <div class="container container--main">
-        <%= render 'nav' %>
-        <%= flash_messages %>
-        <%= yield %>
-        <%= render 'footer' %>
-    </div>
+    <section>
+        <div class="wrapper">
+            <%= render 'nav' %>
+            <main class="page-body">
+                <%= flash_messages %>
+                <%= yield %>
+            </main>
+            <%= render 'footer' %>
+        </div>
+    </section>
 </body>
 
 </html>

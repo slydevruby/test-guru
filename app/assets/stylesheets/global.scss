@@ -209,3 +209,30 @@ body {
         color: $gray-dark;
     }
 }
+
+html,
+body {
+    height: 100%;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+section {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+
+
+.page-body {
+    padding: 20px;
+}
