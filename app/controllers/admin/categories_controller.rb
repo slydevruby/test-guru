@@ -1,57 +1,61 @@
 class Admin::CategoriesController < ApplicationController
+  before_action :set_category, only: %i[show edit update destroy]
 
   def index
     @categories = Category.all
+  end
+
+  def show
+  end
+
+  def new
     @category = Category.new
+  end
+
+  def edit
+
   end
 
   def destroy
-    @category = Category.find(params[:id])
     @category.destroy!
-    redirect_to admin_categories_path, notice: t('.success_destroyed')
-  end  
-
-  def edit
-    @category = Category.find(params[:id])
-  end
-
-
-
-  def update
-    @category = Category.find(params[:id])
     respond_to do |format|
-      if @category.update(category_params)
-        format.html { redirect_to admin_categories_path, notice: 'category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @category }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to admin_categories_path, notice: t('.success_destroyed') }
+      format.turbo_stream { render :destroy, locals: { category: @category } }
+      format.json { head :no_content }
     end
-  end 
-
-  def new 
-    @category = Category.new
   end
 
   def create
     @category = Category.new(category_params)
     respond_to do |format|
       if @category.save
-        # redirect_to admin_categories_path
-        format.turbo_stream
+        format.html { redirect_to admin_category_path(@category), notice: 'Category was successfully created' }
+        format.turbo_stream { render :create }
       else
         format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream { render :new, locals: { category: @category} }
       end
     end
-  end  
-  
+  end
 
- 
+  def update
+    respond_to do |format|
+      if @category.update(category_params)
+        format.html { redirect_to admin_category_path(@category), notice: "Post was successfully updated." }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
+    end
+  end
 
   private
   # Only allow a list of trusted parameters through.
+
+  def set_category
+    @category = Category.find(params[:id])
+  end
+
   def category_params
     params.require(:category).permit(:title)
-  end  
+  end
 end
