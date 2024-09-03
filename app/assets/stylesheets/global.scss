@@ -100,6 +100,7 @@ body {
     display: inline-block;
     // padding: 5px 15px !important;
     border-radius: 4px;
+    transition: all 0.2s;
 
     &:hover {
         background-color: $primary-dark;
@@ -233,13 +234,29 @@ section {
 
 
 
-.page-body {
-    padding: 20px;
-}
 
 .category {
-    &-body {
-        display: flex;
-        justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
+
+    &--title {
+        width: 20em;
     }
+
+    &--inline {
+        display: flex;
+        margin-bottom: 1rem;
+
+    }
+}
+
+.msm {
+    margin-bottom: 1rem;
+}
+
+.mmd {
+    margin-bottom: 2rem;
+}
+.mbg {
+   margin-bottom: 4rem;    
 }
