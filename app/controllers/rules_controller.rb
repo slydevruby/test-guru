@@ -66,6 +66,6 @@ class RulesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def rule_params
-    params.require(:rule).permit(:title, :category_id, :tests_done)
+    params.require(:rule).permit(:title, :status)
   end
 end
