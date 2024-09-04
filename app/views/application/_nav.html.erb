@@ -1,9 +1,18 @@
 <header class="header">
-  <%= link_to 'TestGuru2', root_path, class: 'btn btn--accent' %>
+  <%= link_to root_path, class: 'btn btn--accent' do %>
+    <i class="bi bi-rocket-takeoff"></i>
+    Test
+  <% end %>
   <% if current_user.is_a?(Admin) %>
-    <%= link_to t('.admin_panel'), admin_tests_path, class: 'btn' %>
+    <%= link_to admin_tests_path, class: 'btn' do %>
+      <i class="bi bi-list-stars"></i>
+      <%= t('.admin_panel') %>
+    <% end %>
     <%= link_to 'Cats', admin_categories_path, class: 'btn' %>
-    <%= link_to 'Badges', badges_path, class: 'btn' %>
+    <%= link_to badges_path, class: 'btn' do %>
+      <i class="bi bi-award"></i>
+      Badges
+    <% end %>
     <%= link_to t('.gist_panel'), admin_gists_path, class: 'btn' %>
   <% end %>
   <% if user_signed_in? %>
