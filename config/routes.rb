@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :badges
+  resources :badges do
+    member do
+      delete :remove_image
+    end
+  end
+
   root 'tests#index'
 
   get :feedbacks, 'feedbacks/new'

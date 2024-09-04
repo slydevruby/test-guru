@@ -2,7 +2,6 @@
   <% if badge.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(badge.errors.count, "error") %> prohibited this badge from being saved:</h2>
-
       <ul>
         <% badge.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,12 +9,21 @@
       </ul>
     </div>
   <% end %>
-
   <div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
   </div>
-
+  <div>
+    <% if badge.image.attached? %>
+      <%= form.hidden_field :image, multiple: false, value: badge.image.signed_id %>
+      <%= image_tag(badge.image, height: 200) %>
+      <p>
+        <%= link_to 'Remove', remove_image_badge_path(badge),
+      data: { turbo_method: :delete } %>
+      </p>
+    <% end %>
+    <%= form.file_field :image, multiple: false %>
+  </div>
   <div>
     <%= form.submit %>
   </div>

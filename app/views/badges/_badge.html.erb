@@ -3,5 +3,9 @@
     <strong>Title:</strong>
     <%= badge.title %>
   </p>
-
+  <div>
+    <% if badge.image.attached? %>
+      <%= image_tag(badge.image, height: 200) %>
+    <% end %>
+  </div>
 </div>

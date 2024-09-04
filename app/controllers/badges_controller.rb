@@ -57,14 +57,20 @@ class BadgesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_badge
-      @badge = Badge.find(params[:id])
-    end
+  def remove_image
+    image = ActiveStorage::Attachment.find(params[:id])
+    image.purge_later
+    redirect_back(fallback_location: request.referer)
+  end
 
-    # Only allow a list of trusted parameters through.
-    def badge_params
-      params.require(:badge).permit(:title)
-    end
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_badge
+    @badge = Badge.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def badge_params
+    params.require(:badge).permit(:title, :image)
+  end
 end
