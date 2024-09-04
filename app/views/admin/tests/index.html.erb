@@ -1,29 +1,29 @@
 <%= render 'errors', resource: @test %>
-<table class="table">
-    <thead>
-        <tr>
-            <th> #
-            </th>
-            <th class="sort-by-title pointer">
-                <%= Test.model_name.human %>
-                <%= octicon 'arrow-up', class: 'text-success' %>
-                <%= octicon 'arrow-down', class: 'text-success hide' %>
-            </th>
-            <th>
-                <%= Category.model_name.human %>
-            </th>
-            <th>
-                <%= t('.level') %>
-            </th>
-            <th>
-                <%= t('.total') %>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <%= render @tests %>
-    </tbody>
-</table>
 <p>
-    <%= link_to t('.new'), new_admin_test_path, class: 'btn' %>
+  <%= link_to t('.new'), new_admin_test_path, class: 'btn' %>
 </p>
+<table class="table">
+  <thead>
+    <tr>
+      <th> #
+      </th>
+      <th class="sort-by-title pointer">
+        <%= Test.model_name.human %>
+        <%= octicon 'arrow-up', class: 'text-success' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
+      </th>
+      <th>
+        <%= Category.model_name.human %>
+      </th>
+      <th>
+        <%= t('.level') %>
+      </th>
+      <th>
+        <%= t('.total') %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @tests %>
+  </tbody>
+</table>

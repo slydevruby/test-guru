@@ -8,7 +8,10 @@
       <i class="bi bi-list-stars"></i>
       <%= t('.admin_panel') %>
     <% end %>
-    <%= link_to 'Cats', admin_categories_path, class: 'btn' %>
+    <%= link_to admin_categories_path, class: 'btn' do %>
+      <i class="bi bi-list-nested"></i>
+      Categories
+    <% end %>
     <%= link_to badges_path, class: 'btn' do %>
       <i class="bi bi-award"></i>
       Badges

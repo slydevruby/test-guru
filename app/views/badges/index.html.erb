@@ -1,14 +1,8 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Badges</h1>
-
-<div id="badges">
+<p>
+  <%= link_to "New badge", new_badge_path, class: 'btn' %>
+</p>
+<div id="badges" class='card-container'>
   <% @badges.each do |badge| %>
     <%= render badge %>
-    <p>
-      <%= link_to "Show this badge", badge %>
-    </p>
   <% end %>
 </div>
-
-<%= link_to "New badge", new_badge_path %>

@@ -28,13 +28,14 @@ $accent-text: #001414;
 $danger-color: #c92a2a;
 
 $gray-dark: #343a40;
-$gray-light: #f1f3f5;
+$gray-light: #868e96;
 
 $surface-color: #F9F7F7;
 
 $main-font-size: 1.6rem;
 $big-font-size: 2rem;
 $small-font-size: 1.2rem;
+$very-small-font-size: 0.8rem;
 
 
 :root {
@@ -148,13 +149,18 @@ body {
     display: flex;
     justify-content: space-between;
 
-    font-size: $small-font-size;
-    font-weight: 300;
+
     column-gap: 10px;
     margin-top: 6rem;
     background-color: $surface-color !important;
 
-    // background-image: linear-gradient(to top, white, #f1f3f5);
+    & * {
+        font-size: $very-small-font-size;
+        font-weight: 300;
+        line-height: 1.0;
+
+    }
+
 }
 
 .welcome {
@@ -257,6 +263,24 @@ section {
 .mmd {
     margin-bottom: 2rem;
 }
+
 .mbg {
-   margin-bottom: 4rem;    
+    margin-bottom: 4rem;
+}
+
+
+.card-container {
+    margin-top: 4rem;
+    display: flex;
+    column-gap: 4rem;
+    flex-wrap: true;
+}
+
+.card {
+    max-width: 16rem;
+}
+
+.card-header--flex {
+    display: flex;
+    justify-content: space-between;
 }
