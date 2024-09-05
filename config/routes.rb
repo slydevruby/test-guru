@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :rules
+
   resources :badges do
     member do
       delete :remove_image

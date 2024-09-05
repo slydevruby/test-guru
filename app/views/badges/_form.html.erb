@@ -1,4 +1,5 @@
 <%= form_with(model: badge) do |form| %>
+  <%= render 'errors', resource: badge %>
   <div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title, class: 'form-control' %>
@@ -12,6 +13,10 @@
     <p>
       <%= form.file_field :image, multiple: false %>
     </p>
+  </div>
+  <div>
+    <%= form.label :rule_id, style: "display: block" %>
+    <%= form.collection_select :rule_id, Rule.order(:title), :id, :title, { prompt: true }, { class: 'form-select' } %>
   </div>
   <div>
     <%= form.submit %>

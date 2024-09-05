@@ -1,31 +1,13 @@
 <%= form_with(model: rule) do |form| %>
-  <% if rule.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(rule.errors.count, "error") %> prohibited this rule from being saved:</h2>
-
-      <ul>
-        <% rule.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <%= render 'errors', resource: rule %>
   <div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
   </div>
-
   <div>
-    <%= form.label :category_id, style: 'display: block' %>
-    <%= form.collection_select :category_id, Category.order(:title), :id, :title, { prompt: true }, { class: 'form-select' } %>
+    <%= form.label :status, style: 'display: block' %>
+    <%= form.collection_select :status, ['category', 'test', 'level'], :to_s, :to_s, include_blank: false %>
   </div>
-
-  <div>
-    <%= form.label :tests_done, style: 'display: block' %>
-    <%= form.number_field :tests_done %>
-  </div>  
-
   <div>
     <%= form.submit %>
   </div>

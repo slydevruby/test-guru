@@ -1,7 +1,7 @@
 <p>
-  <%= link_to "New badge", new_badge_path, class: 'btn' %>
+  <%= link_to "New badge", new_badge_path, class: 'btn btn-primary' %>
 </p>
-<div id="badges" class='card-container'>
+<div id="badges" class='d-flex gap-3 flex-wrap'>
   <% @badges.each do |badge| %>
     <%= render badge %>
   <% end %>

@@ -1,9 +1,9 @@
 <%= turbo_frame_tag id="new_category" do %>
   <%= form_with(model: [:admin, category]) do |form| %>
     <%= render 'errors', resource: category %>
-    <div class='category--inline mmd'>
-      <%=form.text_field :title, class: 'form-control category--title', placeholder: 'title' %>
-      <%= form.submit class: 'btn' %>
+    <div class='d-flex mb-5'>
+      <%=form.text_field :title, class: 'form-control', placeholder: 'title' %>
+      <%= form.submit class: 'btn btn-primary' %>
     </div>
   <% end %>
 <% end %>

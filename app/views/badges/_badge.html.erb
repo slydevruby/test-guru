@@ -1,10 +1,10 @@
 <div  id="<%= dom_id badge %>">
   <div class="card bg-light mb-3 card--my">
-    <div class="card-header card-header--flex">
+    <div class="card-header d-flex">
       <%= badge.title %>
-      <div>
-        <%= link_to '', edit_badge_path(badge), class: 'btn bi bi-pen btn--small' %>
-        <%= link_to '', badge, data: { turbo_method: :delete}, class: 'btn bi bi-trash' %>
+      <div class='ms-auto'>
+        <%= link_to '', edit_badge_path(badge), class: 'btn btn-sm btn-primary bi bi-pen btn--small' %>
+        <%= link_to '', badge, data: { turbo_method: :delete}, class: 'btn btn-sm btn-danger bi bi-trash' %>
       </div>
     </div>
     <div class="card-body">
