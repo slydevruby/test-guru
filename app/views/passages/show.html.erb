@@ -24,5 +24,5 @@
   </p>
 <% end %>
 <%= form_with url: gist_passage_path(@passage), data: { turbo: false } do |inside| %>
-  <%= inside.submit t('.gist_question'), method: :post %>
+  <%= inside.submit t('.gist_question'), method: :post, class: 'btn btn-secondary' %>
 <% end %>

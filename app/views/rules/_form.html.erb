@@ -1,14 +1,24 @@
-<%= form_with(model: rule) do |form| %>
-  <%= render 'errors', resource: rule %>
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-  <div>
-    <%= form.label :status, style: 'display: block' %>
-    <%= form.collection_select :status, ['category', 'test', 'level'], :to_s, :to_s, include_blank: false %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<div class='col col-6'>
+  <%= form_with(model: rule) do |form| %>
+    <%= render 'errors', resource: rule %>
+    <div>
+      <%= form.label :title, style: "display: block" %>
+      <%= form.text_field :title %>
+    </div>
+    <div>
+      <%= form.label :category_id, style: 'display: block' %>
+      <%= form.collection_select :category_id, Category.order(:title), :id, :title, { prompt: true }, { class: 'form-select' } %>
+      <%= link_to "reset", '#' %>
+      <%#= javascript_tag "
+        document.getElementById('rule_category_id').options[0].selected = 'selected'
+        " %>
+    </div>
+    <div>
+      <%= form.label :test_id, style: 'display: block' %>
+      <%= form.collection_select :test_id, Test.order(:title), :id, :title, { prompt: true }, { class: 'form-select' } %>
+    </div>
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

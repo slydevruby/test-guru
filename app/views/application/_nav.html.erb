@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg bg-secondary mb-5" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-secondary bg-gradient mt-2 mb-4" data-bs-theme="dark">
   <div class="container-fluid">
-    <%= link_to root_path, class: 'btn btn-warning' do %>
+    <%= link_to root_path, class: 'btn btn-warning marg-right-2' do %>
       <i class="bi bi-rocket-takeoff"></i>
       Test
     <% end %>
@@ -11,7 +11,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <% if current_user.is_a?(Admin) %>
           <li class="nav-item">
-            <%= link_to admin_tests_path, class: 'nav-link active' do %>
+            <%= link_to admin_tests_path, class: 'nav-link active ml-4'  do %>
               <i class="bi bi-list-stars"></i>
               <%= t('.admin_panel') %>
             <% end %>
