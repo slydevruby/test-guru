@@ -63,7 +63,7 @@ ru:
         other: "Обнаружено %{count} ошибки"
     nav:
       admin_panel: 'Панель администратора'
-      gist_panel: 'Список gist'
+      gist_panel: 'Gists'
 
 
   

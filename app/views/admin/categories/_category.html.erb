@@ -1,0 +1,6 @@
+<div id="<%= dom_id category %>" class='category--inline'>
+  <span class="category--title">
+    <%= category.title %>
+  </span>
+  <%= button_to 'Destroy', admin_category_path(category), method: :delete, class: 'btn' %>
+</div>

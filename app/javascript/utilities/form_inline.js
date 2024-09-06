@@ -1,3 +1,4 @@
+
 document.addEventListener('turbo:load', function(){
   let controls = document.querySelectorAll('.form-inline-link')
 
@@ -13,12 +14,12 @@ document.addEventListener('turbo:load', function(){
   }
 })
 
-function formInlineLinkHandler(event) {
+export function formInlineLinkHandler(event) {
   event.preventDefault(true)
   formInlineHandler(this.dataset.testId)
 }
 
-function formInlineHandler(testId) {
+export function formInlineHandler(testId) {
   let form  = document.querySelector(`.form-inline[data-test-id="${testId}"]`)
   if (!form) return;
 

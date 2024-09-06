@@ -1,15 +1,15 @@
-<div class="card my-3 shadow" style="width: 36rem;">
-  <div class="card-header">
-    <%= Test.model_name.human %> "<%= @test.title %>"
-  </div>
-  <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-body-secondary">Уровень: <%= test_level(@test.level) %></h6>
-    <p class="card-text">
-      <ol>
-        <%= render partial: 'admin/questions/question', collection: @test.questions %>
-      </ol>
-    </p>
-  </div>
-</div>
+<h1>
+    <%= @test.title %>
+    <%= link_to edit_admin_test_path(@test), class: "no-decor" do %>
+    <%= octicon 'pencil', class: 'my-icon' %>
+    <% end %>
+</h1>
+<h3 class="heading heading-level">Уровень:
+    <%= test_level(@test.level) %>
+</h3>
+<ul class="question-collection">
+    <%= render partial: 'admin/questions/question', collection: @test.questions %>
+</ul>
+<hr>
 <%= link_to t('.new_question'), new_admin_test_question_path(@test), class: 'btn btn-primary' %>
 <%= link_to t('.back_to_tests'), admin_tests_path, class: 'btn btn-primary' %>
