@@ -2,7 +2,8 @@
   <div>
     <%= category.title %>
   </div>
-  <div class='ms-auto p-2'>
-    <%= button_to 'Destroy', admin_category_path(category), method: :delete, class: 'btn btn-danger' %>
+  <div class='ms-auto p-2 d-flex gap-2'>
+    <%= button_to '', edit_admin_category_path(category), class: 'btn btn-sm btn-primary bi bi-pencil', method: :get %>
+    <%= button_to '', admin_category_path(category), method: :delete, class: 'btn btn-sm btn-danger bi bi-trash' %>
   </div>
 </div>

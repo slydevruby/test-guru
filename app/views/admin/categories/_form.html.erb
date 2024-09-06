@@ -1,5 +1,10 @@
-<%= turbo_frame_tag id="new_category" do %>
-  <%= form_with(model: [:admin, category]) do |form| %>
+<% if category.persisted? %>
+  <%  tag = "edit_category" %>
+<% else %>
+  <% tag ="new_category" %>
+<% end %>
+<%= turbo_frame_tag id=tag do %>
+  <%= form_with model: [:admin, category] do |form| %>
     <%= render 'errors', resource: category %>
     <div class='d-flex mb-5'>
       <%=form.text_field :title, class: 'form-control', placeholder: 'title' %>
