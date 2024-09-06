@@ -1,0 +1,6 @@
+<%= turbo_frame_tag id="new_category", src:new_admin_category_path %>
+<div id="categories">
+  <% @categories.each do |category| %>
+    <%= render category %>
+  <% end %>
+</div>
