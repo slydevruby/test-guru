@@ -4,13 +4,6 @@
 
 Rails.application.routes.draw do
 
-
-  # resources :badges do
-  #   member do
-  #     delete :remove_image
-  #   end
-  # end
-
   root 'tests#index'
 
   resources :awards
