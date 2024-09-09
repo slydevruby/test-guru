@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :rules
 
-  resources :badges do
-    member do
-      delete :remove_image
-    end
-  end
+
+  # resources :badges do
+  #   member do
+  #     delete :remove_image
+  #   end
+  # end
 
   root 'tests#index'
 
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :rules
     resources :categories
     resources :gists, only: :index
     resources :tests, shallow: true do

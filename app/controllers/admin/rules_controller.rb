@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RulesController < ApplicationController
+class Admin::RulesController < Admin::BaseController
   before_action :set_rule, only: %i[show edit update destroy]
 
   # GET /rules or /rules.json
@@ -14,6 +14,7 @@ class RulesController < ApplicationController
   # GET /rules/new
   def new
     @rule = Rule.new
+    @rule.build_badge
   end
 
   # GET /rules/1/edit
@@ -25,7 +26,7 @@ class RulesController < ApplicationController
 
     respond_to do |format|
       if @rule.save
-        format.html { redirect_to rule_url(@rule), notice: 'Rule was successfully created.' }
+        format.html { redirect_to admin_rules_url, notice: 'Rule was successfully created.' }
         format.json { render :show, status: :created, location: @rule }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,7 @@ class RulesController < ApplicationController
   def update
     respond_to do |format|
       if @rule.update(rule_params)
-        format.html { redirect_to rule_url(@rule), notice: 'Rule was successfully updated.' }
+        format.html { redirect_to admin_rule_url(@rule), notice: 'Rule was successfully updated.' }
         format.json { render :show, status: :ok, location: @rule }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +53,7 @@ class RulesController < ApplicationController
     @rule.destroy!
 
     respond_to do |format|
-      format.html { redirect_to rules_url, notice: 'Rule was successfully destroyed.' }
+      format.html { redirect_to admin_rules_url, notice: 'Rule was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -66,6 +67,6 @@ class RulesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def rule_params
-    params.require(:rule).permit(:title, :status, :category_id, :test_id, :badge_id)
+    params.require(:rule).permit(:title, :status, :category_id, :test_id, badge_attributes: [:id, :image])
   end
 end
