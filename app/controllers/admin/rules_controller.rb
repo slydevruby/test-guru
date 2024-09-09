@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Style/ClassAndModuleChildren
+
 class Admin::RulesController < Admin::BaseController
   before_action :set_rule, only: %i[show edit update destroy]
 
@@ -70,3 +72,5 @@ class Admin::RulesController < Admin::BaseController
     params.require(:rule).permit(:title, :status, :category_id, :test_id, badge_attributes: [:id, :image])
   end
 end
+
+# rubocop:enable Style/ClassAndModuleChildren
