@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
 class PassagesController < ApplicationController
-  before_action :set_test_passage
+  rescue_from SocketError, with: :rescue_with_mail_failure
+  before_action :set_test_passage, except: :index
+
+  def index
+    @passages = Passage.all
+  end
 
   def show; end
 
@@ -22,5 +27,9 @@ class PassagesController < ApplicationController
 
   def set_test_passage
     @passage = Passage.find(params[:id])
+  end
+
+  def rescue_with_mail_failure
+    redirect_to root_path, alert: t('.mail_failure') # 'Тест с таким id отсутствует'
   end
 end

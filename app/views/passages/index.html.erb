@@ -1,0 +1,19 @@
+<table class='table'>
+  <thead>
+    <tr>
+      <th>email</th>
+      <th>correct</th>
+      <th>data</th>
+    </tr>
+  </thead>
+</th>
+<% @passages.each do |passage| %>
+  <tbody>
+    <tr>
+      <td> <%= passage.user.email %></td>
+      <td><%= passage.correct_questions %> </td>
+      <td><%= passage.created_at %></td>
+    </tr>
+  </tbody>
+<% end %>
+</table>

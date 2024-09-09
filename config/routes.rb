@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       post :start
     end
   end
+  resources :passages
 
   resources :passages, only: %i[show update] do
     member do
