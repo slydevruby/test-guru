@@ -29,6 +29,12 @@
             <% end %>
           </li>
           <li  class="nav-item">
+            <%= link_to awards_path, class: 'nav-link active' do %>
+              <i class="bi bi-file-ruled"></i>
+              Awards
+            <% end %>
+          </li>
+          <li  class="nav-item">
             <%= link_to t('.gist_panel'), admin_gists_path, class: 'nav-link active' %>
           </li>
         <% end %>

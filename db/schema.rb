@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_09_064740) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_09_093324) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_09_064740) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "awards", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "rule_id", null: false
+    t.integer "count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rule_id"], name: "index_awards_on_rule_id"
+    t.index ["user_id"], name: "index_awards_on_user_id"
   end
 
   create_table "badges", force: :cascade do |t|
@@ -153,6 +163,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_09_064740) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "answers", "questions"
+  add_foreign_key "awards", "rules"
+  add_foreign_key "awards", "users"
   add_foreign_key "badges", "rules"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
