@@ -83,11 +83,8 @@ end
 
 gem 'rubocop-erb', '~> 0.4.0'
 
-
 gem 'sassc-rails'
 
+gem 'cssbundling-rails', '~> 1.4'
 
-gem "cssbundling-rails", "~> 1.4"
-
-
-gem "jsbundling-rails", "~> 1.3"
+gem 'jsbundling-rails', '~> 1.3'

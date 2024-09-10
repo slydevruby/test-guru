@@ -1,9 +1,9 @@
 <% if category.persisted? %>
-  <%  tag = "edit_category" %>
+  <%  tag = 'edit_category' %>
 <% else %>
-  <% tag ="new_category" %>
+  <% tag = 'new_category' %>
 <% end %>
-<%= turbo_frame_tag id=tag do %>
+<%= turbo_frame_tag id = tag do %>
   <%= form_with model: [:admin, category] do |form| %>
     <%= render 'errors', resource: category %>
     <div class='d-flex mb-5'>

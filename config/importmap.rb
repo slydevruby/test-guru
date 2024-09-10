@@ -13,4 +13,4 @@ pin 'utilities/sorting'
 pin 'utilities/confirmation'
 pin 'utilities/form_inline'
 pin 'utilities/progress'
-pin "bootstrap", to: "bootstrap.min.js"
+pin 'bootstrap', to: 'bootstrap.min.js'

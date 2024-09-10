@@ -1,5 +1,6 @@
-class RemoveRuleConstrainFromBadges < ActiveRecord::Migration[7.1]
+# frozen_string_literal: true
 
+class RemoveRuleConstrainFromBadges < ActiveRecord::Migration[7.1]
   def up
     change_table :badges do |t|
       t.change_null :rule_id, false

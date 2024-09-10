@@ -1,5 +1,8 @@
-class Admin::CategoriesController < ApplicationController
+# frozen_string_literal: true
 
+# rubocop:disable Style/ClassAndModuleChildren
+
+class Admin::CategoriesController < ApplicationController
   include ActionView::RecordIdentifier
   before_action :set_category, only: %i[show edit update destroy]
 
@@ -7,8 +10,7 @@ class Admin::CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @category = Category.new
@@ -18,8 +20,7 @@ class Admin::CategoriesController < ApplicationController
     # render plain:  helpers.dom_id(@category)
 
     render turbo_stream: turbo_stream.replace(dom_id(@category),
-                                              partial: "form", locals: { category: @category })
-
+                                              partial: 'form', locals: { category: @category })
   end
 
   def destroy
@@ -39,7 +40,7 @@ class Admin::CategoriesController < ApplicationController
         format.turbo_stream { render :create }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.turbo_stream { render :new, locals: { category: @category} }
+        format.turbo_stream { render :new, locals: { category: @category } }
       end
     end
   end
@@ -47,7 +48,7 @@ class Admin::CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to admin_category_path(@category), notice: "Post was successfully updated." }
+        format.html { redirect_to admin_category_path(@category), notice: 'Post was successfully updated.' }
         format.turbo_stream { render :update, locals: { category: @category } }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,6 +57,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   private
+
   # Only allow a list of trusted parameters through.
 
   def set_category
@@ -66,3 +68,5 @@ class Admin::CategoriesController < ApplicationController
     params.require(:category).permit(:title)
   end
 end
+
+# rubocop:enable Style/ClassAndModuleChildren

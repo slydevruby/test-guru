@@ -2,11 +2,12 @@
 
 class Rule < ApplicationRecord
   has_one :badge, dependent: :destroy, inverse_of: :rule
-  accepts_nested_attributes_for :badge, allow_destroy: true
+  # has_one :award, dependent: :destroy
 
   belongs_to :category, optional: true
   belongs_to :test, optional: true
 
-  validates :title, presence: true, uniqueness: true
+  accepts_nested_attributes_for :badge, allow_destroy: true
 
+  validates :title, presence: true, uniqueness: true
 end

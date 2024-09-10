@@ -1,7 +1,7 @@
 <h2 class='mt-5'>My awards</h2>
 <div class='d-flex gap-2'>
   <% @awards.each do |award| %>
-    <div class='m-2 p-2 rounded border'>
+    <div class='p-3 rounded border'>
       <div class='d-flex gap-2'>
         <div><%= award.rule.title %></div>
         <div><%= award.count %></div>
@@ -17,9 +17,13 @@
 <h2 class='mt-5'>All awards</h2>
 <div class='d-flex gap-2'>
   <% @rules.each do |rule| %>
-    <div class='m-2 p-2 rounded border'>
+    <div class='p-3 rounded border'>
       <div><%= rule.title %> </div>
-      <div><%= image_tag(rule.badge.image) %></div>
+      <div>
+        <% if rule.badge&.image&.attached? %>
+          <%= image_tag(rule.badge.image, height: 100)%>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>

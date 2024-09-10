@@ -4,12 +4,12 @@
       <%= badge.title %>
       <div class='ms-auto'>
         <%= link_to '', edit_badge_path(badge), class: 'btn btn-sm btn-primary bi bi-pen btn--small' %>
-        <%= link_to '', badge, data: { turbo_method: :delete}, class: 'btn btn-sm btn-danger bi bi-trash' %>
+        <%= link_to '', badge, data: { turbo_method: :delete }, class: 'btn btn-sm btn-danger bi bi-trash' %>
       </div>
     </div>
     <div class="card-body">
       <% if badge.image.attached? %>
-        <%= image_tag(badge.image, class: 'card-img-top', style: "object-fit: cover") %>
+        <%= image_tag(badge.image, class: 'card-img-top', style: 'object-fit: cover') %>
       <% end %>
     </div>
   </div>

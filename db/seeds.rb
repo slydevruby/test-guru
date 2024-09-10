@@ -24,7 +24,7 @@ User.destroy_all
 #                             password_confirmation: 'davidpassword' }
 # ])
 matz = User.new(first_name: 'matz', email: 'matz@mail.com', password: 'matzpassword',
-                password_confirmation: 'matzpassword');
+                password_confirmation: 'matzpassword')
 
 matz.skip_confirmation!
 matz.save!
@@ -32,15 +32,12 @@ matz.type = 'Admin'
 matz.save!
 
 dhh = User.new(first_name: 'dhh', email: 'dhh@mail.com', password: 'dhhpassword',
-               password_confirmation: 'dhhpassword');
+               password_confirmation: 'dhhpassword')
 
 dhh.skip_confirmation!
 dhh.save!
 dhh.type = 'User'
 dhh.save!
-
-
-
 
 frontend, backend = Category.create!([{ title: 'Frontend' }, { title: 'Backend' }])
 
@@ -99,8 +96,6 @@ Answer.create!({ body: '2005', correct: false, question: })
 question = Question.create!({ body: 'How create an object?', test: })
 Answer.create!({ body: 'Object.new', correct: true, question: })
 Answer.create!({ body: 'Class.new', correct: false, question: })
-
-
 
 Rule.create!(title: 'FrontRule', category: frontend)
 Rule.create!(title: 'BackRule', category: backend)

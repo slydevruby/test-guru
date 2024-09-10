@@ -1,45 +1,47 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class BadgesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @badge = badges(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get badges_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_badge_url
     assert_response :success
   end
 
-  test "should create badge" do
-    assert_difference("Badge.count") do
+  test 'should create badge' do
+    assert_difference('Badge.count') do
       post badges_url, params: { badge: { title: @badge.title } }
     end
 
     assert_redirected_to badge_url(Badge.last)
   end
 
-  test "should show badge" do
+  test 'should show badge' do
     get badge_url(@badge)
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get edit_badge_url(@badge)
     assert_response :success
   end
 
-  test "should update badge" do
+  test 'should update badge' do
     patch badge_url(@badge), params: { badge: { title: @badge.title } }
     assert_redirected_to badge_url(@badge)
   end
 
-  test "should destroy badge" do
-    assert_difference("Badge.count", -1) do
+  test 'should destroy badge' do
+    assert_difference('Badge.count', -1) do
       delete badge_url(@badge)
     end
 
