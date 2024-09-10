@@ -1,21 +1,25 @@
-<table class='table'>
-  <thead>
-    <tr>
-      <th>mail</th>
-      <th>rule</th>
-      <th>count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @awards.each do |award| %>
-      <tr>
-        <td><%= award.user.email %></td>
-        <td><%= award.rule.title %></td>
+<h2 class='mt-5'>My awards</h2>
+<div class='d-flex gap-2'>
+  <% @awards.each do |award| %>
+    <div class='m-2 p-2 rounded border'>
+      <div class='d-flex gap-2'>
+        <div><%= award.rule.title %></div>
+        <div><%= award.count %></div>
+      </div>
+      <div>
         <% if award.rule.badge.image.attached? %>
-          <td><%= image_tag(award.rule.badge.image, height: 100)%> </td>
+          <%= image_tag(award.rule.badge.image, height: 100)%>
         <% end %>
-        <td><%= award.count %></td>
-      </tr>
-    </tbody>
-  </table>
-<% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<h2 class='mt-5'>All awards</h2>
+<div class='d-flex gap-2'>
+  <% @rules.each do |rule| %>
+    <div class='m-2 p-2 rounded border'>
+      <div><%= rule.title %> </div>
+      <div><%= image_tag(rule.badge.image) %></div>
+    </div>
+  <% end %>
+</div>
