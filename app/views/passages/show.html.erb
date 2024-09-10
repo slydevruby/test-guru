@@ -1,18 +1,22 @@
-<h1><%= @passage.test.title %></h1>
+<div class='d-flex gap-2 align-items-center'>
+  <div style='margin-right: auto'>
+    <h2><%= @passage.test.title %></h2>
+  </div>
+  <div class="text-muted">
+    <%= Question.model_name.human %> #<%= @passage.current_no %>
+    <%= t('.out_of') %>
+    <%= @passage.test.questions.count %>
+  </div>
+</div>
 <div class="progress" role="progressbar" aria-label="Example 1px high" 
   aria-valuemin="0" aria-valuemax="100" style="height: 1px">
   <%= content_tag :div, '', class: 'progress-bar',
     data: { question_no: @passage.current_no,
     question_total: @passage.test.questions.count } %>
 </div>
-<b>
-  <p>
-    <%= Question.model_name.human %> #<%= @passage.current_no %>
-    <%= t('.out_of') %>
-    <%= @passage.test.questions.count %>
-  </p>
+<h3 class='mt-5'>
   <%= @passage.current_question.body %>
-</b>
+</h3>
 <%= form_with url: passage_path(@passage), data: { turbo: false }, method: :put  do |form| %>
   <%= form.collection_check_boxes :answer_ids, @passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
     <div class='form-check'>
@@ -20,9 +24,15 @@
       <%= b.label class: 'form-check-label' %>
     </div>
   <% end %>
-  <p> <%= form.submit t('.next'), class: 'btn btn-primary' %>
-  </p>
-<% end %>
-<%= form_with url: gist_passage_path(@passage), data: { turbo: false } do |inside| %>
-  <%= inside.submit t('.gist_question'), method: :post, class: 'btn btn-secondary' %>
+  <div class='d-flex align-items-center gap-2 mt-3'>
+    <div style='margin-right: auto'>
+      <%= form.submit t('.next'), class: 'btn btn-primary' do %>
+      <% end %>
+    </div>
+    <div>
+      <%= form_with url: gist_passage_path(@passage), data: { turbo: false } do |inside| %>
+        <%= inside.submit t('.gist_question'), method: :post, class: 'btn btn-secondary ' %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
