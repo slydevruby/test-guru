@@ -1,20 +1,21 @@
-<div class='input-group'>
-  <%= form_with(model: [:admin, rule]) do |form| %>
-    <%= render 'errors', resource: rule %>
-    <div class="mb-3">
-      <%= form.label :title %>
-      <%= form.text_field :title, class: 'form-control' %>
+<%= form_with(model: [:admin, rule]) do |form| %>
+  <%= render 'errors', resource: rule %>
+  <div class='d-flex gap-5'>
+    <div>
+      <div class="mb-3">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: 'form-control' %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :category_id %>
+        <%= form.collection_select :category_id, Category.order(:title), :id, :title, {}, class: 'form-select' %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :test_id%>
+        <%= form.collection_select :test_id, Test.order(:title), :id, :title, {}, class: 'form-select' %>
+      </div>
     </div>
-    <div class="mb-3">
-      <%= form.label :category_id %>
-      <%= form.collection_select :category_id, Category.order(:title), :id, :title, { prompt: true }, { class: 'form-select' } %>
-      <p><%= link_to 'reset', '#' %></p>
-    </div>
-    <div class="mb-3">
-      <%= form.label :test_id %>
-      <%= form.collection_select :test_id, Test.order(:title), :id, :title, { prompt: true }, { class: 'form-select' } %>
-    </div>
-    <div class="mb-3">
+    <div>
       <%= form.fields_for :badge do |badge_form| %>
         <div>
           <% if rule.badge.image.attached? %>
@@ -24,13 +25,16 @@
               <%#= button_to '', remove_image_badge_path(badge), data: { turbo_method: :delete }, class: 'btn btn-sm btn-danger bi bi-trash' %>
             </div>
           <% end %>
-          <p><%= badge_form.label :image %></p>
-          <%= badge_form.file_field :image, multiple: false, class: 'btn btn-primary my-3' %>
+          <div class=''>
+            <%= badge_form.label 'Select image' %>
+            <%= badge_form.file_field :image, multiple: false,
+            class: 'form-control mt-n2' %>
+          </div>
         </div>
       <% end %>
     </div>
-    <div class="mb-3">
-      <%= form.submit class: 'btn btn-primary' %>
-    </div>
-  <% end %>
-</div>
+  </div>
+  <div class="mb-3">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

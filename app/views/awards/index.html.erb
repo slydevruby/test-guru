@@ -3,7 +3,7 @@
   <% @awards.each do |award| %>
     <div class='d-flex gap-2 flex-column'>
       <div>
-        <% if award.rule.badge.image.attached? %>
+        <% if award.rule.badge&.image&.attached? %>
           <%= image_tag(award.rule.badge.image, height: 100) %>
         <% end %>
       </div>
