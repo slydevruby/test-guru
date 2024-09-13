@@ -1,29 +1,26 @@
-<h2 class='mt-5'>My awards</h2>
+<h3 class='mt-5'>My awards</h3>
 <div class='d-flex gap-2'>
   <% @awards.each do |award| %>
-    <div class='p-3 rounded border'>
-      <div class='d-flex gap-2'>
-        <div><%= award.rule.title %></div>
-        <div><%= award.count %></div>
-      </div>
+    <div class='d-flex gap-2 flex-column'>
       <div>
         <% if award.rule.badge.image.attached? %>
-          <%= image_tag(award.rule.badge.image, height: 100)%>
+          <%= image_tag(award.rule.badge.image, height: 100) %>
         <% end %>
       </div>
+      <p><%= award.rule.title %> <span class='badge'><%= award.count %></span></p>
     </div>
   <% end %>
 </div>
-<h2 class='mt-5'>All awards</h2>
-<div class='d-flex gap-2'>
+<h3 class='mt-5'>All awards</h3>
+<div class='d-flex gap-2 flex-column'>
   <% @rules.each do |rule| %>
-    <div class='p-3 rounded border'>
-      <div><%= rule.title %> </div>
+    <div class='d-flex gap-2 border'>
       <div>
         <% if rule.badge&.image&.attached? %>
-          <%= image_tag(rule.badge.image, height: 100)%>
+          <%= image_tag(rule.badge.image, height: 100) %>
         <% end %>
       </div>
+      <p><%= rule.title %></p>
     </div>
   <% end %>
 </div>

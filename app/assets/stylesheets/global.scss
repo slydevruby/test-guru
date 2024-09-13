@@ -28,7 +28,9 @@ $yellow: #fcc419;
 // danger
 $red: #d9480f;
 
-.btn-primary, .btn-secondary, .btn-danger {
+.btn-primary,
+.btn-secondary,
+.btn-danger {
     color: white !important;
 }
 
@@ -41,11 +43,13 @@ $red: #d9480f;
 .nav-link {
     transtition: all 0.2s;
 
-    &:link, &:visited {
+    &:link,
+    &:visited {
         border-bottom: 2px solid rgba(0, 0, 0, 0);
     }
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
         border-bottom: 2px solid $yellow;
     }
 }
@@ -53,4 +57,9 @@ $red: #d9480f;
 
 .marg-right-2 {
     margin-right: 2rem;
+}
+
+.badge {
+    color: white;
+    background-color: $blue;
 }
