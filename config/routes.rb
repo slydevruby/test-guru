@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
+
 Rails.application.routes.draw do
   root 'tests#index'
 
@@ -36,3 +38,5 @@ Rails.application.routes.draw do
     end
   end
 end
+
+# rubocop:enable Metrics/BlockLength

@@ -8,6 +8,14 @@ class Passage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_question
+  before_save :calc_grade
+
+  scope :passed, -> { where('grade > ? ', PASSAGE_MAX) }
+  scope :by_user, ->(user) { where(user:) }
+  scope :by_category_name, lambda { |name|
+    joins(test: :category).where(category: { title: name })
+  }
+  scope :by_level, ->(level) { Passage.joins(:test).where(test: { level: }) }
 
   def completed?
     current_question.nil?
@@ -22,15 +30,15 @@ class Passage < ApplicationRecord
     save!
   end
 
-  def grade
-    100 * correct_questions / test.questions.count
-  end
-
   def progress_width
     100.0 * current_no / test.questions.count
   end
 
   private
+
+  def calc_grade
+    self.grade = 100 * correct_questions / test.questions.count
+  end
 
   def assign_first_question
     self.current_question = test.questions.first if test.present?

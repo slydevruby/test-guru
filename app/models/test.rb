@@ -7,6 +7,7 @@ class Test < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :passages, dependent: :destroy
   has_many :users, through: :passages, dependent: :destroy
+  has_many :rules, dependent: :destroy
 
   validates :title, presence: true, uniqueness: { scope: :level }
 
@@ -24,5 +25,9 @@ class Test < ApplicationRecord
 
   def self.categories_by_title(title)
     category_by_title(title).pluck(:title)
+  end
+
+  def self.get_count_correct_answers(category)
+    joins(:category).where(category:).joins(questions: :answers).where(answers: { correct: true }).count
   end
 end
