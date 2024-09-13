@@ -14,7 +14,7 @@
 <h3 class='mt-5'>All awards</h3>
 <div class='d-flex gap-2 flex-column'>
   <% @rules.each do |rule| %>
-    <div class='d-flex gap-2 border'>
+    <div class='d-flex gap-3 border'>
       <div>
         <% if rule.badge&.image&.attached? %>
           <%= image_tag(rule.badge.image, height: 100) %>

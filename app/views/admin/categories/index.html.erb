@@ -1,10 +1,8 @@
-<div class="col-6">
-  <%= turbo_frame_tag id = 'new_category' do %>
-    <%= render 'form', category: Category.new %>
+<%= turbo_frame_tag id = 'new_category' do %>
+  <%= render 'form', category: Category.new %>
+<% end %>
+<div id="categories">
+  <% @categories.each do |category| %>
+    <%= render category %>
   <% end %>
-  <div id="categories">
-    <% @categories.each do |category| %>
-      <%= render category %>
-    <% end %>
-  </div>
 </div>
