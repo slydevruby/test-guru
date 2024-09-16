@@ -43,6 +43,8 @@ ru:
   feedback_link: 'Обратная связь'
   feedback_saved: 'Ваш запрос отправлен'
   feedback_not_saved: 'Ваш запрос не может быть отправлен'
+  prompt_cat: 'Выберите категорию'
+  prompt_test: 'Выберите тест'
 
   devise:
     shared:
@@ -166,6 +168,7 @@ ru:
   helpers:
     select:
       prompt: "Выберите категорию"
+      
     submit:
       create: "Создать %{model}"
       update: "Обновить %{model}"

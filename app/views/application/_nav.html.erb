@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg mt-2 mb-4 border-bottom border-primary" data-bs-theme="light">
+<nav class="navbar navbar-expand-lg mt-2 mb-4 navbar-dark bg-secondary rounded" data-bs-theme="light">
   <div class="container-fluid">
     <%= link_to root_path, class: 'btn btn-warning marg-right-2' do %>
       <i class="bi bi-rocket-takeoff"></i>
@@ -45,7 +45,7 @@
             <li  class="nav-item">
               <%= t('welcome', email: current_user.email) %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item text-muted">
               <%= link_to t('signout'), destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link active'  %>
             </li>
           </ul>

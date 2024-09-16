@@ -10,29 +10,21 @@
     min-height: 50rem;
 }
 
-// primary 
-$blue: #5c7cfa;
 
-// primary dark 
-//$gray-600: #374a96;
-$gray-600: #4057af;
-// #$gray-600: #aebefd;
+// $primary: #20c997; // set the $primary variable
+// $secondary: #087f5b;
+// $danger: #dd0000;
+// $success: lime;
+// $warning: orange;
+// $info: aqua;
+// $body-bg: #f3f3f0;
 
 
-// surface
-// $body-bg: #B7C4CF;
+$primary: #3F72AF; // set the $primary variable
+$secondary: #112D4E;
+$danger: #dd0000;
+$body-bg: #F9F7F7;
 
-// accent
-$yellow: #fcc419;
-
-// danger
-$red: #d9480f;
-
-.btn-primary,
-.btn-secondary,
-.btn-danger {
-    color: white !important;
-}
 
 
 .card {
@@ -50,7 +42,7 @@ $red: #d9480f;
 
     &:hover,
     &:active {
-        border-bottom: 2px solid $yellow;
+        border-bottom: 2px solid;
     }
 }
 
@@ -59,7 +51,4 @@ $red: #d9480f;
     margin-right: 2rem;
 }
 
-.badge {
-    color: white;
-    background-color: $blue;
-}
+

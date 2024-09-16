@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_13_013224) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_16_032034) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -120,6 +120,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_13_013224) do
     t.bigint "test_id"
     t.integer "level"
     t.index ["category_id"], name: "index_rules_on_category_id"
+    t.index ["level"], name: "index_rules_on_level", unique: true
     t.index ["test_id"], name: "index_rules_on_test_id"
     t.index ["title"], name: "index_rules_on_title", unique: true
   end
