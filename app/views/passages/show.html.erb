@@ -10,6 +10,10 @@
     data: { question_no: @passage.current_no,
     question_total: @passage.test.questions.count } %>
 </div>
-<%= turbo_frame_tag 'question' do %>
+<% if @passage.test.questions.count > 1 %>
+  <%= turbo_frame_tag 'question' do %>
+    <%= render 'question' %>
+  <% end %>
+<% else %>
   <%= render 'question' %>
 <% end %>
