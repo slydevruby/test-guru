@@ -76,7 +76,8 @@ ru:
       gist_question: 'Создать gist'
     question:
       out_of: 'из'
-      next: 'Следующий вопрос'
+      next_question: 'Следующий вопрос'
+      complete_passage: 'Завершить тест'
       gist_question: 'Создать gist'
 
 

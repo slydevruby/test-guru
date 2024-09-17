@@ -21,7 +21,12 @@
     </div>
   <% end %>
   <label for="submit-question" class="btn btn-primary mt-3">
-    <%= t('.next') %><i class="bi bi-arrow-right"> </i>
+    <% if @passage.current_no == @passage.test.questions.count %>
+      <%= t('.complete_passage') %>
+    <% else %>
+      <%= t('.next_question') %>
+      <i class="bi bi-arrow-right"> </i>
+    <% end %>
   </label>
   <%= form.submit t('.next'), id: 'submit-question', style: 'display: none'  %>
 <% end %>
