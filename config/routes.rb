@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    get 'rules/:type', to: 'rules#new_by_type', as: 'type_rule'
     resources :rules
     resources :categories
     resources :gists, only: :index

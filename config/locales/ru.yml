@@ -96,6 +96,12 @@ ru:
     submit: 'Отправить'
 
   admin:
+    rules:
+      index:
+        new_rule_cat: 'Новое правило для категорий'
+        new_rule_level: 'Новое правило для уровня'
+        new_rule_test: 'Новое правило для теста'
+
     tests:
 
       index:

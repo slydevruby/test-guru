@@ -4,6 +4,7 @@
 
 class Admin::RulesController < Admin::BaseController
   before_action :set_rule, only: %i[show edit update destroy]
+  before_action :new_rule, only: %i[new new_by_type]
 
   # GET /rules or /rules.json
   def index
@@ -14,9 +15,19 @@ class Admin::RulesController < Admin::BaseController
   def show; end
 
   # GET /rules/new
-  def new
-    @rule = Rule.new
-    @rule.build_badge
+  def new; end
+
+  def new_by_type
+    case params['type']
+    when 'cat'
+      render 'new_cat'
+    when 'test'
+      render 'new_test'
+    when 'level'
+      render 'new_level'
+    else
+      render 'new'
+    end
   end
 
   # GET /rules/1/edit
@@ -61,6 +72,11 @@ class Admin::RulesController < Admin::BaseController
   end
 
   private
+
+  def new_rule
+    @rule = Rule.new
+    @rule.build_badge
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_rule
