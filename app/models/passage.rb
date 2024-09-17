@@ -13,8 +13,8 @@ class Passage < ApplicationRecord
   scope :passed, -> { where('grade > ? ', PASSAGE_MAX) }
   scope :by_user, ->(user) { where(user:) }
   scope :by_test, ->(test) { joins(:test).where(test:) }
-  scope :by_category_name, lambda { |name|
-    joins(test: :category).where(category: { title: name })
+  scope :by_category_title, lambda { |title|
+    joins(test: :category).where(category: { title: })
   }
   scope :by_level, ->(level) { Passage.joins(:test).where(test: { level: }) }
 

@@ -1,15 +1,8 @@
-<div class='d-flex gap-2 align-items-center'>
-  <div style='margin-right: auto'>
-    <h2><%= @passage.test.title %></h2>
-  </div>
-  <div class="text-muted">
-    <%= Question.model_name.human %> #<%= @passage.current_no %>
-    <%= t('.out_of') %>
-    <%= @passage.test.questions.count %>
-  </div>
-  <%= form_with url: gist_passage_path(@passage), data: { turbo: false } do |inside| %>
-    <%= inside.submit t('.gist_question'), method: :post, class: 'btn btn-sm btn-secondary ' %>
-  <% end %>
+<div class='d-flex gap-2 align-items-center justify-content-between'>
+  <h2><%= @passage.test.title %></h2>
+  <%= content_tag :div, 'bar ', class: 'timer text-muted',
+  data: { controller: 'hello', hello_url_value: result_passage_path(@passage),
+    hello_timeout_value: 30 } %>
 </div>
 <div class="progress" role="progressbar" aria-label="Example 1px high" 
   aria-valuemin="0" aria-valuemax="100" style="height: 1px">
@@ -17,18 +10,6 @@
     data: { question_no: @passage.current_no,
     question_total: @passage.test.questions.count } %>
 </div>
-<h4 class='mt-3'>
-  <%= @passage.current_question.body %>
-</h4>
-<%= form_with url: passage_path(@passage), data: { turbo: false }, method: :put  do |form| %>
-  <%= form.collection_check_boxes :answer_ids, @passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
-    <div class='form-check'>
-      <%= b.check_box id: "answers_ids_#{b.object.id}", class: 'form-check-input' %>
-      <%= b.label class: 'form-check-label', for: "answers_ids_#{b.object.id}" %>
-    </div>
-  <% end %>
-  <label for="submit-question" class="btn btn-primary mt-3">
-    <%= t('.next') %><i class="bi bi-arrow-right"> </i>
-  </label>
-  <%= form.submit t('.next'), id: 'submit-question', style: 'display: none'  %>
+<%= turbo_frame_tag 'question' do %>
+  <%= render 'question' %>
 <% end %>

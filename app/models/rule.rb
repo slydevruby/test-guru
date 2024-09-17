@@ -2,6 +2,7 @@
 
 class Rule < ApplicationRecord
   has_one :badge, dependent: :destroy, inverse_of: :rule
+  has_one :award, dependent: :destroy, inverse_of: :rule
 
   belongs_to :category, optional: true
   belongs_to :test, optional: true

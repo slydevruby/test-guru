@@ -16,6 +16,8 @@ class Test < ApplicationRecord
   scope :beginner, -> { where(level: 0..1) }
   scope :intermediate, -> { where(level: 2..4) }
   scope :advanced, -> { where(level: 5...) }
+  scope :by_level, ->(level) { where(level:) }
+  scope :by_category, ->(category) { where(category:) }
 
   scope :category_by_title, lambda { |title|
     joins(:category)

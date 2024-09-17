@@ -2,7 +2,7 @@
 
 class AwardsController < ApplicationController
   def index
-    @awards = Award.where(user: current_user)
+    @awards = current_user.awards
     @rules = Rule.all
   end
 end

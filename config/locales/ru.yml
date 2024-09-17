@@ -74,6 +74,11 @@ ru:
       out_of: 'из'
       next: 'Следующий вопрос'
       gist_question: 'Создать gist'
+    question:
+      out_of: 'из'
+      next: 'Следующий вопрос'
+      gist_question: 'Создать gist'
+
 
   tests:
     index:

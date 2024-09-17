@@ -69,7 +69,7 @@ class Admin::RulesController < Admin::BaseController
 
   # Only allow a list of trusted parameters through.
   def rule_params
-    params.require(:rule).permit(:title, :status, :category_id, :test_id, badge_attributes: %i[id image])
+    params.require(:rule).permit(:title, :status, :category_id, :test_id, :level, badge_attributes: %i[id image])
   end
 end
 
