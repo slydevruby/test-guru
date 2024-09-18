@@ -57,17 +57,29 @@ class PassagesController < ApplicationController
   def assign_level?(rule)
     (rule.level != 0) &&
       Passage.by_level(rule.level).count.positive? &&
-      (Test.by_level(rule.level).count == Passage.by_level(rule.level).passed.count)
+      (Test.by_level(rule.level).count ==
+       Passage.by_user(current_user).by_level(rule.level).passed.count)
   end
 
-  def assign_award
-    @rules = Rule.all
-    @rules.each do |rule|
-      next unless assign_category?(rule) ||
-                  assign_test?(rule) ||
-                  assign_level?(rule)
-
+  def make_award(rule)
+    if Award.exists?({ rule:, user: current_user })
+      Award.find_by({ rule:, user: current_user }).increment!(:count)
+    else
       Award.create!(user: current_user, rule:, count: 1)
     end
   end
+
+  # rubocop:disable Metrics/AbcSize
+  def assign_award
+    Rule.by_category(rule.category).each do |rule|
+      make_award(rule) if assign_category?(rule)
+    end
+    Rule.by_test(rule.test).each do |rule|
+      make_award(rule) if assign_test?(rule)
+    end
+    Rule.by_level.each do |rule|
+      make_award(rule) if assign_level?(rule)
+    end
+  end
+  # rubocop:enable Metrics/AbcSize
 end

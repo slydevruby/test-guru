@@ -13,4 +13,5 @@ class Rule < ApplicationRecord
 
   scope :by_test, -> { where.associated(:test) }
   scope :by_category, -> { where.associated(:category) }
+  scope :be_level, -> { where.missing(:category, :test) }
 end

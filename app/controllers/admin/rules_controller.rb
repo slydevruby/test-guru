@@ -18,15 +18,10 @@ class Admin::RulesController < Admin::BaseController
   def new; end
 
   def new_by_type
-    case params['type']
-    when 'cat'
-      render 'new_cat'
-    when 'test'
-      render 'new_test'
-    when 'level'
-      render 'new_level'
+    if %w[cat test level].include? params['type']
+      render "new_#{params['type']}"
     else
-      render 'new'
+      render :new
     end
   end
 
