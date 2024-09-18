@@ -1,0 +1,18 @@
+<div class='d-flex gap-2' data-controller='clicker' data-action="click->clicker#greet">
+  <%= link_to admin_tests_path, class: 'lnk' do %>
+    <i class="bi bi-list-stars"></i>
+    Tests
+  <% end %>
+  <%= link_to admin_categories_path, class: 'lnk' do %>
+    <i class="bi bi-list-nested"></i>
+    Categories  
+  <% end %>
+  <%= link_to admin_rules_path, class: 'lnk' do %>
+    <i class="bi bi-file-ruled"></i>
+    Rules
+  <% end %>
+  <%= link_to 'Gists', admin_gists_path, class: 'lnk' %>
+</div>
+<div class='tab-content'>
+  <%= yield %>
+</div>

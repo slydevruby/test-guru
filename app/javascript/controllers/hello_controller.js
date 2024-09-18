@@ -9,8 +9,6 @@ export default class extends Controller {
     }
 
     connect() {
-        console.log(this.urlValue);
-        console.log(this.timeoutValue);
         if (this.timeoutValue && this.timeoutValue > 0) {
 
             let timer = setTimeout(() => {

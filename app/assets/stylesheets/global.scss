@@ -57,3 +57,34 @@
     transform: translate(-5%, -30%) scale(0.7);
 
 }
+
+.tab-content {
+    margin-top: 2rem;
+}
+
+.lnk {
+    text-align: center;
+    text-decoration: none;
+    min-width: 8rem;
+    padding: 5px 20px;
+    background-color: #eee;
+    color: #000;
+    border: none;
+    
+    border-radius: 20px;
+    &:link, &:visisted {
+      border: none;
+      text-decoration: none;
+    }
+
+    &:hover, &:active {
+      transform: translateY(-5%);
+      border: none;
+      text-decoration: none;
+
+    }
+
+    &--active {
+        background-color: orangered;
+    }
+}

@@ -2,8 +2,9 @@
 
 # rubocop:disable Style/ClassAndModuleChildren
 
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::BaseController
   include ActionView::RecordIdentifier
+
   before_action :set_category, only: %i[show edit update destroy]
 
   def index

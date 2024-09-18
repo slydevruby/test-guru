@@ -69,17 +69,9 @@ class PassagesController < ApplicationController
     end
   end
 
-  # rubocop:disable Metrics/AbcSize
   def assign_award
-    Rule.by_category(rule.category).each do |rule|
-      make_award(rule) if assign_category?(rule)
-    end
-    Rule.by_test(rule.test).each do |rule|
-      make_award(rule) if assign_test?(rule)
-    end
-    Rule.by_level.each do |rule|
-      make_award(rule) if assign_level?(rule)
+    Rule.all.each do |rule|
+      make_award(rule) if assign_category?(rule) || assign_test?(rule) || assign_level?(rule)
     end
   end
-  # rubocop:enable Metrics/AbcSize
 end
