@@ -1,0 +1,20 @@
+<table class='table'>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Test</th>
+      <th>Grade</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @passages.each do |passage| %>
+      <tr>
+        <td><%= passage.user.email %></td>
+        <td><%= passage.test.title %></td>
+        <td><%= passage.grade %></td>
+        <td><%= passage.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

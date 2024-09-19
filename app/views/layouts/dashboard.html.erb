@@ -14,9 +14,9 @@
   <body>
     <div class="container">
       <%= render 'nav' %>
-      <h1>Dashboard</h1>
       <div class="container container-main">
-        <%= flash_messages %>
+        <%= flash_messages  %>
+        <%= render partial: 'toast', locals: { message: flash[:alert] || flash[:notice] } %>
         <%= render 'tab_container' %>
       </div>
       <%= render 'footer' %>

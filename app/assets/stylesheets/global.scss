@@ -7,26 +7,8 @@
 }
 
 .container-main {
-    min-height: 50rem;
+   min-height: 50rem;
 }
-
-
-// $primary: #20c997; // set the $primary variable
-// $secondary: #087f5b;
-// $danger: #dd0000;
-// $success: lime;
-// $warning: orange;
-// $info: aqua;
-// $body-bg: #f3f3f0;
-
-
-// $primary: #3F72AF; // set the $primary variable
-// $secondary: #112D4E;
-// $danger: #dd0000;
-// $body-bg: #F9F7F7;
-// $body-color: red;
-
-
 
 .card {
     width: 16rem;
@@ -67,8 +49,8 @@
     text-decoration: none;
     min-width: 8rem;
     padding: 5px 20px;
-    background-color: #eee;
-    color: #000;
+    background-color: $secondary;
+    color: #FFF;
     border: none;
     
     border-radius: 20px;

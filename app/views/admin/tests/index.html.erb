@@ -1,7 +1,4 @@
 <%= render 'errors', resource: @test %>
-<p>
-  <%= link_to t('.new'), new_admin_test_path, class: 'btn btn-primary' %>
-</p>
 <table class="table">
   <thead>
     <tr>
@@ -27,3 +24,6 @@
     <%= render @tests %>
   </tbody>
 </table>
+<p>
+  <%= link_to t('.new'), new_admin_test_path, class: 'btn btn-primary' %>
+</p>

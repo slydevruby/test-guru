@@ -17,7 +17,6 @@ Rails.application.routes.draw do
       post :start
     end
   end
-  resources :passages
 
   resources :passages, only: %i[show update] do
     member do
@@ -28,8 +27,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'rules/:type', to: 'rules#new_by_type', as: 'type_rule'
-    resources :rules
-    resources :categories
+    resources :passages, only: :index
+    resources :rules, :categories
+
     resources :gists, only: :index
     resources :tests, shallow: true do
       patch :update_inline, on: :member
