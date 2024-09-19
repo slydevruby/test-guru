@@ -96,6 +96,8 @@ ru:
     submit: 'Отправить'
 
   admin:
+    passages:
+      success_destroyed: 'Прохождение удалено'
     rules:
       index:
         new_rule_cat: 'Новое правило для категорий'

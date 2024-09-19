@@ -7,7 +7,7 @@
 }
 
 .container-main {
-   min-height: 50rem;
+    min-height: 50rem;
 }
 
 .card {
@@ -40,6 +40,17 @@
 
 }
 
+.accent {
+    background-color: $accent-color !important;
+}
+
+.toast {
+    background-color: $body-bg !important;
+    /* Change to your desired color */
+    opacity: 1 !important;
+    /* Ensure the toast is fully opaque */
+}
+
 .tab-content {
     margin-top: 2rem;
 }
@@ -52,17 +63,20 @@
     background-color: $secondary;
     color: #fff;
     border: none;
-    
+
     border-radius: 20px;
-    &:link, &:visisted {
-      border: none;
-      text-decoration: none;
+
+    &:link,
+    &:visisted {
+        border: none;
+        text-decoration: none;
     }
 
-    &:hover, &:active {
-      transform: translateY(-5%);
-      border: none;
-      text-decoration: none;
+    &:hover,
+    &:active {
+        transform: translateY(-5%);
+        border: none;
+        text-decoration: none;
 
     }
 
