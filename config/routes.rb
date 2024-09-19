@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'rules/:type', to: 'rules#new_by_type', as: 'type_rule'
-    resources :passages, only: :index
+    resources :passages, only: %i[index destroy]
     resources :rules, :categories
 
     resources :gists, only: :index

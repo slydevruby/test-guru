@@ -8,6 +8,11 @@ class Admin::PassagesController < Admin::BaseController
   def index
     @passages = Passage.all
   end
+
+  def destroy
+    Passage.find(params[:id]).destroy!
+    redirect_to admin_passages_path, notice: t('.success_destroyed')
+  end
 end
 
 # rubocop:enable Style/ClassAndModuleChildren

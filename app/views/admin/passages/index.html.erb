@@ -5,6 +5,7 @@
       <th>Test</th>
       <th>Grade</th>
       <th>Date</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +15,8 @@
         <td><%= passage.test.title %></td>
         <td><%= passage.grade %></td>
         <td><%= passage.created_at %></td>
+        <td><%= button_to 'Delete', admin_passage_path(passage), method: :delete,
+        class: 'btn btn-danger'  %></td>
       </tr>
     <% end %>
   </tbody>
