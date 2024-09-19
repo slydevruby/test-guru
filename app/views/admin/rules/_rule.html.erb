@@ -1,28 +1,38 @@
 <div id="<%= dom_id rule %>" class="card text-bg-light mb-3">
   <div class="card-header d-flex">
-    <div  class='d-flex ms-auto'>
+    <%= content_tag(:div) do %>
+      <% if rule.category %>
+        <h5 class="card-title bg-success-subtle">Category</h5>
+      <% elsif rule.test %>
+        <h5 class="card-title bg-warning-subtle">Test</h5>
+      <% else %>
+        <h5 class="card-title">Level</h5>
+      <% end %>
+    <% end %>
+    <div  class='d-flex ms-auto gap-1'>
       <%= link_to '', edit_admin_rule_path(rule), class: 'btn btn-primary bi bi-pen btn-sm' %>
       <%= button_to '', admin_rule_path(rule), method: :delete, class: 'btn btn-danger btn-sm bi bi-trash' %>
     </div>
   </div>
   <div class="card-body d-flex flex-column">
+    <div class='font-weight-light'>
+      <%= rule.title %>
+    </div>
     <% if rule.category %>
-      <h5 class="card-title"> Category: <%= rule.category.title %></h5>
+      <h5 class="card-title"> <%= rule.category.title %></h5>
+    <% elsif rule.test %>
+      <h5 class="card-title">  <%= rule.test.title %></h5>
+    <% else %>
+      <h5 class="card-title"> ???</h5>
     <% end %>
-    <% if rule.test %>
-      <h5 class="card-title"> Test: <%= rule.test.title %></h5>
-    <% end %>
-    <p class="card-text">
+    <div class="card-text d-flex justify-content-center align-items-center">
       <% if rule.badge %>
         <% if rule.badge.image.attached? %>
           <%= image_tag rule.badge.image, style: 'width: 100%' %>
         <% end %>
       <% else %>
-        no badge
+        <i class='bi bi-ban'></i>
       <% end %>
-    </p>
-    <p class='mt-auto font-weight-light'>
-      <%= rule.title %>
-    </p>
+    </div>
   </div>
 </div>

@@ -1,6 +1,4 @@
 ru:
-
-
   activerecord:
     models:
       user: "Пользователь"
@@ -9,6 +7,8 @@ ru:
       question: "Вопрос"
       answer: "Ответ"
       passage: 'Прохождение'
+      rule: 'Правило'
+      award: 'Достижение'
       feedback: 'Обратная связь'
 
     attributes:
@@ -25,6 +25,7 @@ ru:
       test:
         title: "Название"
         level: "Уровень"
+        timeout: 'Таймаут (0 если таймаута нет)'
         category_id: "ID категории"
         author_id: "ID автора"
         category: 'Категория'
@@ -36,6 +37,10 @@ ru:
 
       category:
         title: "Название"
+      rule:
+        title: "Название"
+        category_id: 'Категория'
+        level: 'Уровень'
       feedback:
         email: 'Электронная почта'
         body: 'Запрос'

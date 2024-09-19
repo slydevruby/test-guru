@@ -37,6 +37,7 @@ ru:
   more_test: 'тесты'
   signin: 'Войти'
   signout: 'Выйти'
+  foobar: 'foobar'
   signup: 'Новый пользователь'
   remember_me: 'Запомнить меня'
   test_complete: 'Вы прошли тест %{test_title}'
@@ -45,6 +46,17 @@ ru:
   feedback_not_saved: 'Ваш запрос не может быть отправлен'
   prompt_cat: 'Выберите категорию'
   prompt_test: 'Выберите тест'
+
+  nav_pass_test: 'Пройти тест'
+  nav_dashboard: 'Дэшбоард'
+  nav_awards: 'Бейджи'
+
+  awards:
+    index:
+      reason: 'За что'
+      title: 'Бейдж'
+      count: 'Сколько раз'
+
 
   devise:
     shared:
@@ -57,6 +69,12 @@ ru:
         signup: "Создать пользователя"
 
   application:
+
+    tab_container:
+      test_tab: 'Тесты'
+      category_tab: 'Категории'
+      rule_tab: 'Правила для бейджей'
+      passage_tab: 'Прохождения'
     errors:
       error:
         few: "Обнаружено %{count} ошибки"
@@ -103,6 +121,9 @@ ru:
         new_rule_cat: 'Новое правило для категорий'
         new_rule_level: 'Новое правило для уровня'
         new_rule_test: 'Новое правило для теста'
+      update:
+        rule_updated: 'Правило обновлено'
+        rule_destroyed: 'Правило удалено'
 
     tests:
 

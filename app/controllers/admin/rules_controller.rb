@@ -47,7 +47,7 @@ class Admin::RulesController < Admin::BaseController
   def update
     respond_to do |format|
       if @rule.update(rule_params)
-        format.html { redirect_to admin_rule_url(@rule), notice: 'Rule was successfully updated.' }
+        format.html { redirect_to admin_rules_url, notice: t('.rule_updated') }
         format.json { render :show, status: :ok, location: @rule }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -61,7 +61,7 @@ class Admin::RulesController < Admin::BaseController
     @rule.destroy!
 
     respond_to do |format|
-      format.html { redirect_to admin_rules_url, notice: 'Rule was successfully destroyed.' }
+      format.html { redirect_to admin_rules_url, notice: t('.rule_destroyed') }
       format.json { head :no_content }
     end
   end

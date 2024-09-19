@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <%= link_to root_path, class: 'btn marg-right-2 accent' do %>
       <i class="bi bi-rocket-takeoff"></i>
-      Пройти тест
+      <%= t('nav_pass_test') %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -17,14 +17,14 @@
               <li class="nav-item text-muted">
                 <%= link_to admin_tests_path, class: 'nav-link active' do %>
                   <i class="bi bi-file-ruled"></i>
-                  Dashboard
+                  <%= t('nav_dashboard') %>
                 <% end %>
               </li>
             <% end %>
             <li class="nav-item text-muted">
               <%= link_to awards_path, class: 'nav-link active' do %>
                 <i class="bi bi-trophy"></i>
-                Awards
+                <%= t('nav_awards') %>
               <% end %>
             </li>
             <li class="nav-item text-muted">
