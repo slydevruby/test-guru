@@ -44,8 +44,8 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def destroy
-    @test.destroy
-    redirect_to admin_tests_path
+    @test.destroy!
+    redirect_to admin_tests_path, notice: 'Test destroyed'
   end
 
   private
@@ -63,7 +63,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def rescue_with_test_not_found
-    redirect_to root_path, alert: t('.no_such_test') # 'Тест с таким id отсутствует'
+    redirect_to admin_tests_path, alert: t('.no_such_test') # 'Тест с таким id отсутствует'
   end
 end
 # rubocop:enable Style/ClassAndModuleChildren
