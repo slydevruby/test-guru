@@ -1,12 +1,12 @@
 <div id="<%= dom_id rule %>" class="card text-bg-light mb-3">
-  <div class="card-header d-flex">
+  <div class ='card-header d-flex'>
     <%= content_tag(:div) do %>
       <% if rule.category %>
-        <h5 class="card-title bg-success-subtle">Category</h5>
+        <h5 class="card-title bg-success-subtle"> <%= rule.category.title %></h5>
       <% elsif rule.test %>
-        <h5 class="card-title bg-warning-subtle">Test</h5>
+        <h5 class="card-title">  <%= rule.test.title %></h5>
       <% else %>
-        <h5 class="card-title">Level</h5>
+        <h5 class="card-title"> ???</h5>
       <% end %>
     <% end %>
     <div  class='d-flex ms-auto gap-1'>
@@ -18,13 +18,6 @@
     <div class='font-weight-light'>
       <%= rule.title %>
     </div>
-    <% if rule.category %>
-      <h5 class="card-title"> <%= rule.category.title %></h5>
-    <% elsif rule.test %>
-      <h5 class="card-title">  <%= rule.test.title %></h5>
-    <% else %>
-      <h5 class="card-title"> ???</h5>
-    <% end %>
     <div class="card-text d-flex justify-content-center align-items-center">
       <% if rule.badge %>
         <% if rule.badge.image.attached? %>
