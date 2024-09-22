@@ -1,0 +1,21 @@
+<%= form_with(model: [:admin, rule]) do |form| %>
+  <%= render 'errors', resource: rule %>
+  <div class='d-flex gap-5'>
+    <div>
+      <div class="mb-3">
+        <%= form.label :title %>
+        <%= form.text_field :title, class: 'form-control' %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :level%>
+        <%= form.number_field :level, in: 0..10, class: 'form-control' %>
+      </div>
+    </div>
+    <div>
+      <%= render 'badge', form:, rule: %>
+    </div>
+  </div>
+  <div class="mb-3">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,18 +1,15 @@
-<div class="card my-3" style="width: 36rem;">
-  <div class="card-header">
-    <%= Test.model_name.human %> "<%= @question.test.title %>"
-  </div>
-  <div class="card-body">
-    <h6 class="card-subtitle mb-2 text-body-secondary">
-      <%= Question.model_name.human %>: <%= @question.body %>
-    </h6>
-    <p class="card-text">
-      <%= t('.answers', count: @question.answers.count) %>
-      <table class="table">
-        <%= render @question.answers %>
-      </table>
-    </p>
-  </div>
+<h3>
+  <%= Test.model_name.human %> "<%= @question.test.title %>"
+</h3>
+<h4>
+  <%= Question.model_name.human %>: <%= @question.body %>
+</h4>
+<div class='mb-5'>
+  <h5>
+    <%= t('.answers', count: @question.answers.count) %></h5>
+  <ul>
+    <%= render @question.answers %>
+  </ul>
 </div>
 <%= link_to t('.new_answer'), new_admin_question_answer_path(@question), class: 'btn btn-primary' %>
 <%= link_to t('.back_to_test'), admin_test_path(@question.test), class: 'btn btn-primary' %>

@@ -3,7 +3,7 @@
 # rubocop:disable Style/ClassAndModuleChildren
 
 class Admin::BaseController < ApplicationController
-  layout 'admin'
+  layout 'dashboard'
 
   before_action :admin_required!
 

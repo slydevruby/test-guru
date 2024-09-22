@@ -148,6 +148,7 @@ en:
   helpers:
     select:
       prompt: "Select category"
+      
     submit:
       create: "Create %{model}"
       update: "Update %{model}"

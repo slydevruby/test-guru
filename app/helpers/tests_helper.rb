@@ -4,11 +4,11 @@ module TestsHelper
   def test_level(level)
     case level
     when 0..1
-      'Beginner'
+      "Beginner (#{level})"
     when 2..4
-      'Intermediate'
+      "Intermediate (#{level})"
     else
-      'Advanced'
+      "Advanced (#{level})"
     end
   end
 end

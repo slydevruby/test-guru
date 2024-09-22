@@ -5,5 +5,7 @@ class Category < ApplicationRecord
 
   has_many :tests, dependent: :destroy
 
+  has_one :rule, dependent: :destroy
+
   validates :title, presence: true
 end

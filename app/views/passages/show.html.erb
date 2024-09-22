@@ -1,28 +1,19 @@
-<h1><%= @passage.test.title %></h1>
+<div class='d-flex gap-2 align-items-center justify-content-between'>
+  <h2><%= @passage.test.title %></h2>
+  <%= content_tag :div, '', class: 'timer text-muted',
+  data: { controller: 'hello', hello_url_value: result_passage_path(@passage),
+    hello_timeout_value: @passage.test.timeout } %>
+</div>
 <div class="progress" role="progressbar" aria-label="Example 1px high" 
   aria-valuemin="0" aria-valuemax="100" style="height: 1px">
   <%= content_tag :div, '', class: 'progress-bar',
     data: { question_no: @passage.current_no,
     question_total: @passage.test.questions.count } %>
 </div>
-<b>
-  <p>
-    <%= Question.model_name.human %> #<%= @passage.current_no %>
-    <%= t('.out_of') %>
-    <%= @passage.test.questions.count %>
-  </p>
-  <%= @passage.current_question.body %>
-</b>
-<%= form_with url: passage_path(@passage), data: { turbo: false }, method: :put  do |form| %>
-  <%= form.collection_check_boxes :answer_ids, @passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
-    <div class='form-check'>
-      <%= b.check_box id: "answers_ids_#{b.object.id}", class: 'form-check-input' %>
-      <%= b.label class: 'form-check-label' %>
-    </div>
+<% if @passage.test.questions.count > 1 %>
+  <%= turbo_frame_tag 'question' do %>
+    <%= render 'question' %>
   <% end %>
-  <p> <%= form.submit t('.next'), class: 'btn btn-primary' %>
-  </p>
-<% end %>
-<%= form_with url: gist_passage_path(@passage), data: { turbo: false } do |inside| %>
-  <%= inside.submit t('.gist_question'), method: :post %>
+<% else %>
+  <%= render 'question' %>
 <% end %>

@@ -1,11 +1,12 @@
-<footer class="footer">
-    <p>Создание и прохождение тестов ©
-        <%= current_year %> slydevruby
+<footer class="footer d-flex justify-content-between align-items-center">
+    <p>
+        Учебный проект "Создание и прохождение тестов" ©
+        <%= current_year %> в онлайн-школе
+        <%= link_to 'Thinknetica', 
+      'http://thinknetica.com', target: '_blank', rel: %w[nofollow noopener]
+     %>
         <%= github_url('slydevruby', 'test-guru') %>
     </p>
-    <%= link_to 'Учебный проект в онлайн-школе Thinknetica', 
-      'http://thinknetica.com', target: '_blank', rel: %w[nofollow noopener], class: 'btn--link'
-     %>
-    <%= link_to t(:feedback_link), feedbacks_new_path, class: 'btn--link' %>
-    </p>
+    <%= link_to t(:feedback_link), feedbacks_new_path, 
+    class: 'btn btn-secondary' %>
 </footer>

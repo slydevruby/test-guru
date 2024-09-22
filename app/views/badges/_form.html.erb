@@ -1,0 +1,23 @@
+<div class='d-flex flex-column'>
+  <%= form_with(model: badge) do |form| %>
+    <%= render 'errors', resource: badge %>
+    <div class="mb-3">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <% if badge.image.attached? %>
+        <%= form.hidden_field :image, multiple: false, value: badge.image.signed_id %>
+        <div class='d-flex gap-2 align-items-start'>
+          <%= image_tag(badge.image, height: 150) %>
+          <%= button_to '', remove_image_badge_path(badge), 
+          data: { turbo_method: :delete }, class: 'btn btn-sm btn-danger bi bi-trash' %>
+        </div>
+      <% end %>
+      <%= form.file_field :image, multiple: false, class: 'btn btn-primary my-3' %>
+    </div>
+    <div class="mb-3">
+      <%= form.submit class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

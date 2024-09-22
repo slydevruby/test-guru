@@ -10,20 +10,18 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module' %>
 </head>
 
 <body>
-    <section>
-        <div class="wrapper">
-            <%= render 'nav' %>
-            <main class="page-body">
-                <%= flash_messages %>
-                <%= yield %>
-            </main>
-            <%= render 'footer' %>
+    <div class="container">
+        <%= render 'nav' %>
+        <div class="container container-main">
+            <%= flash_messages %>
+            <%= yield %>
         </div>
-    </section>
+        <%= render 'footer' %>
+    </div>
 </body>
 
 </html>

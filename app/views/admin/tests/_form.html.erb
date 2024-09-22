@@ -1,19 +1,22 @@
-<%= form_with model: [:admin, @test], data: { turbo: false } do |form| %>
-  <%= render 'errors', resource: @test %>
-  <div class="mb-3">
-    <%= form.label :category, class: 'form-label' %>
-    <%= form.collection_select :category_id, Category.order(:title), :id, :title, { prompt: true }, { class: 'form-select' } %>
-  </div>
-  <div class="mb-3">
-    <%= form.label :title, class: 'form-label' %>
-    <%= form.text_field :title, class: 'form-control' %>
-  </div>
-  <div class="mb-3">
-    <%= form.label :level, class: 'form-label' %>
-    <%= form.number_field :level, in: 1..10, class: 'form-control' %>
-  </div>
-    
-      <%= form.submit class: 'btn btn-primary' %>
-    
+<div class='col-6'>
+  <%= form_with model: [:admin, @test], data: { turbo: false } do |form| %>
+    <%= render 'errors', resource: @test %>
+    <div class="mb-3">
+      <%= form.label :category %>
+      <%= form.collection_select :category_id, Category.order(:title), :id, :title, { prompt: true }, { class: 'form-select' } %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :level %>
+      <%= form.number_field :level, in: 1..10, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :timeout %>
+      <%= form.number_field :timeout, in: 0..60, class: 'form-control' %>
+    </div>
+    <%= form.submit class: 'btn btn-primary mt-3' %>
   <% end %>
 </div>

@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
+
 Rails.application.routes.draw do
   root 'tests#index'
+
+  resources :awards
 
   get :feedbacks, 'feedbacks/new'
   post :feedbacks, 'feedbacks/create'
@@ -22,6 +26,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    get 'rules/:type', to: 'rules#new_by_type', as: 'type_rule'
+    resources :passages, only: %i[index destroy]
+    resources :rules, :categories
+
     resources :gists, only: :index
     resources :tests, shallow: true do
       patch :update_inline, on: :member
@@ -31,3 +39,5 @@ Rails.application.routes.draw do
     end
   end
 end
+
+# rubocop:enable Metrics/BlockLength
