@@ -82,7 +82,8 @@ ru:
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
     nav:
-      admin_panel: 'Тесты'
+      admin_panel: 'Панель администратора'
+
       gist_panel: 'Gists'
 
 

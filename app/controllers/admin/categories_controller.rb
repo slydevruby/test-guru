@@ -18,8 +18,6 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def edit
-    # render plain:  helpers.dom_id(@category)
-
     render turbo_stream: turbo_stream.replace(dom_id(@category),
                                               partial: 'form', locals: { category: @category })
   end
@@ -69,5 +67,4 @@ class Admin::CategoriesController < Admin::BaseController
     params.require(:category).permit(:title)
   end
 end
-
 # rubocop:enable Style/ClassAndModuleChildren
