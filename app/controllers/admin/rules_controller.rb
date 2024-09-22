@@ -76,6 +76,7 @@ class Admin::RulesController < Admin::BaseController
   # Use callbacks to share common setup or constraints between actions.
   def set_rule
     @rule = Rule.find(params[:id])
+    @rule.build_badge unless @rule.badge
   end
 
   # Only allow a list of trusted parameters through.
