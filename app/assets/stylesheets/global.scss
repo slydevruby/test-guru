@@ -2,9 +2,24 @@
     cursor: pointer;
 }
 
+.hide-ptr {
+
+    stroke: #333;
+    opacity: 0.3;
+}
+
+
+:root,
+[data-bs-theme=light] {
+    --bs-link-color: red;
+    --bs-link-color-rgb: 44, 56, 78;
+}
+
+
 .hide {
     display: none;
 }
+
 
 .container-main {
     min-height: 50rem;
@@ -44,12 +59,6 @@
     background-color: $accent-color !important;
 }
 
-.toast {
-    background-color: $body-bg !important;
-    /* Change to your desired color */
-    opacity: 1 !important;
-    /* Ensure the toast is fully opaque */
-}
 
 .tab-content {
     margin-top: 2rem;
@@ -83,4 +92,17 @@
     &--active {
         background-color: orangered;
     }
+}
+
+.ml-auto {
+    margin-left: auto !important;
+}
+
+.my-icon {
+    margin-left: 1rem;
+}
+
+.footer-par {
+    align-self: center;
+    margin-bottom: 0 !important;
 }

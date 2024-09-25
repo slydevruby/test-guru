@@ -2,12 +2,12 @@
 <table class="table">
     <thead>
         <tr>
-            <th> #
-            </th>
             <th class="sort-by-title pointer">
                 <%= Test.model_name.human %>
                 <%= octicon 'arrow-up', class: 'text-success' %>
-                <%= octicon 'arrow-down', class: 'text-success hide' %>
+                <%= octicon 'arrow-down', class: 'text-success hide-ptr' %>
+            </th>
+            <th> #
             </th>
             <th>
                 <%= Category.model_name.human %>
