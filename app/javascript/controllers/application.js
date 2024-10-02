@@ -5,6 +5,8 @@
 // export { application }
 
 
+
+
 import { Application } from "@hotwired/stimulus"
 import HelloController from "./hello_controller"
 import ClickerController from "./clicker_controller"
