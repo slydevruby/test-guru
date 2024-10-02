@@ -1,0 +1,6 @@
+<%= link_to 'New rule', new_rule_path, class: 'btn btn-primary mb-3' %>
+<div id="rules" class='d-flex gap-3 flex-wrap'>
+  <% @rules.each do |rule| %>
+    <%= render rule %>
+  <% end %>
+</div>
