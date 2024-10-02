@@ -19,7 +19,6 @@ class PassagesController < ApplicationController
 
     respond_to do |format|
       if @passage.completed?
-        assign_award
         TestsMailer.completed_test(@passage).deliver_now
         format.html { redirect_to result_passage_path(@passage) }
         format.turbo_stream { redirect_to result_passage_path(@passage) }
@@ -40,38 +39,5 @@ class PassagesController < ApplicationController
 
   def rescue_with_mail_failure
     redirect_to root_path, alert: t('.mail_failure') # 'Тест с таким id отсутствует'
-  end
-
-  def assign_category?(rule)
-    rule.category &&
-      Passage.by_category_title(rule.category.title).passed.by_user(current_user).count ==
-        Test.by_category(rule.category).count
-  end
-
-  def assign_test?(rule)
-    rule.test &&
-      (rule.test == @passage.test) &&
-      (Passage.passed.by_user(current_user).by_test(rule.test).count == 1)
-  end
-
-  def assign_level?(rule)
-    (rule.level != 0) &&
-      Passage.by_level(rule.level).count.positive? &&
-      (Test.by_level(rule.level).count ==
-       Passage.by_user(current_user).by_level(rule.level).passed.count)
-  end
-
-  def make_award(rule)
-    if Award.exists?({ rule:, user: current_user })
-      Award.find_by({ rule:, user: current_user }).increment!(:count)
-    else
-      Award.create!(user: current_user, rule:, count: 1)
-    end
-  end
-
-  def assign_award
-    Rule.all.each do |rule|
-      make_award(rule) if assign_category?(rule) || assign_test?(rule) || assign_level?(rule)
-    end
   end
 end

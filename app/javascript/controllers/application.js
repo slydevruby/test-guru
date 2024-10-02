@@ -8,8 +8,6 @@
 
 import { Application } from "@hotwired/stimulus"
 import HelloController from "./hello_controller"
-import ClickerController from "./clicker_controller"
-
 
 window.Stimulus = Application.start()
 
@@ -19,4 +17,3 @@ Stimulus.handleError = (error, message, detail) => {
 }
 
 Stimulus.register("hello", HelloController)
-Stimulus.register("clicker", ClickerController)

@@ -48,15 +48,7 @@ ru:
   prompt_test: 'Выберите тест'
 
   nav_pass_test: 'Пройти тест'
-  nav_dashboard: 'Дэшбоард'
-  nav_awards: 'Бейджи'
-
-  awards:
-    index:
-      reason: 'За что'
-      title: 'Бейдж'
-      count: 'Сколько раз'
-
+  nav_dashboard: 'Панель администратора'
 
   devise:
     shared:
@@ -72,8 +64,6 @@ ru:
 
     tab_container:
       test_tab: 'Тесты'
-      category_tab: 'Категории'
-      rule_tab: 'Правила для бейджей'
       passage_tab: 'Прохождения'
     errors:
       error:
@@ -117,14 +107,7 @@ ru:
   admin:
     passages:
       success_destroyed: 'Прохождение удалено'
-    rules:
-      index:
-        new_rule_cat: 'Новое правило для категорий'
-        new_rule_level: 'Новое правило для уровня'
-        new_rule_test: 'Новое правило для теста'
-      update:
-        rule_updated: 'Правило обновлено'
-        rule_destroyed: 'Правило удалено'
+
 
     tests:
 
