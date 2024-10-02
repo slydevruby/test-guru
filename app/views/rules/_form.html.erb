@@ -17,7 +17,7 @@
   </div>
   <div>
     <%= form.label :status, style: 'display: block' %>
-    <%= form.collection_select :status, ['category', 'test', 'level'], :to_s, :to_s, include_blank: false %>
+    <%= form.collection_select :status, %w[category test level], :to_s, :to_s, include_blank: false %>
   </div>
   <div>
     <%= form.submit %>
