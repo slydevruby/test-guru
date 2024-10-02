@@ -6,12 +6,8 @@
     <%= link_to admin_passages_path, class: 'lnk' do %>
     <i class="bi bi-check-circle"></i>
     <%= t('.passage_tab') %>
-  <% end %>
-  <%= link_to admin_passages_path, class: 'lnk' do %>
-    <i class="bi bi-check-circle"></i>
-    <%= t('.passage_tab') %>
-  <% end %>
-  <%= link_to 'Gists', admin_gists_path, class: 'lnk' %>
+    <% end %>
+    <%= link_to 'Gists', admin_gists_path, class: 'lnk' %>
 </div>
 <div class='tab-content'>
     <%= yield %>
