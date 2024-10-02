@@ -7,7 +7,12 @@
     </div>
   </div>
   <div class="card-body">
-    <h5 class="card-title"><%= rule.status %></h5>
+    <% if rule.category %>
+      <h5 class="card-title"> Category: <%= rule.category.title %></h5>
+    <% end %>
+    <% if rule.test %>
+      <h5 class="card-title"> Test: <%= rule.test.title %></h5>
+    <% end %>
     <p class="card-text">
       <% if rule.badge %>
         <%= rule.badge.title %>
