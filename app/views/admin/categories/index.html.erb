@@ -1,8 +1,0 @@
-<div id="categories">
-    <% @categories.each do |category| %>
-    <%= render category %>
-    <% end %>
-</div>
-<%= turbo_frame_tag id = 'new_category' do %>
-<%= render 'form', category: Category.new %>
-<% end %>
