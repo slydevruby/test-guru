@@ -7,7 +7,6 @@ class Test < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :passages, dependent: :destroy
   has_many :users, through: :passages, dependent: :destroy
-  has_many :rules, dependent: :destroy
 
   validates :title, presence: true, uniqueness: { scope: :level }
 
@@ -21,8 +20,8 @@ class Test < ApplicationRecord
 
   scope :category_by_title, lambda { |title|
     joins(:category)
-      .where(categories: { title: })
-      .order(title: :desc)
+    .where(categories: { title: })
+    .order(title: :desc)
   }
 
   def self.categories_by_title(title)

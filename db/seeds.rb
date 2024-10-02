@@ -96,6 +96,3 @@ Answer.create!({ body: '2005', correct: false, question: })
 question = Question.create!({ body: 'How create an object?', test: })
 Answer.create!({ body: 'Object.new', correct: true, question: })
 Answer.create!({ body: 'Class.new', correct: false, question: })
-
-Rule.create!(title: 'FrontRule', category: frontend)
-Rule.create!(title: 'BackRule', category: backend)

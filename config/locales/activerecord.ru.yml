@@ -7,8 +7,6 @@ ru:
       question: "Вопрос"
       answer: "Ответ"
       passage: 'Прохождение'
-      rule: 'Правило'
-      award: 'Достижение'
       feedback: 'Обратная связь'
 
     attributes:
@@ -37,10 +35,6 @@ ru:
 
       category:
         title: "Название"
-      rule:
-        title: "Название"
-        category_id: 'Категория'
-        level: 'Уровень'
       feedback:
         email: 'Электронная почта'
         body: 'Запрос'
