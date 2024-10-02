@@ -64,6 +64,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_17_062340) do
   create_table "badges", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "rule_id"
+    t.index ["rule_id"], name: "index_badges_on_rule_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -117,8 +119,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_17_062340) do
     t.bigint "category_id"
     t.bigint "test_id"
     t.integer "level"
-    t.bigint "badge_id"
-    t.index ["badge_id"], name: "index_rules_on_badge_id"
     t.index ["category_id"], name: "index_rules_on_category_id"
     t.index ["level"], name: "index_rules_on_level", unique: true
     t.index ["test_id"], name: "index_rules_on_test_id"
@@ -175,7 +175,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_17_062340) do
   add_foreign_key "passages", "tests"
   add_foreign_key "passages", "users"
   add_foreign_key "questions", "tests"
-  add_foreign_key "rules", "badges"
   add_foreign_key "rules", "categories"
   add_foreign_key "rules", "tests"
   add_foreign_key "tests", "categories"
