@@ -1,0 +1,12 @@
+<div class='col-6'>
+    <div id="<%= dom_id category %>" class='d-flex'>
+        <div>
+            <%= category.title %>
+        </div>
+        <div class='ms-auto p-2 d-flex gap-2'>
+            <%= button_to '', edit_admin_category_path(category), class: 'btn btn-sm btn-primary bi bi-pencil', method: :get %>
+            <%= button_to '', admin_category_path(category), method: :delete,
+    data: { turbo_confirm: t('confirm_delete') }, class: 'btn btn-sm btn-danger bi bi-trash' %>
+        </div>
+    </div>
+</div>
