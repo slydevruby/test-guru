@@ -3,6 +3,8 @@
 # rubocop:disable Metrics/BlockLength
 
 Rails.application.routes.draw do
+  resources :rules
+
   resources :badges do
     member do
       delete :remove_image
