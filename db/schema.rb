@@ -10,37 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_17_062340) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_06_102239) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "active_storage_attachments", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
-  end
-
-  create_table "active_storage_blobs", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
-    t.string "service_name", null: false
-    t.bigint "byte_size", null: false
-    t.string "checksum"
-    t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
-    t.string "variation_digest", null: false
-    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
 
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
@@ -49,23 +21,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_17_062340) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
-  end
-
-  create_table "awards", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "rule_id", null: false
-    t.integer "count", default: 0
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["rule_id"], name: "index_awards_on_rule_id"
-    t.index ["user_id"], name: "index_awards_on_user_id"
-  end
-
-  create_table "badges", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "rule_id"
-    t.index ["rule_id"], name: "index_badges_on_rule_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -98,7 +53,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_17_062340) do
     t.datetime "updated_at", null: false
     t.integer "correct_questions", default: 0
     t.bigint "current_question_id"
-    t.float "grade", default: 0.0
     t.index ["current_question_id"], name: "index_passages_on_current_question_id"
     t.index ["test_id"], name: "index_passages_on_test_id"
     t.index ["user_id"], name: "index_passages_on_user_id"
@@ -112,19 +66,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_17_062340) do
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
-  create_table "rules", force: :cascade do |t|
-    t.string "title", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "category_id"
-    t.bigint "test_id"
-    t.integer "level"
-    t.index ["category_id"], name: "index_rules_on_category_id"
-    t.index ["level"], name: "index_rules_on_level", unique: true
-    t.index ["test_id"], name: "index_rules_on_test_id"
-    t.index ["title"], name: "index_rules_on_title", unique: true
-  end
-
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
     t.integer "level", default: 1, null: false
@@ -132,7 +73,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_17_062340) do
     t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "timeout", default: 0
     t.index ["author_id"], name: "index_tests_on_author_id"
     t.index ["category_id"], name: "index_tests_on_category_id"
     t.index ["title", "level"], name: "index_tests_on_title_and_level", unique: true
@@ -163,20 +103,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_17_062340) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "answers", "questions"
-  add_foreign_key "awards", "rules"
-  add_foreign_key "awards", "users"
-  add_foreign_key "badges", "rules"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
   add_foreign_key "passages", "questions", column: "current_question_id"
   add_foreign_key "passages", "tests"
   add_foreign_key "passages", "users"
   add_foreign_key "questions", "tests"
-  add_foreign_key "rules", "categories"
-  add_foreign_key "rules", "tests"
   add_foreign_key "tests", "categories"
   add_foreign_key "tests", "users", column: "author_id"
 end
