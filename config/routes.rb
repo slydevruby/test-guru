@@ -11,8 +11,6 @@ Rails.application.routes.draw do
 
   root 'tests#index'
 
-  resources :awards
-
   get :feedbacks, 'feedbacks/new'
   post :feedbacks, 'feedbacks/create'
 
