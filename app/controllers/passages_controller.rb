@@ -24,7 +24,8 @@ class PassagesController < ApplicationController
         format.turbo_stream { redirect_to result_passage_path(@passage) }
       else
         format.html { render :show }
-        format.turbo_stream { render :update }
+        format.turbo_stream { turbo_stream.replace 'question', partial: 'question' }
+  
       end
     end
   end
