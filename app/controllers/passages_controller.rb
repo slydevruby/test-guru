@@ -12,8 +12,6 @@ class PassagesController < ApplicationController
 
   def result; end
 
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   def update
     @passage.accept!(params[:answer_ids])
 
@@ -24,13 +22,9 @@ class PassagesController < ApplicationController
         format.turbo_stream { redirect_to result_passage_path(@passage) }
       else
         format.html { render :show }
-        format.turbo_stream { turbo_stream.replace 'question', partial: 'question' }
-  
       end
     end
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 
   private
 
