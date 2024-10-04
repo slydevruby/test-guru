@@ -1,0 +1,20 @@
+<li class='col-6 mb-3 d-flex justify-content-center'>
+  <div class='w-25 d-flex flex-column'>
+    <h3><%= badge.title %> </h3>
+    <em><%= badge.rule %> </em>
+    <p><%= badge.parameter %> </p>
+  </div>
+  <div class='w-50'>
+    <% begin %>
+      <%= image_tag badge.url, alt: badge.title, class: 'h-50' %>
+      <% rescue %>
+      no image
+    <% end %>
+  </div>
+  <div class='d-flex gap-2 align-items-start flex-column'>
+    <%= link_to 'Edit', edit_admin_badge_path(badge), class: 'btn btn-primary' %>
+    <%= button_to 'Delete', admin_badge_path(badge), 
+    method: :delete,
+  data: { turbo_method: :delete }, class: 'ml-auto btn btn-danger' %>
+  </div>
+</li>

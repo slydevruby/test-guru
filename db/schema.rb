@@ -36,6 +36,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_123323) do
   create_table "badges", force: :cascade do |t|
     t.string "title"
     t.text "url"
+    t.integer "rule", default: 0
+    t.integer "parameter", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
