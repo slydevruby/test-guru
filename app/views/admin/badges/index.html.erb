@@ -1,4 +1,4 @@
-<ul>
+<ul class='col-6 d-flex flex-column gap-5 mb-5'>
   <%= render @badges %>
 </ul>
-<%= link_to 'New', new_admin_badge_path, class: 'lnk' %>
+<%= link_to t('.new_badge'), new_admin_badge_path, class: 'btn btn-primary' %>

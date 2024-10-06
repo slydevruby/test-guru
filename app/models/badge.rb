@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
 class Badge < ApplicationRecord
-  has_many :users
+  enum :rule, %i[category test level]
 
-  default_scope { order(title: :asc) }
+  belongs_to :user
 
   validates :title, presence: true
   validates :url, presence: true
-
-  enum :rule, %i[category test level]
 end

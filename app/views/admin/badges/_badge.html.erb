@@ -1,15 +1,19 @@
-<li class='col-6 mb-3 d-flex justify-content-center'>
+<li class='d-flex gap-3'>
   <div class='w-25 d-flex flex-column'>
     <h3><%= badge.title %> </h3>
-    <em><%= badge.rule %> </em>
-    <p><%= badge.parameter %> </p>
+    <h5><%= badge.rule %> </h5>
+    <h5>
+      <% if badge.rule == 'category' %>
+        <%= Category.find(badge.parameter).title %>
+      <% elsif badge.rule == 'test' %>
+        <%= Test.find(badge.parameter).title %>
+      <% else %>
+        <%= badge.parameter %>
+      <% end %>
+    </h5>
   </div>
-  <div class='w-50'>
-    <% begin %>
-      <%= image_tag badge.url, alt: badge.title, class: 'h-50' %>
-      <% rescue %>
-      no image
-    <% end %>
+  <div>
+    <%= insert_badge_image(badge.url, badge.title) %>
   </div>
   <div class='d-flex gap-2 align-items-start flex-column'>
     <%= link_to 'Edit', edit_admin_badge_path(badge), class: 'btn btn-primary' %>

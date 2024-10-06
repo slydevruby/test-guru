@@ -6,7 +6,7 @@ class Admin::BadgesController < Admin::BaseController
   before_action :set_badge, only: %i[show edit update destroy]
 
   def index
-    @badges = Badge.all
+    @badges = Badge.order(:created_at).all
   end
 
   def show; end
@@ -25,7 +25,7 @@ class Admin::BadgesController < Admin::BaseController
   def update
     respond_to do |format|
       if @badge.update(badge_params)
-        format.html { redirect_to admin_badges_path(@badge), notice: 'badge was successfully updated.' }
+        format.html { redirect_to admin_badges_path, notice: 'badge was successfully updated.' }
         format.turbo_stream { render :update, locals: { badge: @badge } }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -37,7 +37,7 @@ class Admin::BadgesController < Admin::BaseController
     @badge = Badge.new(badge_params)
     respond_to do |format|
       if @badge.save
-        format.html { redirect_to admin_badges_path(@badge), notice: 'badge was successfully created' }
+        format.html { redirect_to admin_badges_path, notice: 'badge was successfully created' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end

@@ -8,6 +8,7 @@ export { application }
 
 import HelloController from "./hello_controller"
 import ProgressController from "./progress_controller"
+import RuleController from "./rule_controller"
 
 Stimulus.handleError = (error, message, detail) => {
     console.warn(message, detail)
@@ -16,3 +17,4 @@ Stimulus.handleError = (error, message, detail) => {
 
 Stimulus.register("hello", HelloController)
 Stimulus.register("progress", ProgressController)
+Stimulus.register("rule", RuleController)
