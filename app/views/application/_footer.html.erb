@@ -1,12 +1,12 @@
 <footer class="footer d-flex">
-    <p class='footer-par'>
-        Учебный проект "Создание и прохождение тестов" ©
-        <%= current_year %> в онлайн-школе
-        <%= link_to 'Thinknetica', 
+  <p class='footer-par'>
+    Учебный проект "Создание и прохождение тестов" ©
+    <%= current_year %> в онлайн-школе
+    <%= link_to 'Thinknetica', 
       'http://thinknetica.com', target: '_blank', rel: %w[nofollow noopener]
      %>
-    </p>
-    <%= github_url('slydevruby', 'test-guru') %>
-    <%= link_to t(:feedback_link), feedbacks_new_path, 
+  </p>
+  <%= github_url('slydevruby', 'test-guru') %>
+  <%= link_to t(:feedback_link), feedbacks_new_path, 
     class: 'btn btn-secondary ml-auto' %>
 </footer>

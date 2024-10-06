@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Admin panel | Test Guru</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,17 +10,15 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module' %>
-</head>
-
-<body>
+  </head>
+  <body>
     <div class="container">
-        <%= render 'nav' %>
-        <div class="container container-main">
-            <%= flash_messages  %>
-            <%= render 'tab_container' %>
-        </div>
-        <%= render 'footer' %>
+      <%= render 'nav' %>
+      <div class="container container-main">
+        <%= flash_messages  %>
+        <%= render 'tab_container' %>
+      </div>
+      <%= render 'footer' %>
     </div>
-</body>
-
+  </body>
 </html>
