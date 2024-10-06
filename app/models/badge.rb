@@ -3,7 +3,7 @@
 class Badge < ApplicationRecord
   enum :rule, %i[category test level]
 
-  belongs_to :user
+  belongs_to :user, optional: true
 
   validates :title, presence: true
   validates :url, presence: true
