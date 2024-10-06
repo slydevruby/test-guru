@@ -1,69 +1,68 @@
 # frozen_string_literal: true
 
-# rubocop:disable Style/ClassAndModuleChildren
+class Admin
+  class TestsController < Admin::BaseController
+    rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
-class Admin::TestsController < Admin::BaseController
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+    before_action :all_tests, only: %i[index update_inline]
+    before_action :set_test, except: %i[index new create]
 
-  before_action :all_tests, only: %i[index update_inline]
-  before_action :set_test, except: %i[index new create]
+    def index; end
 
-  def index; end
-
-  def new
-    @test = Test.new
-  end
-
-  def create
-    @test = current_user.created_tests.new(test_params)
-    if @test.save
-      redirect_to admin_tests_path, notice: t('.success', title: @test.title)
-    else
-      render :new, status: :unprocessable_entity
+    def new
+      @test = Test.new
     end
-  end
 
-  def show; end
-
-  def edit; end
-
-  def update
-    if @test.update(test_params)
-      redirect_to admin_tests_path
-    else
-      render :edit, status: :unprocessable_entity
+    def create
+      @test = current_user.created_tests.new(test_params)
+      if @test.save
+        redirect_to admin_tests_path, notice: t('.success', title: @test.title)
+      else
+        render :new, status: :unprocessable_entity
+      end
     end
-  end
 
-  def update_inline
-    if @test.update(test_params)
-      redirect_to admin_tests_path
-    else
-      render :index
+    def show; end
+
+    def edit; end
+
+    def update
+      if @test.update(test_params)
+        redirect_to admin_tests_path
+      else
+        render :edit, status: :unprocessable_entity
+      end
     end
-  end
 
-  def destroy
-    @test.destroy!
-    redirect_to admin_tests_path, notice: 'Test destroyed'
-  end
+    def update_inline
+      if @test.update(test_params)
+        redirect_to admin_tests_path
+      else
+        render :index
+      end
+    end
 
-  private
+    def destroy
+      @test.destroy!
+      redirect_to admin_tests_path, notice: 'Test destroyed'
+    end
 
-  def all_tests
-    @tests = Test.all
-  end
+    private
 
-  def test_params
-    params.require(:test).permit(:title, :level, :timeout, :category_id, :author_id)
-  end
+    def all_tests
+      @tests = Test.all
+    end
 
-  def set_test
-    @test = Test.find(params[:id])
-  end
+    def test_params
+      params.require(:test).permit(:title, :level, :timeout, :category_id, :author_id)
+    end
 
-  def rescue_with_test_not_found
-    redirect_to admin_tests_path, alert: t('.no_such_test') # 'Тест с таким id отсутствует'
+    def set_test
+      @test = Test.find(params[:id])
+    end
+
+    def rescue_with_test_not_found
+      redirect_to admin_tests_path, alert: t('.no_such_test') # 'Тест с таким id отсутствует'
+    end
   end
 end
-# rubocop:enable Style/ClassAndModuleChildren

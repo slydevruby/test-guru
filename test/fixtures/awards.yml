@@ -2,10 +2,10 @@
 
 one:
   user: one
-  rule: one
+  badge: one
   count: 1
 
 two:
   user: two
-  rule: two
+  badge: two
   count: 1

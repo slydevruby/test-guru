@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :badges, only: :index
+
   resources :passages, only: %i[show update] do
     member do
       get :result
@@ -32,6 +34,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :passages, only: %i[index destroy]
     resources :categories
+
+    resources :badges
 
     resources :gists, only: :index
     resources :tests, shallow: true do

@@ -1,15 +1,15 @@
-<h2>
-  <%= t('test_complete', test_title: @passage.test.title) %> 
-
-</h2>
-<% if @passage.grade >= Passage::PASSAGE_MAX %>
-  <p style="color: green">
-    <%= t('passed_test', result: @passage.grade) %>
-  </p>
-<% else %>
-  <p style="color: red">
-    <%= t('failed_test', result: @passage.grade) %>
-  </p>
+<%= turbo_frame_tag 'question' do %>
+  <h2>
+    <%= t('test_complete', test_title: @passage.test.title) %>
+  </h2>
+  <% if @passage.grade >= Passage::PASSAGE_MAX %>
+    <p style="color: green">
+      <%= t('passed_test', result: @passage.grade) %>
+    </p>
+  <% else %>
+    <p style="color: red">
+      <%= t('failed_test', result: @passage.grade) %>
+    </p>
+  <% end %>
+  <%= link_to t('back_to_tests'), tests_path %>
 <% end %>
-
-<%= link_to t('back_to_tests'), tests_path %>

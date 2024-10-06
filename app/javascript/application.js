@@ -7,5 +7,4 @@ import "./controllers/application.js"
 
 import "./utilities/confirmation"
 import "./utilities/form_inline"
-import "./utilities/progress"
 import "./utilities/sorting"
