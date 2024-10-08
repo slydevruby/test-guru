@@ -19,21 +19,24 @@ export default class extends Controller {
   }
       
   change_rule(e) {
+    var event = new Event('change');
 
     if (e.target.value.toLowerCase() === 'category') {
       this.changeVisible(e.target, this.categoryTarget) 
+      this.categoryTarget.dispatchEvent(event);    
     } else if (e.target.value.toLowerCase() === 'test') {
+      this.testTarget.dispatchEvent(event);    
       this.changeVisible(e.target, this.testTarget)
     } else {
       this.changeVisible(e.target, this.levelTarget)
     }
+ 
   }
 
   change_foo(e) {
     this.parameterTarget.value = e.target.value
   }
   connect() { 
-    console.log(this.indexValue);
     if (this.selectValue === 'category') {
        this.categoryTarget.classList.remove('hide')
        this.categoryTarget.selectedIndex = this.indexValue
