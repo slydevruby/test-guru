@@ -16,6 +16,7 @@ Question.destroy_all
 Test.destroy_all
 Category.destroy_all
 User.destroy_all
+Badges.destroy_all
 
 # matz, dhh = User.create([
 #                           { first_name: 'matz', email: 'matz@mail.com', password: 'matzpassword',

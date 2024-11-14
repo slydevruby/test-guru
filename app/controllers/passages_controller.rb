@@ -15,14 +15,13 @@ class PassagesController < ApplicationController
   def update
     @passage.accept!(params[:answer_ids])
 
-    respond_to do |format|
-      if @passage.completed?
-        TestsMailer.completed_test(@passage).deliver_now
-        format.html { redirect_to result_passage_path(@passage) }
-        format.turbo_stream { redirect_to result_passage_path(@passage) }
-      else
-        format.html { render :show }
-      end
+    if @passage.completed?
+      give_award if @passage&.grade&.> Passage::PASSAGE_MAX
+
+      TestsMailer.completed_test(@passage).deliver_now
+      redirect_to result_passage_path(@passage)
+    else
+      render :show
     end
   end
 
@@ -34,5 +33,10 @@ class PassagesController < ApplicationController
 
   def rescue_with_mail_failure
     redirect_to root_path, alert: t('.mail_failure') # 'Тест с таким id отсутствует'
+  end
+
+  def give_award
+    # Badge.all.each do |badge|
+    # end
   end
 end
