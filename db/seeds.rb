@@ -10,13 +10,14 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+Award.destroy_all
+Badge.destroy_all
 Passage.destroy_all
 Answer.destroy_all
 Question.destroy_all
 Test.destroy_all
 Category.destroy_all
 User.destroy_all
-Badges.destroy_all
 
 # matz, dhh = User.create([
 #                           { first_name: 'matz', email: 'matz@mail.com', password: 'matzpassword',
