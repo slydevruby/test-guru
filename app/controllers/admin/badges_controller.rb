@@ -5,7 +5,8 @@ class Admin
     before_action :set_badge, only: %i[show edit update destroy]
 
     def index
-      @badges = Badge.order(:created_at).all
+      # @badges = Badge.order(:created_at).all
+      @badges = Badge.all
     end
 
     def show; end
