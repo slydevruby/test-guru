@@ -1,31 +1,31 @@
-<li class='d-flex gap-3'>
-  <div class='w-25 d-flex flex-column'>
-    <h3><%= badge.title %>
-    </h3>
-    <h5><%= badge.rule %>
-    </h5>
-    <h5>
-      <% if badge.rule == 'category' %>
-        <%= Category.find(badge.parameter).title %>
-      <% elsif badge.rule == 'test' %>
-        <%= Test.find(badge.parameter).title %>
-      <% else %>
-        <%= badge.parameter %>
-      <% end %>
-
-    </h5>
-  </div>
-  <div>
-    <%= insert_badge_image(badge.url, badge.title) %>
-  </div>
-  <div class='d-flex gap-2 align-items-start flex-column'>
-    <%= link_to 'Edit', edit_admin_badge_path(badge), class: 'btn btn-primary' %>
-    <%= button_to 'Delete',
-    admin_badge_path(badge),
-    method: :delete,
-    data: {
-      turbo_method: :delete,
-    },
-    class: 'ml-auto btn btn-danger' %>
-  </div>
-</li>
+<tr>
+<td>
+  <%= insert_badge_image(badge.url, badge.title) %>
+</td>
+<td>
+  <%= badge.title %>
+</td>
+<td>
+  <% if badge.rule == 'category' %>
+    <%= Category.find(badge.parameter).title %>
+  <% elsif badge.rule == 'test' %>
+    <%= Test.find(badge.parameter).title %>
+  <% else %>
+    <%= badge.parameter %>
+  <% end %>
+</td>
+<td>
+  <%= link_to 'Edit', edit_admin_badge_path(badge), class: 'btn btn-primary' %>
+</td>
+<td>
+</td>
+<td>
+  <%= button_to 'Delete',
+  admin_badge_path(badge),
+  method: :delete,
+  data: {
+    turbo_method: :delete,
+  },
+  class: 'ml-auto btn btn-danger' %>
+</td>
+</tr>

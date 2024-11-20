@@ -35,14 +35,14 @@ class Passage < ApplicationRecord
     100.0 * current_no / test.questions.count
   end
 
-  def grade
-    calc_grade
-  end
+  # def grade
+  #   calc_grade
+  # end
 
   private
 
   def calc_grade
-    100 * correct_questions / test.questions.count
+    self.grade = 100 * correct_questions / test.questions.count
   end
 
   def assign_first_question

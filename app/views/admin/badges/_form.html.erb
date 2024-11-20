@@ -9,28 +9,25 @@
       <%= form.label :url %>
       <%= form.text_area :url, class: 'form-control' %>
     </div>
-    <div class="mb-3" data-controller='rule' 
+    <div class="mb-3" data-controller='rule'
       data-rule-select-value='<%= @badge.rule %>'
-      data-rule-index-value='<%= get_index(@badge.rule, @badge.parameter) %>' 
-      
-     >
+      data-rule-index-value='<%= get_index(@badge.rule, @badge.parameter) %>'>
       <%= form.label :rule %>
       <p>
         <%= form.select :rule, options_for_select(Badge.rules.map { |k, _v| [k.capitalize, k] }, @badge.rule), {}, class: 'form-select',
-        data: { action: 'change->rule#change_rule' }
-      %>
+        data: { action: 'change->rule#change_rule' } %>
       </p>
       <div class="mb-3">
-        <%= form.collection_select random_id, 
-          Category.unscoped.all, :id, :title, {}, 
+        <%= form.collection_select random_id,
+          Category.unscoped.all, :id, :title, {},
           { class: 'form-select hide',
            'data-rule-target': 'category',
            'data-action': 'change->rule#change_foo' } %>
-        <%= form.collection_select random_id, Test.order(:id), :id, :title, {}, 
-          { class: 'form-select hide', 
+        <%= form.collection_select random_id, Test.order(:id), :id, :title, {},
+          { class: 'form-select hide',
           'data-rule-target': 'test',
           'data-action': 'change->rule#change_foo' } %>
-        <%= form.collection_select random_id, Test.order(:level).select(:level).distinct, :level, :level, {}, 
+        <%= form.collection_select random_id, Test.order(:level).select(:level).distinct, :level, :level, {},
           { class: 'form-select hide',
            'data-rule-target': 'level',
            'data-action': 'change->rule#change_foo' } %>
@@ -40,8 +37,7 @@
         'data-rule-target': 'parameter' %>
       <% else %>
         <%= form.number_field :parameter, hidden: true, class: 'form-control',
-        'data-rule-target': 'parameter'
-         %>
+        'data-rule-target': 'parameter' %>
       <% end %>
     </div>
     <%= form.submit class: 'mt-3 btn btn-primary' %>

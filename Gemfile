@@ -88,3 +88,5 @@ gem 'sassc-rails'
 gem 'cssbundling-rails', '~> 1.4'
 
 gem 'jsbundling-rails', '~> 1.3'
+
+gem 'better_html', '~> 2.1'

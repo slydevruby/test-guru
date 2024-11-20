@@ -1,7 +1,18 @@
-<div>
-  <h2><%= badge.title %></h2>
-  <p><%= badge.rule %></p>
+<div class='d-flex flex-column align-items-center gap-3'>
   <div>
     <%= insert_badge_image(badge.url, badge.title) %>
   </div>
+  <p>
+    <% if badge.rule == 'category' %>
+      За прохождениe категории
+      <%= Category.find(badge.parameter).title %>
+    <% elsif badge.rule == 'test' %>
+
+      За прохождениe теста
+      <%= Test.find(badge.parameter).title %>
+    <% else %>
+      За прохождениe всех тестов с уровнем
+      <%= badge.parameter %>
+    <% end %>
+  </p>
 </div>

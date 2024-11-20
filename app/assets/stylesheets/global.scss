@@ -109,3 +109,18 @@ $blue: #5c7cfa;
     align-self: center;
     margin-bottom: 0 !important;
 }
+
+
+.award__count {
+  background-color: royalblue;
+  color: white;
+  font-weight: 700;
+  padding: 10px;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-2rem, -0.5rem);
+}
