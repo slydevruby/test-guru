@@ -13,14 +13,16 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +11 app/views/badges/_badge.html.erb
-badd +10 ~/projects/test-guru/app/views/badges/index.html.erb
-badd +43 app/controllers/passages_controller.rb
-badd +8 app/views/awards/_award.html.erb
-badd +17 ~/.config/nvim/lua/plugins/none.lua
+badd +4 app/models/admin.rb
+badd +11 ~/.config/nvim/lua/plugins/none.lua
+badd +26 ~/.config/nvim/lua/plugins/mason.lua
+badd +3 app/assets/stylesheets/global.scss
+badd +10375 ~/.cache/nvim/null-ls.log
+badd +67 ~/.local/state/nvim/mason.log
+badd +6 health://
 argglobal
 %argdel
-edit app/views/badges/_badge.html.erb
+edit app/models/admin.rb
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -43,12 +45,11 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe '1resize ' . ((&lines * 15 + 32) / 65)
-exe '2resize ' . ((&lines * 20 + 32) / 65)
-exe '3resize ' . ((&lines * 10 + 32) / 65)
-exe '4resize ' . ((&lines * 15 + 32) / 65)
+exe '1resize ' . ((&lines * 14 + 30) / 61)
+exe '2resize ' . ((&lines * 14 + 30) / 61)
+exe '3resize ' . ((&lines * 14 + 30) / 61)
+exe '4resize ' . ((&lines * 14 + 30) / 61)
 argglobal
-balt ~/projects/test-guru/app/views/badges/index.html.erb
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -59,16 +60,41 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 7) / 15)
+let s:l = 4 - ((3 * winheight(0) + 7) / 14)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 051|
+keepjumps 4
+normal! 03|
 wincmd w
 argglobal
-enew | setl bt=help
-help session-file@en
+if bufexists(fnamemodify("~/.config/nvim/lua/plugins/none.lua", ":p")) | buffer ~/.config/nvim/lua/plugins/none.lua | else | edit ~/.config/nvim/lua/plugins/none.lua | endif
+if &buftype ==# 'terminal'
+  silent file ~/.config/nvim/lua/plugins/none.lua
+endif
+balt ~/.config/nvim/lua/plugins/mason.lua
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 11 - ((2 * winheight(0) + 7) / 14)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 11
+normal! 011|
+wincmd w
+argglobal
+if bufexists(fnamemodify("~/.config/nvim/lua/plugins/mason.lua", ":p")) | buffer ~/.config/nvim/lua/plugins/mason.lua | else | edit ~/.config/nvim/lua/plugins/mason.lua | endif
+if &buftype ==# 'terminal'
+  silent file ~/.config/nvim/lua/plugins/mason.lua
+endif
 balt ~/.config/nvim/lua/plugins/none.lua
 setlocal fdm=manual
 setlocal fde=0
@@ -77,45 +103,22 @@ setlocal fdi=#
 setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
-setlocal nofen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 790 - ((0 * winheight(0) + 10) / 20)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 790
-normal! 059|
-wincmd w
-argglobal
-if bufexists(fnamemodify("~/.config/nvim/lua/plugins/none.lua", ":p")) | buffer ~/.config/nvim/lua/plugins/none.lua | else | edit ~/.config/nvim/lua/plugins/none.lua | endif
-if &buftype ==# 'terminal'
-  silent file ~/.config/nvim/lua/plugins/none.lua
-endif
-balt app/controllers/passages_controller.rb
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 17 - ((6 * winheight(0) + 5) / 10)
+let s:l = 18 - ((0 * winheight(0) + 7) / 14)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 17
+keepjumps 18
 normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("app/views/awards/_award.html.erb", ":p")) | buffer app/views/awards/_award.html.erb | else | edit app/views/awards/_award.html.erb | endif
+if bufexists(fnamemodify("app/assets/stylesheets/global.scss", ":p")) | buffer app/assets/stylesheets/global.scss | else | edit app/assets/stylesheets/global.scss | endif
 if &buftype ==# 'terminal'
-  silent file app/views/awards/_award.html.erb
+  silent file app/assets/stylesheets/global.scss
 endif
-balt ~/projects/test-guru/app/views/badges/index.html.erb
+balt ~/.config/nvim/lua/plugins/mason.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -126,18 +129,18 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 8 - ((7 * winheight(0) + 7) / 15)
+let s:l = 3 - ((0 * winheight(0) + 7) / 14)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 8
-normal! 01|
+keepjumps 3
+normal! 0
 wincmd w
-2wincmd w
-exe '1resize ' . ((&lines * 15 + 32) / 65)
-exe '2resize ' . ((&lines * 20 + 32) / 65)
-exe '3resize ' . ((&lines * 10 + 32) / 65)
-exe '4resize ' . ((&lines * 15 + 32) / 65)
+3wincmd w
+exe '1resize ' . ((&lines * 14 + 30) / 61)
+exe '2resize ' . ((&lines * 14 + 30) / 61)
+exe '3resize ' . ((&lines * 14 + 30) / 61)
+exe '4resize ' . ((&lines * 14 + 30) / 61)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
@@ -153,7 +156,6 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

@@ -27,7 +27,7 @@ export function formInlineHandler(testId) {
 
     const caption = new Map([
         [true, 'Отмена'],
-        [false, 'Править по месту']
+        [false, 'Изменить название']
     ])
     link.textContent = caption.get(form.classList.contains('hide'))
 

@@ -35,11 +35,45 @@ class Passage < ApplicationRecord
     100.0 * current_no / test.questions.count
   end
 
-  # def grade
-  #   calc_grade
-  # end
+  def give_award(user)
+    Badge.all.each do |badge|
+      create_award(badge, user) if assign_level?(badge,
+                                                 user) || assign_test?(badge, user) || assign_category?(badge, user)
+    end
+  end
 
   private
+
+  def assign_category?(badge, user)
+    return false if badge.rule != 'category'
+
+    category = Category.find(badge.parameter)
+    Passage.by_category_title(category.title).passed.by_user(user).count ==
+      Test.by_category(category).count
+  end
+
+  def assign_test?(badge, user)
+    return false if badge.rule != 'test'
+
+    (badge.parameter == test.id) &&
+      (Passage.passed.by_user(user).by_test(badge.parameter).count == 1)
+  end
+
+  def assign_level?(badge, user)
+    return false if badge.rule != 'level'
+    return false if badge.parameter != test.level
+
+    (Test.by_level(badge.parameter).count ==
+       Passage.by_user(user).by_level(badge.parameter).passed.count)
+  end
+
+  def create_award(badge, user)
+    if Award.exists?({ badge:, user: })
+      Award.find_by({ badge:, user:  }).increment!(:count)
+    else
+      Award.create!(user:, badge:, count: 1)
+    end
+  end
 
   def calc_grade
     self.grade = 100 * correct_questions / test.questions.count
