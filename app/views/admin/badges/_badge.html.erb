@@ -15,12 +15,12 @@
   <% end %>
 </td>
 <td>
-  <%= link_to 'Edit', edit_admin_badge_path(badge), class: 'btn btn-primary' %>
+  <%= link_to t('.edit'), edit_admin_badge_path(badge), class: 'btn btn-primary' %>
 </td>
 <td>
 </td>
 <td>
-  <%= button_to 'Delete',
+  <%= button_to t('.delete'),
   admin_badge_path(badge),
   method: :delete,
   data: {
