@@ -16,7 +16,7 @@ class PassagesController < ApplicationController
     @passage.accept!(params[:answer_ids])
 
     if @passage.completed?
-      @passage.give_award(current_user) if @passage.grade > Passage::PASSAGE_MAX
+      Award.give(current_user, @passage.test) if @passage.grade > Passage::PASSAGE_MAX
       TestsMailer.completed_test(@passage).deliver_now
       redirect_to result_passage_path(@passage)
     else

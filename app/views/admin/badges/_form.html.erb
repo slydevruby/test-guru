@@ -1,11 +1,7 @@
 <div class='col-6'>
   <%= form_with model: [:admin, @badge], data: { turbo: false } do |form| %>
     <%= render 'errors', resource: @badge %>
-    <div class="mb-3">
-      <%= form.label :title %>
-      <%= form.text_field :title, class: 'form-control' %>
-    </div>
-    <div class="mb-3">
+   <div class="mb-3">
       <%= form.label :url %>
       <%= form.text_area :url, class: 'form-control' %>
     </div>

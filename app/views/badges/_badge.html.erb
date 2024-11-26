@@ -5,11 +5,10 @@
   <p>
     <% if badge.rule == 'category' %>
       За прохождениe категории
-      <%= Category.find(badge.parameter).title %>
+      <%= badge.title %>
     <% elsif badge.rule == 'test' %>
-
       За прохождениe теста
-      <%= Test.find(badge.parameter).title %>
+      <%= badge.title %>
     <% else %>
       За прохождениe всех тестов с уровнем
       <%= badge.parameter %>

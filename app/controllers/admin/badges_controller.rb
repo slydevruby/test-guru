@@ -5,7 +5,6 @@ class Admin
     before_action :set_badge, only: %i[show edit update destroy]
 
     def index
-      # @badges = Badge.order(:created_at).all
       @badges = Badge.all
     end
 
@@ -17,34 +16,35 @@ class Admin
 
     def destroy
       @badge.destroy!
-      respond_to do |format|
-        format.html { redirect_to admin_badges_path, notice: 'badge was successfully destroyed.' }
-      end
+      redirect_to admin_badges_path, notice: 'badge was successfully destroyed.'
     end
 
     def update
-      respond_to do |format|
-        if @badge.update(badge_params)
-          format.html { redirect_to admin_badges_path, notice: 'badge was successfully updated.' }
-          format.turbo_stream { render :update, locals: { badge: @badge } }
-        else
-          format.html { render :edit, status: :unprocessable_entity }
-        end
+      if @badge.update(badge_params)
+        redirect_to admin_badges_path, notice: 'badge was successfully updated.'
+      else
+        render :edit, status: :unprocessable_entity
       end
     end
 
     def create
       @badge = Badge.new(badge_params)
-      respond_to do |format|
-        if @badge.save
-          format.html { redirect_to admin_badges_path, notice: 'badge was successfully created' }
-        else
-          format.html { render :new, status: :unprocessable_entity }
-        end
+      @badge.title = pickup_title
+      if @badge.save
+        redirect_to admin_badges_path, notice: 'badge was successfully created'
+      else
+        render :new, status: :unprocessable_entity
       end
     end
 
     private
+
+    def pickup_title
+      return Category.find(@badge.parameter).title if @badge.rule == 'category'
+      return Test.find(@badge.parameter).title if @badge.rule == 'test'
+
+      @badge.title = @badge.parameter.to_s
+    end
 
     def badge_params
       params.require(:badge).permit(:title, :url, :rule, :parameter)

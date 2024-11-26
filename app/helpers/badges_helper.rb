@@ -11,7 +11,7 @@ module BadgesHelper
     elsif rule == 'test'
       Test.unscoped.pluck(:id).index(parameter)
     else
-      Test.order(:level).select(:level).distinct.all.pluck(:level).index(parameter)
+      Test.order(:level).select(:level).distinct.pluck(:level).index(parameter)
     end
   end
 
