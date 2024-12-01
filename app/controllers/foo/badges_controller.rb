@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class Admin
-  class BadgesController < Admin::BaseController
+module Foo
+  class BadgesController < BaseController
     before_action :set_badge, only: %i[show edit update destroy]
 
     def index

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class Admin
-  class GistsController < Admin::BaseController
+module Foo
+  class GistsController < BaseController
     skip_before_action :admin_required!
 
     def index

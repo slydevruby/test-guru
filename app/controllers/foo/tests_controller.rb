@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class Admin
-  class TestsController < Admin::BaseController
+module Foo
+  class TestsController < BaseController
     rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
     before_action :all_tests, only: %i[index update_inline]
@@ -54,7 +54,7 @@ class Admin
     end
 
     def test_params
-      params.require(:test).permit(:title, :level, :timeout, :category_id)
+      params.require(:test).permit(:title, :level, :category_id)
     end
 
     def set_test

@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :admin do
+  scope module: 'foo', as: 'admin', path: 'admin' do
     resources :passages, only: %i[index destroy]
     resources :categories
 

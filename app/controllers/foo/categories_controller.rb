@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class Admin
-  class CategoriesController < Admin::BaseController
+module Foo
+  class CategoriesController < BaseController
     include ActionView::RecordIdentifier
 
     before_action :set_category, only: %i[show edit update destroy]
