@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Foo
+module Admin1
   class TestsController < BaseController
     rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 

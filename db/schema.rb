@@ -37,7 +37,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_17_132901) do
     t.string "title"
     t.text "url"
     t.integer "rule", default: 0
-    t.integer "parameter", default: 0
+    t.string "parameter", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Foo
+module Admin1
   class GistsController < BaseController
     skip_before_action :admin_required!
 

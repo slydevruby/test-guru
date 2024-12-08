@@ -100,7 +100,7 @@ Answer.create!({ body: 'Object.new', correct: true, question: })
 Answer.create!({ body: 'Class.new', correct: false, question: })
 
 Badge.create!({ title: 'CatBadge', url: 'http://localhost:3000/badges/b1.png', rule: 'category',
-                parameter: Category.first.id })
+                parameter: Category.first.title })
 Badge.create!({ title: 'TestBadge', url: 'http://localhost:3000/badges/b2.png', rule: 'test',
-                parameter: Test.first.id })
-Badge.create!({ title: 'LevelBadge', url: 'http://localhost:3000/badges/b3.png', rule: 'level', parameter: 1 })
+                parameter: Test.first.title })
+Badge.create!({ title: 'LevelBadge', url: 'http://localhost:3000/badges/b3.png', rule: 'level', parameter: '1' })

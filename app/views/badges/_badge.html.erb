@@ -5,13 +5,11 @@
   <p>
     <% if badge.rule == 'category' %>
       За прохождениe категории
-      <%= badge.title %>
     <% elsif badge.rule == 'test' %>
       За прохождениe теста
-      <%= badge.title %>
     <% else %>
       За прохождениe всех тестов с уровнем
-      <%= badge.parameter %>
     <% end %>
+      <%= badge.parameter %>
   </p>
 </div>

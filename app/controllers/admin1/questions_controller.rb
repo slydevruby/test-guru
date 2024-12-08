@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Foo
+module Admin1
   class QuestionsController < BaseController
     before_action :find_question, only: %i[show edit destroy update]
     before_action :find_test, only: %i[new create]

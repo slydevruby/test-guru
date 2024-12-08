@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Foo
+module Admin1
   class BadgesController < BaseController
     before_action :set_badge, only: %i[show edit update destroy]
 
@@ -29,7 +29,6 @@ module Foo
 
     def create
       @badge = Badge.new(badge_params)
-      @badge.title = pickup_title
       if @badge.save
         redirect_to admin_badges_path, notice: 'badge was successfully created'
       else
@@ -38,13 +37,6 @@ module Foo
     end
 
     private
-
-    def pickup_title
-      return Category.find(@badge.parameter).title if @badge.rule == 'category'
-      return Test.find(@badge.parameter).title if @badge.rule == 'test'
-
-      @badge.title = @badge.parameter.to_s
-    end
 
     def badge_params
       params.require(:badge).permit(:title, :url, :rule, :parameter)

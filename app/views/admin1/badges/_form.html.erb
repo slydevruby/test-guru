@@ -1,0 +1,22 @@
+<div class='col-6'>
+  <%= form_with model: [:admin, @badge], data: { turbo: false } do |form| %>
+    <%= render 'errors', resource: @badge %>
+    <div class="mb-3">
+      <%= form.label :title %>
+      <%= form.text_area :title, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :url %>
+      <%= form.text_area :url, class: 'form-control' %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :rule %>
+      <p>
+        <%= form.select :rule, options_for_select(Badge.rules.map { |k, _v| [k.capitalize, k] }, @badge.rule), {}, class: 'form-select' %>
+      </p>
+      <div class="mb-3">
+        <%= form.text_field :parameter, class: 'form-control' %>
+      </div>
+      <%= form.submit class: 'mt-3 btn btn-primary' %>
+    <% end %>
+  </div>

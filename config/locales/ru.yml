@@ -79,10 +79,15 @@ ru:
   feedbacks:
     submit: "Отправить"
 
-  admin:
+  admin1:
     badges:
       index:
         new: "Создать бейдж"
+        actions: "Действия"
+        description: "Описание"
+        image: "Изображение"
+        rule: "Правило"
+        parameter: "Параметр"
       badge:
         edit: "Изменить"
         delete: "Удалить"

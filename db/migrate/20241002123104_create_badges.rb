@@ -7,7 +7,7 @@ class CreateBadges < ActiveRecord::Migration[7.1]
       t.text :url
 
       t.integer :rule, default: 0
-      t.integer :parameter, default: 0
+      t.string :parameter, default: ''
 
       t.timestamps
     end
