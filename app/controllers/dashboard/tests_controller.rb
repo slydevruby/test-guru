@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Admin1
+module Dashboard
   class TestsController < BaseController
     rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 

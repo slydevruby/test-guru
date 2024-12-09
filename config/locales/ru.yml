@@ -79,7 +79,7 @@ ru:
   feedbacks:
     submit: "Отправить"
 
-  admin1:
+  dashboard:
     badges:
       index:
         new: "Создать бейдж"

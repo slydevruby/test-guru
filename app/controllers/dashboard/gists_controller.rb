@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Admin1
+module Dashboard
   class GistsController < BaseController
     skip_before_action :admin_required!
 

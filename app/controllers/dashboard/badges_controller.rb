@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Admin1
+module Dashboard
   class BadgesController < BaseController
     before_action :set_badge, only: %i[show edit update destroy]
 

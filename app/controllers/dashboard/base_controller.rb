@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Admin1
+module Dashboard
   class BaseController < ApplicationController
     layout 'dashboard'
 
