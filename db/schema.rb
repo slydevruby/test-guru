@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_06_102239) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_17_132901) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,25 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_06_102239) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "awards", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "badge_id", null: false
+    t.integer "count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["badge_id"], name: "index_awards_on_badge_id"
+    t.index ["user_id"], name: "index_awards_on_user_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "title"
+    t.text "url"
+    t.integer "rule", default: 0
+    t.string "parameter", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -53,6 +72,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_06_102239) do
     t.datetime "updated_at", null: false
     t.integer "correct_questions", default: 0
     t.bigint "current_question_id"
+    t.decimal "grade"
     t.index ["current_question_id"], name: "index_passages_on_current_question_id"
     t.index ["test_id"], name: "index_passages_on_test_id"
     t.index ["user_id"], name: "index_passages_on_user_id"
@@ -104,6 +124,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_06_102239) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "awards", "badges"
+  add_foreign_key "awards", "users"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
   add_foreign_key "passages", "questions", column: "current_question_id"

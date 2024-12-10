@@ -1,0 +1,11 @@
+<li class='d-flex gap-2 mb-1'>
+  <div class='ml-auto' style="width: 150px">
+    <% if answer.correct %>
+      <b><%= answer.body %> </b>
+    <% else %>
+      <%= answer.body %>
+    <% end %>
+  </div>
+  <%= link_to '', edit_admin_answer_path(answer), class: 'btn btn-primary btn-sm bi bi-pencil' %>
+  <%= link_to '', admin_answer_path(answer), class: 'btn btn-sm btn-danger bi bi-trash', data: { turbo_method: :delete, turbo_confirm: t('confirm_delete') } %>
+</li>

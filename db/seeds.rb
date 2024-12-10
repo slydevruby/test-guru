@@ -10,6 +10,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+Award.destroy_all
+Badge.destroy_all
 Passage.destroy_all
 Answer.destroy_all
 Question.destroy_all
@@ -96,3 +98,9 @@ Answer.create!({ body: '2005', correct: false, question: })
 question = Question.create!({ body: 'How create an object?', test: })
 Answer.create!({ body: 'Object.new', correct: true, question: })
 Answer.create!({ body: 'Class.new', correct: false, question: })
+
+Badge.create!({ title: 'CatBadge', url: 'http://localhost:3000/badges/b1.png', rule: 'category',
+                parameter: Category.first.title })
+Badge.create!({ title: 'TestBadge', url: 'http://localhost:3000/badges/b2.png', rule: 'test',
+                parameter: Test.first.title })
+Badge.create!({ title: 'LevelBadge', url: 'http://localhost:3000/badges/b3.png', rule: 'level', parameter: '1' })

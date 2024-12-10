@@ -60,7 +60,8 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'byebug', require: true
-  gem 'debug', platforms: %i[mri mswin mswin64 mingw x64_mingw]
+  # gem 'debug', platforms: %i[mri mswin mswin64 mingw x64_mingw]
+  gem 'debug'
   gem 'letter_opener'
 end
 
@@ -88,3 +89,5 @@ gem 'sassc-rails'
 gem 'cssbundling-rails', '~> 1.4'
 
 gem 'jsbundling-rails', '~> 1.3'
+
+gem 'better_html', '~> 2.1'

@@ -12,24 +12,17 @@ class PassagesController < ApplicationController
 
   def result; end
 
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   def update
     @passage.accept!(params[:answer_ids])
 
-    respond_to do |format|
-      if @passage.completed?
-        TestsMailer.completed_test(@passage).deliver_now
-        format.html { redirect_to result_passage_path(@passage) }
-        format.turbo_stream { redirect_to result_passage_path(@passage) }
-      else
-        format.html { render :show }
-        format.turbo_stream { render :update }
-      end
+    if @passage.completed?
+      BadgeService.call(@passage)
+      TestsMailer.completed_test(@passage).deliver_now
+      redirect_to result_passage_path(@passage)
+    else
+      render :show
     end
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 
   private
 

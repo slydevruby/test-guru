@@ -1,8 +1,12 @@
 <tr>
-  <td><%= test.title %></td>
+      <td><%= test.title %></td>
   <td><%= test.category.title %></td>
-  <td><%= test_level(test.level) %></td>
-  <td><%= test.questions.count %></td>
-  <td><%= button_to t('.start'), start_test_path(test),
-    data: { turbo_method: :post }, class: 'btn btn-primary' %></td>
+          <td><%= test_level(test.level) %></td>
+    <td><%= test.questions.count %></td>
+  <td><%= button_to t('.start'),
+    start_test_path(test),
+    data: {
+      turbo_method: :post,
+    },
+    class: 'btn btn-primary' %></td>
 </tr>

@@ -1,0 +1,14 @@
+<%= form_with model: [:admin, @question, @answer], data: { turbo: false } do |form| %>
+  <%= render 'errors', resource: @answer %>
+  <div class="card-header">
+    <%= Question.model_name.human %>:
+    <%= @answer.question.body %>
+  </div>
+  <div class="card-body">
+    <%= form.label :body %> <br>
+    <%= form.text_area :body, class: 'form-control' %> <br>
+    <%= form.label :correct %>
+    <%= form.check_box :correct %> <br>
+    <%= form.submit class: 'btn btn-secondary mt-3' %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<tr>
+    <td class="align-middle">
+        <%= link_to test.title, admin_test_path(test), data: { test_id: test.id }, class: 'test-title' %>
+        <%= render 'form_inline', test: test == @test ? @test : test %>
+    </td>
+    <td>
+        <%= button_to t('.edit_inline'), edit_admin_test_path(test),
+        data: { test_id: test.id, turbo_method: :get }, class: 'btn btn-primary form-inline-link' %>
+    </td>
+    <td class="align-middle">
+        <%= test.category.title %>
+    </td>
+    <td class="align-middle">
+        <%= test_level(test.level) %>
+    </td>
+    <td class="align-middle">
+        <%= test.questions.count %>
+    </td>
+</tr>

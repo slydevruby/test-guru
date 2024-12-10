@@ -1,0 +1,28 @@
+<tr>
+  <td>
+    <%= insert_badge_image(badge.url, badge.title) %>
+  </td>
+  <td>
+    <%= badge.title %>
+  </td>
+  <td>
+    <%= badge.rule %>
+  </td>
+  <td>
+    <%= badge.parameter %>
+  </td>
+  <td>
+    <%= link_to t('.edit'), edit_admin_badge_path(badge), class: 'btn btn-primary' %>
+  </td>
+  <td>
+  </td>
+  <td>
+    <%= button_to t('.delete'),
+  admin_badge_path(badge),
+  method: :delete,
+  data: {
+    turbo_method: :delete,
+  },
+  class: 'ml-auto btn btn-danger' %>
+  </td>
+</tr>

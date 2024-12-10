@@ -331,6 +331,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  better_html (~> 2.1)
   bootsnap
   bootstrap (~> 5.3.2)
   byebug

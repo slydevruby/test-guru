@@ -1,70 +1,44 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
+---
 ru:
   hello: "Привет мир"
-  back: 'Назад'
-  back_to_tests: 'К тестам'
+  back: "Назад"
+  back_to_tests: "К тестам"
   welcome: "Привет, %{email}"
-  confirm_delete: 'Точно удалить?'
-  passed_test: 'Вы успешно прошли тест! Оценка %{result}%'
-  failed_test: 'Вы не сдали тест! Оценка %{result}%'
-  more_test: 'тесты'
-  signin: 'Войти'
-  signout: 'Выйти'
-  foobar: 'foobar'
-  signup: 'Новый пользователь'
-  remember_me: 'Запомнить меня'
-  test_complete: 'Вы прошли тест %{test_title}'
-  feedback_link: 'Обратная связь'
-  feedback_saved: 'Ваш запрос отправлен'
-  feedback_not_saved: 'Ваш запрос не может быть отправлен'
-  prompt_cat: 'Выберите категорию'
-  prompt_test: 'Выберите тест'
+  confirm_delete: "Точно удалить?"
+  passed_test: "Вы успешно прошли тест! Оценка %{result}%"
+  failed_test: "Вы не сдали тест! Оценка %{result}%"
+  more_test: "тесты"
+  signin: "Войти"
+  signout: "Выйти"
+  foobar: "foobar"
+  signup: "Новый пользователь"
+  remember_me: "Запомнить меня"
+  test_complete: "Вы прошли тест %{test_title}"
+  feedback_link: "Обратная связь"
+  feedback_saved: "Ваш запрос отправлен"
+  feedback_not_saved: "Ваш запрос не может быть отправлен"
+  prompt_cat: "Выберите категорию"
+  prompt_test: "Выберите тест"
 
-  nav_pass_test: 'Пройти тест'
-  nav_dashboard: 'Панель администратора'
+  nav_pass_test: "Пройти тест"
+  nav_dashboard: "Панель администратора"
 
   devise:
     shared:
       links:
         signin: "Войти"
-        forgot_your_password: 'Забыли свой пароль?'
+        forgot_your_password: "Забыли свой пароль?"
         not_receive_instructions: "Не получили инструкции по подтверждению?"
     registrations:
       new:
         signup: "Создать пользователя"
 
   application:
-
     tab_container:
-      test_tab: 'Тесты'
-      passage_tab: 'Прохождения'
+      test_tab: "Тесты"
+      passage_tab: "Прохождения"
+      badges: "Бейджи"
+
     errors:
       error:
         few: "Обнаружено %{count} ошибки"
@@ -72,94 +46,104 @@ ru:
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
     nav:
-      admin_panel: 'Панель администратора'
+      admin_panel: "Панель администратора"
+      badges: "Бейджи"
+      gist_panel: "Gists"
 
-      gist_panel: 'Gists'
-
-
-  
+  badges:
+    index:
+      all_badges: "Все бейджи"
+      my_badges: "Мои бейджи"
   passages:
     show:
-      out_of: 'из'
-      next: 'Следующий вопрос'
-      gist_question: 'Создать gist'
+      out_of: "из"
+      next: "Следующий вопрос"
+      gist_question: "Создать gist"
     question:
-      out_of: 'из'
-      next_question: 'Следующий вопрос'
-      complete_passage: 'Завершить тест'
-      gist_question: 'Создать gist'
-
+      out_of: "из"
+      next_question: "Следующий вопрос"
+      complete_passage: "Завершить тест"
+      gist_question: "Создать gist"
 
   tests:
     index:
-      header: 'Список тестов'
-      new: 'Новый тест'
-      show: 'Показать'
-      edit: 'Править'
-      delete: 'Удалить'
-      level: 'Уровень'
-      total: 'Вопросов'
+      header: "Список тестов"
+      new: "Новый тест"
+      show: "Показать"
+      edit: "Править"
+      delete: "Удалить"
+      level: "Уровень"
+      total: "Вопросов"
     test:
-      start: 'Пройти'
+      start: "Пройти"
   feedbacks:
-    submit: 'Отправить'
+    submit: "Отправить"
 
-  admin:
-    passages:
-      success_destroyed: 'Прохождение удалено'
-    tests:
-
+  dashboard:
+    badges:
       index:
-        header: 'Список тестов'
-        new: 'Новый тест'
-        show: 'Показать'
-        edit: 'Править'
-        delete: 'Удалить'
-        level: 'Уровень'
-        total: 'Вопросов'
-        actions: 'Действия'
+        new: "Создать бейдж"
+        actions: "Действия"
+        description: "Описание"
+        image: "Изображение"
+        rule: "Правило"
+        parameter: "Параметр"
+      badge:
+        edit: "Изменить"
+        delete: "Удалить"
+    passages:
+      success_destroyed: "Прохождение удалено"
+    tests:
+      index:
+        header: "Список тестов"
+        new: "Новый тест"
+        show: "Показать"
+        edit: "Править"
+        delete: "Удалить"
+        level: "Уровень"
+        total: "Вопросов"
+        actions: "Действия"
       create:
         success: "Тест %{title} успешно создан"
       show:
-        new_question: 'Новый вопрос'
-        no_such_test: 'Нет такого теста'
+        new_question: "Новый вопрос"
+        no_such_test: "Нет такого теста"
         back_to_tests: "Назад к тестам"
       test:
-        show: 'Показать'
-        edit: 'Править'
-        edit_inline: 'Править по месту'
-        delete: 'Удалить'
+        show: "Показать"
+        edit: "Править"
+        edit_inline: "Изменить название"
+        delete: "Удалить"
       form_inline:
         submit: "ОК"
 
     questions:
-
       form:
         create_question: 'Создать вопрос для теста "%{test_title}"'
         edit_question: 'Редактировать вопрос для теста "%{test_title}"'
       destroy:
-        success_destroyed: 'Вопрос успешно удален'
+        success_destroyed: "Вопрос успешно удален"
       show:
-        new_answer: 'Новый ответ'
-        back_to_test: 'Назад к тесту'
-        edit: 'Править'
+        new_answer: "Новый ответ"
+        back_to_test: "Назад к тесту"
+        edit: "Править"
         answers:
           one: "Ответ"
           few: "Ответы"
           many: "Ответы"
           other: "Ответы"
       question:
-        show: 'Показать'
-        edit: 'Править'
-        delete: 'Удалить'
+        show: "Показать"
+        edit: "Править"
+        delete: "Удалить"
 
       index:
         new: "Новый вопрос"
     answers:
       show:
-        back_to_question: 'Назад к вопросу'
+        back_to_question: "Назад к вопросу"
       edit:
-        back_to_question: 'Назад к вопросу'
+        back_to_question: "Назад к вопросу"
         editing_answer: "Редактировать ответ"
       update:
         success_updated: "Ответ успешно обновлен"
@@ -168,7 +152,7 @@ ru:
       destroy:
         success_destroyed: "Ответ успешно удален"
       new:
-        back: 'Назад к вопросу'
+        back: "Назад к вопросу"
         new: "Новый ответ"
       answer:
         edit: "Править"
@@ -176,16 +160,15 @@ ru:
     gists:
       create:
         success_gist: "<a href='%{url}' target='_blank' rel='nofollow noopener'>Gist</a> успешно создан"
-        failure: 'Gist создать не удалось'
-
+        failure: "Gist создать не удалось"
 
   errors:
     messages:
-      not_saved: 'Нельзя сохранить'
+      not_saved: "Нельзя сохранить"
   helpers:
     select:
       prompt: "Выберите категорию"
-      
+
     submit:
       create: "Создать %{model}"
       update: "Обновить %{model}"
@@ -199,5 +182,4 @@ ru:
 
   test_mailer:
     completed_test:
-      subject: 'Вы завершили тест'
-
+      subject: "Вы завершили тест"

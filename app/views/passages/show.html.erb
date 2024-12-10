@@ -1,20 +1,6 @@
 <div class='d-flex gap-2 align-items-center justify-content-between'>
-    <h2>
-        <%= @passage.test.title %>
-    </h2>
-    <%= content_tag :div, '', class: 'timer text-muted',
-  data: { controller: 'hello', hello_url_value: result_passage_path(@passage),
-    hello_timeout_value: 0 } %>
+  <h2>
+    <%= @passage.test.title %>
+  </h2>
 </div>
-<div class="progress" role="progressbar" aria-label="Example 1px high" aria-valuemin="0" aria-valuemax="100" style="height: 1px">
-    <%= content_tag :div, '', class: 'progress-bar',
-    data: { question_no: @passage.current_no,
-    question_total: @passage.test.questions.count } %>
-</div>
-<% if @passage.test.questions.count > 1 %>
-<%= turbo_frame_tag 'question' do %>
 <%= render 'question' %>
-<% end %>
-<% else %>
-<%= render 'question' %>
-<% end %>
