@@ -14,10 +14,16 @@
       <% end %>
     </div>
     <div style='margin-left: auto' class='text-muted'>
-      <%= Question.model_name.human %> #
-      <%= @passage.current_no %>
-      <%= t('.out_of') %>
-      <%= @passage.test.questions.count %>
+      <div class='d-flex gap-2'>
+        <div>
+          <%= Question.model_name.human %> #
+          <%= @passage.current_no %>
+          <%= t('.out_of') %>
+          <%= @passage.test.questions.count %>
+        </div>
+        <%= content_tag :div, 'foo',  class: 'accent',
+          data: { controller: 'timeout', test: @passage.test } %>
+      </div>
     </div>
   </div>
   <%= form_with url: passage_path(@passage), data: { turbo: true }, method: :put  do |form| %>
