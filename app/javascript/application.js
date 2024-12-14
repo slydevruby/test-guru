@@ -1,5 +1,3 @@
-d
-asdlfkjasdlfkj
 import "bootstrap";
 import * as Turbo from "@hotwired/turbo"
 

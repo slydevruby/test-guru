@@ -1,3 +1,4 @@
+---
 ru:
   activerecord:
     models:
@@ -6,12 +7,12 @@ ru:
       test: "Тест"
       question: "Вопрос"
       answer: "Ответ"
-      passage: 'Прохождение'
-      feedback: 'Обратная связь'
+      passage: "Прохождение"
+      feedback: "Обратная связь"
 
     attributes:
       user:
-        name: 
+        name:
           one: "Имя"
           other: "Имена"
         first_name: "Имя"
@@ -23,10 +24,10 @@ ru:
       test:
         title: "Название"
         level: "Уровень"
-        timeout: 'Таймаут (0 если таймаута нет)'
+        timeout: "Таймаут в секундах (0 если таймаута нет)"
         category_id: "ID категории"
         author_id: "ID автора"
-        category: 'Категория'
+        category: "Категория"
 
       answer:
         body: "Ответ"
@@ -36,8 +37,8 @@ ru:
       category:
         title: "Название"
       feedback:
-        email: 'Электронная почта'
-        body: 'Запрос'
+        email: "Электронная почта"
+        body: "Запрос"
 
       question:
         body: "Вопрос"
@@ -52,3 +53,4 @@ ru:
         required: "требуется"
         record_invalid: "неверная запись"
         not_saved: "не могу сохранить"
+        greater_than_or_equal_to: "значение должно быть больше или равно 0"
