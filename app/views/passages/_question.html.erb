@@ -21,8 +21,9 @@
           <%= t('.out_of') %>
           <%= @passage.test.questions.count %>
         </div>
-        <%= content_tag :div, 'foo',  class: 'accent',
-          data: { controller: 'timeout', test: @passage.test } %>
+        <%= content_tag :div, '',  class: 'accent',
+          data: { controller: 'timeout',  timeout_url_value: result_passage_path(@passage),
+    timeout_timeout_value: @passage.test.timeout } %>
       </div>
     </div>
   </div>
