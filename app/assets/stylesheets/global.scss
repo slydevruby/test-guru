@@ -123,3 +123,17 @@ $blue: #5c7cfa;
     font-weight: 700;
   }
 }
+
+.test {
+  &_timeout {
+    color: blue;
+  }
+
+  &_passed {
+    color: green;
+  }
+
+  &_failed {
+    color: red;
+  }
+}

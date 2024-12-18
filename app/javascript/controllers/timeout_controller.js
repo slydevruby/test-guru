@@ -16,7 +16,6 @@ export default class extends Controller {
       setTimeout(() => {
         clearInterval(this.timer_interval);
         window.location.href = this.urlValue;
-        //this.httpGet(this.urlValue)
       }, this.timeoutValue * 1000);
 
       this.timer_interval = setInterval(() => {

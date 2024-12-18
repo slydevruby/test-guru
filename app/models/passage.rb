@@ -19,7 +19,7 @@ class Passage < ApplicationRecord
   scope :by_level, ->(level) { Passage.joins(:test).where(test: { level: }) }
 
   def completed?
-    current_question.nil?
+    current_question.nil? || time_over? 
   end
 
   def current_no
@@ -33,6 +33,10 @@ class Passage < ApplicationRecord
 
   def progress_width
     100.0 * current_no / test.questions.count
+  end
+
+  def time_over?
+    (updated_at - created_at) > test.timeout 
   end
 
   private
