@@ -10,12 +10,11 @@ export default class extends Controller {
   }
   connect() {
     if (this.timeoutValue && this.timeoutValue > 0) {
-			const form = document.querySelector('.pass_form');
-			console.log(form);
+      const form = document.querySelector(".pass_form");
+      console.log(form);
       setTimeout(() => {
         clearInterval(this.timer_interval);
-        //window.location.href = this.urlValue;
-				form.submit();
+        form.submit();
       }, this.timeoutValue * 1000);
 
       this.timer_interval = setInterval(() => {
