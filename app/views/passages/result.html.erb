@@ -2,14 +2,14 @@
   <h2>
     <%= t('test_complete', test_title: @passage.test.title) %>
   </h2>
-  <% if @passage.grade >= Passage::PASSAGE_MAX %>
-    <p style="color: green">
-      <%= t('passed_test', result: @passage.grade) %>
-    </p>
+  <% if @passage.time_over? %>
+    <%= msg_complete('timeout_test', 'test_timeout') %>
   <% else %>
-    <p style="color: red">
-      <%= t('failed_test', result: @passage.grade) %>
-    </p>
+    <% if @passage.grade >= Passage::PASSAGE_MAX %>
+      <%= msg_complete('passed_test', 'test_passed') %>
+    <% else %>
+      <%= msg_complete('failed_test', 'test_failed') %>
+    <% end %>
   <% end %>
   <%= link_to t('back_to_tests'), tests_path %>
 <% end %>

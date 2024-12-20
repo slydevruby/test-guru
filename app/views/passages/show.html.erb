@@ -2,5 +2,10 @@
   <h2>
     <%= @passage.test.title %>
   </h2>
+  <%= content_tag :div, '', class: 'text-muted', 
+          data: { controller: 'timeout', 
+          timeout_url_value: result_passage_path(@passage),
+          timeout_label_value: t('.timeout_label'),
+          timeout_timeout_value: @passage.test.timeout } %>
 </div>
 <%= render 'question' %>
