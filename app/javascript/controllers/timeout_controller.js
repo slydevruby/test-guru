@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static values = { url: String, timeout: Number };
+  static values = { url: String, timeout: Number, label: String };
 
   disconnect() {
     if (this.timer_interval) {
