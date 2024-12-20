@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static values = { url: String, timeout: Number, label: String };
+  static values = { url: String, timeout: Number };
 
   disconnect() {
     if (this.timer_interval) {
@@ -9,13 +9,13 @@ export default class extends Controller {
     }
   }
   connect() {
+   console.log(this.timeoutValue);
+    console.log(this.urlValue);
+
     if (this.timeoutValue && this.timeoutValue > 0) {
-			const form = document.querySelector('.pass_form');
-			console.log(form);
       setTimeout(() => {
         clearInterval(this.timer_interval);
-        //window.location.href = this.urlValue;
-				form.submit();
+        window.location.href = this.urlValue;
       }, this.timeoutValue * 1000);
 
       this.timer_interval = setInterval(() => {
