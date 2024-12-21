@@ -5,6 +5,7 @@ ru:
   back_to_tests: "К тестам"
   welcome: "Привет, %{email}"
   confirm_delete: "Точно удалить?"
+  timeout_test: "Истекло время на прохождение теста"
   passed_test: "Вы успешно прошли тест! Оценка %{result}%"
   failed_test: "Вы не сдали тест! Оценка %{result}%"
   more_test: "тесты"
@@ -59,6 +60,7 @@ ru:
       out_of: "из"
       next: "Следующий вопрос"
       gist_question: "Создать gist"
+      timeout_label: "Осталось времени:"
     question:
       out_of: "из"
       next_question: "Следующий вопрос"
